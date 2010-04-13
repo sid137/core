@@ -1,0 +1,15 @@
+#!/bin/bash 
+# 
+# Applies arbitrary commands to any svn status. e.g. 
+# 
+# Delete all non-svn files (escape the ? from the shell): 
+# svnapply \? rm 
+# svnapply \! svn rm
+# 
+# List all conflicted files: 
+# svnapply C ls -l 
+
+APPLY=$1; 
+shift; 
+
+svn st | egrep "^\\${APPLY}[ ]+" | sed -e "s|^\\${APPLY}[ ]*||" | xargs -i "$@" '{}'

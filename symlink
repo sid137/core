@@ -1,0 +1,29 @@
+#/bin/bash -x
+ 
+
+
+ln -sf ~/core/pass.png ~/pass.png
+ln -sf ~/core/fail.png ~/fail.png
+ln -sf ~/core/.emacs.d ~/.emacs.d
+ln -sf ~/core/.vim ~/.vim
+
+
+ln -sf ~/core/bin ~/bin
+ln -sf ~/core/lib ~/lib
+ln -sf ~/core/references ~/references
+
+ln -sf ~/core/compiz/config ~/.config/compiz/compizconfig/config
+ln -sf ~/core/compiz/Default.ini ~/.config/compiz/compizconfig/Default.ini
+
+
+
+for file in `ls -A dotfiles` 
+do
+	echo "ln -sf ~/core/dotfiles/$file ~/$file"
+done
+
+for file in `ls -A autostart` 
+do
+	echo "ln -sf ~/core/autostart/$file ~/.kde/Autostart/$file"
+done
+

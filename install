@@ -1,0 +1,24 @@
+#/bin/bash -x
+ 
+
+git pull
+git submodule update --init
+cd ~/core/.emacs.d/rinari
+git submodule update --init
+  
+mkdir -p ~/.config/compiz/compizconfig
+
+ln -sf ~/core/pass.png ~/pass.png
+ln -sf ~/core/fail.png ~/fail.png
+
+ln -sf ~/core/bin ~/bin
+ln -sf ~/core/lib ~/lib
+ln -sf ~/core/references ~/references
+
+ln -sf ~/core/compiz/config ~/.config/compiz/compizconfig/config
+ln -sf ~/core/compiz/Default.ini ~/.config/compiz/compizconfig/Default.ini
+
+tar -C ~/ -xf ~/core/kde.tar
+
+./symlink
+

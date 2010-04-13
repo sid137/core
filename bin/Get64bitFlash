@@ -1,0 +1,55 @@
+#!/bin/bash
+
+## First we make the working directory
+sudo mkdir /tmp/pluginstall
+
+#choose version of ubuntu
+#Input code browser
+function strinput {
+ unset refstr
+ echo -n "$1"
+ read refstr
+}
+
+## Ask if they agree to file bug reports, sort of a reminder
+echo
+echo " This script is used to setup the Flash 10 Prerelease. "
+echo " By entering yes below you acknowlage that you "
+echo " are installing development software and you "
+echo " will file bug reports with Adobe for every "
+echo " problem you incounter."
+echo
+echo " Do you agree? yes or no : "
+
+
+ echo "Flash installing."
+
+
+## First we uninstall and remove all the existing flash packages
+
+# No longer trying to reply nspluginwrapper since Acrobat Reader 9 requires it
+#sudo apt-get -y purge nspluginwrapper
+sudo apt-get -y purge mozilla-plugin-gnash
+sudo apt-get -y purge swfdec-mozilla
+sudo apt-get -y purge flashplugin-nonfree
+#sudo rm -rfd /usr/lib/nspluginwrapper
+sudo rm -f /usr/lib/firefox-addons/plugins/libflashplayer.so
+sudo rm -f /usr/lib/mozilla/plugins/libflashplayer.so
+sudo rm -f /usr/lib/mozilla/plugins/flashplugin-alternative.so
+sudo rm -f /usr/lib/mozilla/plugins/npwrapper*flash*so
+rm -f ~/.mozilla/plugins/*flash*so
+
+## What is current version?
+export version="10.0.45.2"
+
+## Then we make a temp folder and download the new plugin
+cd /tmp/pluginstall
+sudo wget http://download.macromedia.com/pub/labs/flashplayer10/libflashplayer-$version.linux-x86_64.so.tar.gz
+
+## Next we extract and place the plugin
+sudo tar xvf libflashplayer-$version.linux-x86_64.so.tar.gz
+sudo mv libflashplayer.so /usr/lib/mozilla/plugins/
+sudo ln -s /usr/lib/mozilla/plugins/libflashplayer.so /usr/lib/firefox-addons/plugins/
+
+echo "Please restart Firefox to enable Flash"
+

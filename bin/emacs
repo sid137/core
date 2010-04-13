@@ -1,0 +1,15 @@
+    #!/bin/bash
+
+    emacs()
+    {
+    instanceCount=$(ps aux | grep emacs | grep -v 'grep emacs' | wc -l);
+    if [ "$instanceCount" -eq "0" ]; then
+            emacs "$@" &
+    else
+            gnuclient -q "$@"
+    fi;
+
+
+    }
+
+

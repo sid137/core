@@ -1,0 +1,12 @@
+[user]
+	email = sid137@gmail.com
+	name = Sidney Burks
+[color]
+	ui = auto
+[gc]
+	auto = 200
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	br = branch

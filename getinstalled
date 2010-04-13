@@ -1,0 +1,3 @@
+#/bin/bash
+
+dpkg --get-selections | awk '$2 ~ /^install$/ {print $1}' > installedpackages

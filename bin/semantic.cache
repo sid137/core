@@ -1,0 +1,15 @@
+;; Object bin/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "bin/"
+  :tables (list 
+    (semanticdb-table "avrp"
+    :major-mode 'python-mode
+    :tags '(("optparse" include nil (dependency-file none) [20 53]) ("os" include nil (dependency-file none) [54 63]) ("create_source" function nil nil [65 305]) ("create_header" function nil nil [306 628]) ("create_makefile" function nil nil [633 9030]) ("write_file" function (:arguments (("contents" variable nil (reparse-symbol function_parameters) [9047 9055]) ("name" variable nil (reparse-symbol function_parameters) [9057 9061]))) nil [9032 9276]) ("main" function nil nil [9281 9424]) ("if" code nil nil [9434 9634]) ("MCU" variable nil nil [1302 1302]) ("PROGRAMMER_MCU" variable nil nil [1302 1302]) ("s" code nil nil [1302 1302]) ("PRJSRC" variable nil nil [1302 1302]) ("INC" code nil nil [1302 1302]) ("OPTLEVEL" variable nil nil [1302 1302]) ("AVRDUDE_PROGRAMMERID" variable nil nil [1302 1302]) ("HEXFORMAT" variable nil nil [1302 1302]) ("" code nil nil [1302 1302]) ("" code nil nil [1302 1302]) ("" code nil nil [1302 1302]) ("" code nil nil [1302 1302]) ("CC" code nil nil [1302 1302]) ("OBJCOPY" code nil nil [1302 1302]) ("OBJDUMP" code nil nil [1302 1302]) ("SIZE" code nil nil [1302 1302]) ("AVRDUDE" variable nil nil [1302 1302]) ("REMOVE" code nil nil [1302 1302]) ("" code nil nil [1302 1302]) ("" code nil nil [1302 1302]) ("" code nil nil [1302 1302]) ("" code nil nil [1302 1302]) ("" code nil nil [1302 1302]) ("" code nil nil [1302 1302]) ("" code nil nil [1302 1302]) ("" code nil nil [1302 1302]) ("" code nil nil [1302 1302]) ("" code nil nil [1302 1302]) ("" code nil nil [1302 1302]) ("" code nil nil [1302 1302]) ("" code nil nil [1302 1302]) ("c" code nil nil [1302 1302]) ("stats" code nil nil [1302 1302]) ("" code nil nil [1302 1302]) ("stats" code nil nil [1302 1302]) ("" code nil nil [1302 1302]) ("" code nil nil [1302 1302]) ("hex" code nil nil [1302 1302]) ("writeflash" code nil nil [1302 1302]) ("" code nil nil [1302 1302]) ("" code nil nil [1302 1302]) ("c" code nil nil [1302 1302]) ("S" code nil nil [1302 1302]) ("" code nil nil [1302 1302]))
+    :file "avrp"
+    :pointmax 9636
+    )
+   )
+  :file "semantic.cache"
+  :semantic-tag-version "2.0pre4"
+  :semanticdb-version "2.0pre4"
+  )
