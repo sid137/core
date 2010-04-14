@@ -1,0 +1,9 @@
+#!/bin/bash
+
+
+for project in `ls ~/tracking`
+do
+	cd ~/tracking/$project
+	git pull &
+done
+
