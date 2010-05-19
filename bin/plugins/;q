@@ -1,0 +1,169 @@
+#thesis
+vcons='~/bin/plugins/vmware-vmrc -h 127.0.0.1:8333 -X'
+
+alias wk='watchr watch.rb'
+
+# heroku
+alias hbam='heroku stack:migrate bamboo-ree-1.8.7'
+alias compass-install='compass --rails -f blueprint . --css-dir=public/stylesheets --sass-dir=app/stylesheets --images-dir=public/images'
+alias bi='bundle install'
+
+# shell
+alias r='rails'
+alias webshare='python -c "import SimpleHTTPServer; SimpleHTTPServer.test()"'
+alias hr='cd ~/projects/heroku'
+alias lsdot="ls -A --group-directories-first | egrep '^\.'"
+alias ocaml='ledit -x -h ~/.ocaml_history ocaml'
+alias ocaml='rlwrap ocaml'
+alias t='cd /tmp'
+alias fs='find *'
+alias jdisk='javaws http://www.jgoodies.com/download/jdiskreport/jdiskreport.jnlp'
+alias spp='copy_public_ssh_key_to_host'
+alias rcb='create_chef_cookbook'
+alias spec='spec -c'
+alias sdpi='sudo dpkg --install'
+alias rms='ssh -L 3389:manip15g.spectro.jussieu.fr:3389 manip15g.spectro.jussieu.fr'
+alias vms='ssh -L 8333:manip15g.spectro.jussieu.fr:8333 sid'
+alias wjs='ssh -D 25434  wjh.harvard.edu'
+
+alias kff='killall firefox'
+alias td='cd ~/thesis/thesis/tex'
+alias v='vim'
+alias svim='sudo vim'
+alias itm='rm -rf /media/ipod/*; ipod-touch-mount'
+alias itu='ipod-touch-umount'
+alias sid='connect_to_sidney.spectro.jussieu.fr'
+alias go='chmod u+x'
+alias tz='tar -zxvf'
+alias tj='tar -xjvf'
+alias ls='ls -h --color=auto' 
+alias mount='sudo mount'
+alias '.'='source'
+alias ','='cd -'
+alias -g '...'='../..'
+alias -g '....'='../../..'
+alias -g '.....'='../../../..'
+alias -g P='| lpr -o landscape'
+alias -g G='| grep'
+alias -g L='| less'
+alias -g M='| more'
+alias -g H='| head'
+alias -g T='| tail'
+alias -g W='| wc -l'
+
+#gdb/emacs
+alias gdbtool=emacsclient --eval \'\(gdb \"gdb --annotate=3 '\!*'\"\)\'
+
+#python
+alias ipy="ipython"
+
+#staticmatic
+alias sm='staticmatic'
+#git
+alias gc='git clone'
+alias gb='git branch'
+alias gca='git commit -a -m'
+alias gpa='git push --all'
+alias gph='git push heroku master'
+alias gpo='git push --all git@github.com:sid137/these.git'
+alias gps='git push stage master'
+alias gpl='git pull git@github.com:sid137/opo.git'
+alias gst='git status'
+alias ga='git add .' 
+
+# Make
+alias mk="make"
+alias mkc="make clean"
+alias mka="make all"
+alias mkd='make d'
+alias mkp='make python'
+alias mkt='make test'
+alias mkx='make && make clean'
+alias mkf='make clean && make && make hex && make writeflash'
+
+alias nf="cd ~/projects/netflix"
+alias pd="cd ~/projects/${CURR_PROJ}"
+alias puda="cd ~/projects/cuda/NVIDIA_CUDA_SDK_1.0/projects"
+alias pad="cd ~/projects/avr"
+alias pb="cd ~/publications/"
+alias ra="cd ~/projects/test/rails"
+alias gd="cd ~/.rails/generators"
+alias ds='cd ~/Desktop'
+alias rub='cd /usr/lib/ruby/gems/1.8/gems'
+alias vps='ssh root@${VPS}'
+alias wjh='ssh sid137@wjh.harvard.edu'
+alias lkb='ssh -l burks apache.spectro.jussieu.fr'
+alias m15='ssh -l atomes manip15g.spectro.jussieu.fr'
+alias sshk="cat .ssh/id_rsa.pub | ssh sid137@B 'cat >> .ssh/authorized_keys'"
+alias m='more'
+alias l='ls -lau --color=auto'
+alias sapt='aptitude search'
+alias agi='sudo aptitude install -y'
+alias ragi='sudo aptitude remove'
+alias vi='vim'
+alias sagu='sudo apt-get update'
+alias ali='. ~/.zaliases; . ~/.zshrc'
+alias vali='vim ~/.zaliases'
+alias mali='more ~/.zaliases'
+
+# Latex
+alias lm='latex master.tex && latex master.tex'
+alias pm='pdflatex master.tex && pdflatex master.tex'
+alias gm='gv master.pdf'
+alias bm='bibtex master.aux'
+alias gp='pm && gm'
+alias bt='ls *.bib | sed s/\.bib/\.aux/g | xargs -n1 bibtex'
+
+# Ruby
+alias rk='rake'
+alias rkf='rake features'
+alias genrdoc='./miniruby -I./lib -I.ext/common -I./- -r./ext/purelib.rb  ./runruby.rb --extout=.ext  -- "./bin/rdoc" --all --ri -f html --op "/home/sid137/rdoc" "."'
+
+# Rails
+alias rc='rails console'
+alias rs='rails server'
+alias rg='rails generate'
+alias rd='rails destroy'
+
+
+# Use completion
+#alias irb='irb --readline -r irb/completion'
+# Use colors
+alias rii='ri -Tf ansi'
+alias rgi='sudo gem install'
+alias ugi='sudo gem uninstall'
+
+
+# Rails
+alias sgf='script/generate factory_haml_rspec_scaffold'
+alias sgs='script/generate rspec_scaffold -g'
+alias sgc='script/generate rspec_controller -g'
+alias sgm='script/generate rspec_model -g'
+alias kl='killall -9 ruby'
+alias ss='TMOUT='' ./script/server'
+alias sc='./script/console'
+alias spi='script/plugin install'
+alias spr='script/plugin remove'
+alias spd='script/plugin discover http://www.agilewebdevelopment.com/plugins/scrape'
+
+
+alias vp='cd vendor/plugins'
+alias av='cd app/views'
+alias am='cd app/models'
+alias ac='cd app/controllers'
+
+alias rren="find . -name \"*.rhtml\" -exec echo mv {} {} \; | sed 's/.rhtml$/.haml/' | sh"
+
+# Rake Tasks
+alias rf='rake features'
+alias rdc='rake db:create'
+alias rdm='rake db:migrate'
+alias rd0='rake db:migrate VERSION=0'
+alias rdf='rake db:mysql:refresh'
+alias rsp='rake spec:app'
+alias rsm='rake spec:models'
+alias rsc='rake spec:controllers'
+alias rsv='rake spec:views'
+alias rsa='rake spec:autotest'
+alias rp='rake package'
+

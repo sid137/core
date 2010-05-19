@@ -1,0 +1,150 @@
+;; -*- mode: emacs-lisp; coding: emacs-mule; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Wed May 12 05:13:49 2010
+;; Desktop file format version 206
+;; Emacs version 23.1.50.1
+
+;; Global section:
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list '("~/.emacs.d"))
+(setq search-ring '("tex-mode"))
+(setq regexp-search-ring nil)
+(setq register-alist '((48 . "more fully")))
+(setq file-name-history nil)
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 206
+  "/home/sid137/thesis/thesis/tex/chapter4.tex"
+  "chapter4.tex"
+  'latex-mode
+  '(abbrev-mode icicle-mode ecb-minor-mode mmm-mode)
+  251
+  '(473 nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/sid137/thesis/thesis/tex/chapter5.tex"
+  "chapter5.tex"
+  'latex-mode
+  '(abbrev-mode icicle-mode ecb-minor-mode mmm-mode)
+  70
+  '(nil nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/sid137/thesis/thesis/tex/chapter6.tex"
+  "chapter6.tex"
+  'latex-mode
+  '(abbrev-mode icicle-mode ecb-minor-mode mmm-mode)
+  173
+  '(nil nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/sid137/thesis/thesis/tex/chapter3.tex"
+  "chapter3.tex"
+  'latex-mode
+  '(abbrev-mode icicle-mode ecb-minor-mode mmm-mode flyspell-mode)
+  2032
+  '(1089 nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix) (overwrite-mode)))
+
+(desktop-create-buffer 206
+  "/home/sid137/thesis/thesis/tex/chapter2.tex"
+  "chapter2.tex"
+  'latex-mode
+  '(abbrev-mode icicle-mode ecb-minor-mode mmm-mode)
+  1196
+  '(nil nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/sid137/core/.emacs.d/init.el"
+  "init.el"
+  'emacs-lisp-mode
+  '(abbrev-mode semantic-idle-scheduler-mode semantic-idle-summary-mode senator-minor-mode icicle-mode ecb-minor-mode mmm-mode)
+  2507
+  '(8291 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/sid137/thesis/thesis/commands.tex"
+  "commands.tex"
+  'latex-mode
+  '(abbrev-mode icicle-mode ecb-minor-mode mmm-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/sid137/thesis/thesis/master.tex"
+  "master.tex"
+  'latex-mode
+  '(abbrev-mode icicle-mode ecb-minor-mode mmm-mode)
+  2016
+  '(1969 nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/sid137/thesis/thesis/references/chapter2.bib"
+  "chapter2.bib"
+  'bibtex-mode
+  '(abbrev-mode icicle-mode ecb-minor-mode mmm-mode)
+  917
+  '(4 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix)))
+
+(desktop-create-buffer 206
+  "/home/sid137/thesis/phddata/Travail these Jeremie/Manuscrit thÅËse/Tex/Chapitres/Bibliographie.bib"
+  "Bibliographie.bib"
+  'bibtex-mode
+  '(abbrev-mode icicle-mode ecb-minor-mode mmm-mode)
+  46998
+  '(45770 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . iso-latin-1-unix)))
+
+(desktop-create-buffer 206
+  "/home/sid137/thesis/thesis/tex/equations/2.tex"
+  "2.tex"
+  'latex-mode
+  '(abbrev-mode icicle-mode ecb-minor-mode mmm-mode)
+  19
+  '(4101 nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix) (overwrite-mode)))
+
+(desktop-create-buffer 206
+  "/home/sid137/thesis/thesis/tex/equations/2states.tex"
+  "2states.tex"
+  'latex-mode
+  '(abbrev-mode icicle-mode ecb-minor-mode mmm-mode)
+  80
+  '(1 nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+

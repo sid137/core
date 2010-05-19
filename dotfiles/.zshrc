@@ -9,6 +9,9 @@ export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 
 
+# Eclipse event error
+export GDK_NATIVE_WINDOWS=true
+export PATH=$PATH:$HOME/android-sdk-linux_86/tools
 # Using Rsense code lookup for ruby
 # http://github.com/m2ym/rsense/blob/master/doc/manual.txt
 export RSENSE_HOME=~/core/ext/rsense
@@ -152,6 +155,10 @@ function sbl {
 	filename=$1
 	cat $filename | tail -n+2 | sed -r 's/"//g' | sort -u
 }	
+
+function lowercase {
+ cat $1 |sed 's/\(.*\)/\L\1/'
+}
 
 function initialize {
 	rm .ssh/known_hosts

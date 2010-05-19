@@ -16,7 +16,7 @@
  '(ecb-primary-secondary-mouse-buttons (quote mouse-1--mouse-2))
  '(ecb-select-edit-window-on-redraw t)
  '(ecb-show-sources-in-directories-buffer (quote always))
- '(ecb-source-path (quote (("/home/sid137/" "home") #("/home/sid137/projects/flitter" 0 29 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu")) ("/home/sid137/projects/flitter" "flitter") (#("/home/sid137/tmp/tracking/paperclip" 0 35 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu")) "paperclip") ("/home/sid137/tracking/devise" "devise") (#("/home/sid137/tracking/rails" 0 27 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu")) "rails"))))
+ '(ecb-source-path (quote (("/home/sid137/" "home") #("/home/sid137/projects/flitter" 0 29 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu")) ("/home/sid137/projects/flitter" "flitter") (#("/home/sid137/tmp/tracking/paperclip" 0 35 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu")) "paperclip") ("/home/sid137/tracking/devise" "devise") (#("/home/sid137/tracking/rails" 0 27 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu")) "rails") (#("/home/sid137/thesis/thesis" 0 26 (help-echo "Mouse-2 toggles maximizing, mouse-3 displays a popup-menu")) "thesis"))))
  '(ecb-tip-of-the-day nil)
  '(ecb-toggle-layout-sequence (quote ("directory-tree" "left5" "left2" "leftright2" "top1")))
  '(ecb-tree-buffer-style (quote image))

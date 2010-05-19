@@ -1,3 +1,4 @@
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;  Emacs config - Sidney Burks
 ;;;  sudo apt-get install ecb
@@ -71,6 +72,7 @@
 
 (global-set-key (kbd "C-c C-s") 'my-desktop-save)
 (global-set-key (kbd "C-c C-r") 'my-desktop-read)
+
 
 
 
@@ -547,7 +549,7 @@
 ;;Settings for rcodetools
 ;;http://eigenclass.org/hiki.rb?rcodetools
 
-(autoload 'rcodetools "rcodetools" "RCodeTools ruby" t)
+(require 'rcodetools);; "rcodetools" "RCodeTools ruby" t)
 (require 'icicles-rcodetools)
 (icicle-mode 1)
 (eval-after-load "icomplete" '(progn (require 'icomplete+)))
@@ -730,7 +732,8 @@
             (local-set-key '[(meta i)] 'reftex-toc) ;; Table of Contents browsing
             (local-set-key '[(control v)] 'reftex-view-crossref) ;; View crossref
             (local-set-key '[(control tab)] 'TeX-complete-symbol)
-  
+;;	    (setq compile-command "/home/sid137/bin/mi")
+
             ;; Fast insertion (with completion) of labels/refs/citations
 ;;             (local-set-key '[(control c) (control l)] '
 ;;               (lambda ()
@@ -821,7 +824,11 @@
 
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Real Autosave
+;;; http://www.litchie.net/programs/real-auto-save.html
 
-
-
-
+(require 'real-auto-save)
+(add-hook 'LaTeX-mode-hook 'turn-on-real-auto-save)
+(add-hook 'TeX-mode-hook 'turn-on-real-auto-save)
+(setq real-auto-save-interval 5) ;; in seconds

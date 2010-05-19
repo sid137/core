@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+     
+  <Description about="urn:mozilla:install-manifest">
+  
+    <em:id>VMwareVMRC@vmware.com</em:id>
+    <em:name>VMware Remote Console Plug-in</em:name>
+    <em:version>2.5.0.122581</em:version>
+    <em:creator>VMware, Inc.</em:creator>
+
+    <em:targetApplication>
+    
+      <Description>
+      
+        <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+        <em:minVersion>1.0</em:minVersion>
+        <em:maxVersion>3.*</em:maxVersion>
+        
+      </Description>
+      
+    </em:targetApplication>
+    
+    <em:homepageURL>http://www.vmware.com/</em:homepageURL>
+    
+    <em:updateURL>http://www.vmware.com/info?id=334&amp;item=%ITEM_ID%&amp;version=%ITEM_VERSION%&amp;maxappversion=%ITEM_MAXAPPVERSION%&amp;appid=%APP_ID%&amp;appversion=%APP_VERSION%&amp;appos=%APP_OS%&amp;appabi=%APP_ABI%</em:updateURL>
+    
+    <em:updateKey>MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDBznlUVsZ99ouKseSXZ25PY40Ih+Ey9tTaTmJlnWMFNGzCYn9K5ctmdyk1rW/fv13QBRQ8yE4ioe9k9rmDNsXZ2iZlwniuTw1j6Tdek3xUgTY24l5zRHVQYhpAt1uPiRAuD5O3OP6M1UzzsUzAU3uqM2e7UgQHJP4PqtWX16Z26QIDAQAB</em:updateKey>
+   
+  </Description>
+  
+</RDF>
