@@ -1,5 +1,5 @@
 #thesis
-vcons='~/bin/plugins/vmware-vmrc -h 127.0.0.1:8333 -X'
+alias vcons='~/bin/plugins/vmware-vmrc -h 127.0.0.1:8333 -X'
 
 alias wk='watchr watch.rb'
 
@@ -9,6 +9,7 @@ alias compass-install='compass --rails -f blueprint . --css-dir=public/styleshee
 alias bi='bundle install'
 
 # shell
+alias gi='gem install'
 alias r='rails'
 alias webshare='python -c "import SimpleHTTPServer; SimpleHTTPServer.test()"'
 alias hr='cd ~/projects/heroku'

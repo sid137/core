@@ -2,7 +2,7 @@
 ;; --------------------------------------------------------------------------
 ;; Desktop File for Emacs
 ;; --------------------------------------------------------------------------
-;; Created Wed May 12 05:13:49 2010
+;; Created Mon May 31 12:30:11 2010
 ;; Desktop file format version 206
 ;; Emacs version 23.1.50.1
 
@@ -12,17 +12,17 @@
 (setq tags-table-list '("~/.emacs.d"))
 (setq search-ring '("tex-mode"))
 (setq regexp-search-ring nil)
-(setq register-alist '((48 . "more fully")))
+(setq register-alist '((48 . "We carried out this measurement by sending the red beam an single passage, and measuring the blue output obtained.\n")))
 (setq file-name-history nil)
 
 ;; Buffer section -- buffers listed in same order as in buffer list:
 (desktop-create-buffer 206
-  "/home/sid137/thesis/thesis/tex/chapter4.tex"
-  "chapter4.tex"
+  "/home/sid137/thesis/thesis/tex/chapter7.tex"
+  "chapter7.tex"
   'latex-mode
   '(abbrev-mode icicle-mode ecb-minor-mode mmm-mode)
-  251
-  '(473 nil)
+  1164
+  '(nil nil)
   nil
   nil
   '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
@@ -37,6 +37,28 @@
   nil
   nil
   '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/sid137/thesis/thesis/tex/chapter4.tex"
+  "chapter4.tex"
+  'latex-mode
+  '(abbrev-mode icicle-mode ecb-minor-mode mmm-mode flyspell-mode)
+  1091
+  '(1153 nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/sid137/thesis/thesis/data/doubler_blue_vs_red.gpi"
+  "doubler_blue_vs_red.gpi"
+  'fundamental-mode
+  '(abbrev-mode icicle-mode ecb-minor-mode mmm-mode)
+  201
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
 
 (desktop-create-buffer 206
   "/home/sid137/thesis/thesis/tex/chapter6.tex"
@@ -114,17 +136,6 @@
   nil
   nil
   '((buffer-file-coding-system . utf-8-unix)))
-
-(desktop-create-buffer 206
-  "/home/sid137/thesis/phddata/Travail these Jeremie/Manuscrit thÅËse/Tex/Chapitres/Bibliographie.bib"
-  "Bibliographie.bib"
-  'bibtex-mode
-  '(abbrev-mode icicle-mode ecb-minor-mode mmm-mode)
-  46998
-  '(45770 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . iso-latin-1-unix)))
 
 (desktop-create-buffer 206
   "/home/sid137/thesis/thesis/tex/equations/2.tex"

@@ -21,5 +21,7 @@ do
 	ln -sf ~/core/dotfiles/$file ~/$file
 done
 
-
+#Flash cache
+ln -s /tmp ~/.macromedia 
+ln -s /tmp ~/.adobe
 ./autostart/link_autostart

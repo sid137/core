@@ -1,6 +1,6 @@
-\begin{figure} 
+\begin{figure}[ht] 
  \centering 
- \includegraphics{...} 
- \caption{...} 
- \label{...} 
+ \includegraphics[width=0.95\textwidth]{figures/<field "placeholder">} 
+ \caption{<field "caption">} 
+ \label{fig:<field "label">} 
 \end{figure}
