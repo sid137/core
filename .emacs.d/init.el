@@ -158,6 +158,19 @@
 (setq auto-mode-alist (cons '("\\.pxi\\'" . python-mode) auto-mode-alist))
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; append-tuareg.el - Tuareg quick installation: Append this file to .emacs.
+
+(add-to-list 'auto-mode-alist '("\\.ml\\w?" . tuareg-mode))
+(autoload 'tuareg-mode "tuareg" "Major mode for editing Caml code" t)
+(autoload 'camldebug "camldebug" "Run the Caml debugger" t)
+(dolist (ext '(".cmo" ".cmx" ".cma" ".cmxa" ".cmi"))
+  (add-to-list 'completion-ignored-extensions ext))
+
+
+
+
+
 ;; Lisp
 (add-hook 'lisp-mode-hook
 	  '(lambda ()
@@ -296,15 +309,15 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Folding mode .. must come after C-source mode for my binding to work
-;; C-f
-(load "fold-dwim")
-(global-set-key (kbd "C-f")      'fold-dwim-toggle)
-(global-set-key (kbd "<M-left>")    'fold-dwim-hide-all)
-(global-set-key (kbd "<M-right>")  'fold-dwim-show-all)
-(setq fold-dwim-outline-style 'nested)
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ;; Folding mode .. must come after C-source mode for my binding to work
+;; ;; C-f
+;; (load "fold-dwim")
+;; (global-set-key (kbd "C-f")      'fold-dwim-toggle)
+;; (global-set-key (kbd "<M-left>")    'fold-dwim-hide-all)
+;; (global-set-key (kbd "<M-right>")  'fold-dwim-show-all)
+;; (setq fold-dwim-outline-style 'nested)
+;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
 

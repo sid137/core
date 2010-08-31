@@ -23,6 +23,12 @@ set textwidth=78
 
 map <M-F10> :!ruby -r xmp -n -e 'xmp($_, "\%l\t\t\# \%r\n")'<CR>
 
+
+let &printexpr="(v:cmdarg=='' ? ".
+    \"system('lpr' . (&printdevice == '' ? '' : ' -P' . &printdevice)".
+    \". ' ' . v:fname_in) . delete(v:fname_in) + v:shell_error".
+    \" : system('mv '.v:fname_in.' '.v:cmdarg) + v:shell_error)"
+
 " FoldSearch-based folding.
 " Copyright (C) 2005 Mauricio Fernandez <mfp@acm.org>
 " Current version: http://eigenclass.org/hiki.rb?Usable+Ruby+folding+for+Vim

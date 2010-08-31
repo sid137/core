@@ -36,7 +36,7 @@
     :major-mode 'emacs-lisp-mode
     :tags 'nil
     :file "init.el"
-    :pointmax 24510
+    :pointmax 24995
     :unmatched-syntax 'nil
     )
    (semanticdb-table "smart-compile.el"
