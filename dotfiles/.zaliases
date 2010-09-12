@@ -4,12 +4,13 @@ alias g='gimp'
 alias d='display'
 alias vcons='~/bin/plugins/vmware-vmrc -h 127.0.0.1:8333 -X'
 alias td='cd ~/thesis/thesis/'
-alias wk='watchr watch.rb'
+alias wk='cd ~/thesis/thesis; rvm ree-1.8.7-2010.01; watchr watch.rb'
 
 # heroku
 alias hbam='heroku stack:migrate bamboo-ree-1.8.7'
 alias compass-install='compass --rails -f blueprint . --css-dir=public/stylesheets --sass-dir=app/stylesheets --images-dir=public/images'
 alias bi='bundle install'
+alias ho='heroku open'
 
 # shell
 alias gi='gem install'
@@ -63,15 +64,16 @@ alias ipy="ipython"
 
 #staticmatic
 alias sm='staticmatic'
+
 #git
 alias gc='git clone'
 alias gb='git branch'
+alias gcb='git checkout -b'
+alias gcm='git checkout master'
 alias gca='git commit -a -m'
 alias gpa='git push --all'
 alias gph='git push heroku master'
-alias gpo='git push --all git@github.com:sid137/these.git'
 alias gps='git push stage master'
-alias gpl='git pull git@github.com:sid137/opo.git'
 alias gst='git status'
 alias ga='git add .' 
 
@@ -112,12 +114,12 @@ alias vali='vim ~/.zaliases'
 alias mali='more ~/.zaliases'
 
 # Latex
-alias lm='latex master.tex && latex master.tex'
-alias pm='pdflatex master.tex && pdflatex master.tex'
-alias gm='gv master.pdf'
-alias bm='bibtex master.aux'
-alias gp='pm && gm'
-alias bt='ls *.bib | sed s/\.bib/\.aux/g | xargs -n1 bibtex'
+#alias lm='latex master.tex && latex master.tex'
+#alias pm='pdflatex master.tex && pdflatex master.tex'
+#alias gm='gv master.pdf'
+#alias bm='bibtex master.aux'
+#alias gp='pm && gm'
+#alias bt='ls *.bib | sed s/\.bib/\.aux/g | xargs -n1 bibtex'
 
 # Ruby
 alias rk='rake'
@@ -125,10 +127,10 @@ alias rkf='rake features'
 alias genrdoc='./miniruby -I./lib -I.ext/common -I./- -r./ext/purelib.rb  ./runruby.rb --extout=.ext  -- "./bin/rdoc" --all --ri -f html --op "/home/sid137/rdoc" "."'
 
 # Rails
-alias rc='rails console'
-alias rs='rails server'
-alias rg='rails generate'
-alias rd='rails destroy'
+#alias rc='rails console'
+#alias rs='rails server'
+#alias rg='rails generate'
+#alias rd='rails destroy'
 
 
 # Use completion

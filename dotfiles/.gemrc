@@ -12,4 +12,4 @@
 - http://gems.opscode.com
 - http://gems.github.com
 :backtrace: false
-rdoc: --inline-source --line-numbers --template=hanna
+rdoc: --inline-source --line-numbers 

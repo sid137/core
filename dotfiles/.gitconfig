@@ -13,3 +13,5 @@
 [github]
 	user = sid137
 	token = e981929b8f9fdb2a81e900cc9f4f9cd0
+[core]
+	editor = vim

@@ -1,5 +1,6 @@
 set nocompatible      " We're running Vim, not Vi!
 " set background=dark
+set paste
 colorscheme delek
 syntax on
 filetype on           " Enable filetype detection
