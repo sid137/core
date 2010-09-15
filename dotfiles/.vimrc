@@ -1,13 +1,98 @@
 set nocompatible      " We're running Vim, not Vi!
+set hidden
+set autoindent
+set hlsearch
+set incsearch
 " set background=dark
-set paste
+set history=1000
+set undolevels=1000
+set title
 colorscheme delek
 syntax on
+
 filetype on           " Enable filetype detection
 filetype indent on    " Enable filetype-specific indenting
 filetype plugin on    " Enable filetype-specific plugin
 
 let g:rct_completion_use_fri = 1  " 0 by default (disabled)
+
+" Map jk to <ESC> in insert mode
+imap jk <ESC>
+
+" Use pathogen to easily modify the runtime path to include all
+" plugins under the ~/.vim/bundle directory
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
+
+
+" Quickly edit/reload the vimrc file
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+" Source the vimrc file after saving it
+if has("autocmd")
+  autocmd bufwritepost .vimrc source $MYVIMRC
+endif
+
+
+nnoremap ; :
+
+" execute script with F5 is shebbang is prersent
+function! RunShebang()
+  if (match(getline(1), '^\#!') == 0)
+    :!./%
+  else
+    echo "No shebang in this file."
+  endif
+endfunction
+map <F5> :call RunShebang()<CR>
+
+
+" togle paste mode
+set pastetoggle=<F2>
+
+" Use Q for formatting the current paragraph (or selection)
+vmap Q gq
+nmap Q gqap
+
+nnoremap j gj
+nnoremap k gk
+
+" Easy window navigation
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+" Tired of clearing highlighted searches by searching for “ldsfhjkhgakjks”? Use this:
+" It clears the search buffer when you press ,/
+nmap <silent> ,/ :let @/=""<CR>
+
+
+" post sudo with !!
+cmap w!! w !sudo tee % >/dev/null
+
+" NERTree Plugin
+nmap ,n :NERDTreeClose<CR>:NERDTreeToggle<CR>
+nmap ,m :NERDTreeClose<CR>:NERDTreeFind<CR>
+nmap ,N :NERDTreeClose<CR>
+
+" Store the bookmarks file
+let NERDTreeBookmarksFile=expand("$HOME/.vim/NERDTreeBookmarks")
+
+" Don't display these kinds of files
+let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$',
+            \ '\.o$', '\.so$', '\.egg$', '^\.git$' ]
+
+let NERDTreeShowBookmarks=1       " Show the bookmarks table on startup
+let NERDTreeShowFiles=1           " Show hidden files, too
+let NERDTreeShowHidden=1
+let NERDTreeQuitOnOpen=1          " Quit on opening files from the tree
+let NERDTreeHighlightCursorline=1 " Highlight the selected entry in the tree
+let NERDTreeMouseMode=2           " Use a single click to fold/unfold directories
+                                  " and a double click to open files
+
+
 
 inoremap <silent> <C-a> <ESC>u:set paste<CR> :set nopaste<CR>gi 	
 
@@ -29,6 +114,23 @@ let &printexpr="(v:cmdarg=='' ? ".
     \"system('lpr' . (&printdevice == '' ? '' : ' -P' . &printdevice)".
     \". ' ' . v:fname_in) . delete(v:fname_in) + v:shell_error".
     \" : system('mv '.v:fname_in.' '.v:cmdarg) + v:shell_error)"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 " FoldSearch-based folding.
 " Copyright (C) 2005 Mauricio Fernandez <mfp@acm.org>

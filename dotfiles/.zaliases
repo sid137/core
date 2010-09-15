@@ -165,6 +165,7 @@ alias rren="find . -name \"*.rhtml\" -exec echo mv {} {} \; | sed 's/.rhtml$/.ha
 alias rf='rake features'
 alias rdc='rake db:create'
 alias rdm='rake db:migrate'
+alias rdp='rake db:test:prepare'
 alias rd0='rake db:migrate VERSION=0'
 alias rdf='rake db:mysql:refresh'
 alias rsp='rake spec:app'
