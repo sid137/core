@@ -9,6 +9,8 @@ export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 
 
+export PATH=$PATH:$HOME/vim/bin
+
 # Eclipse event error
 export GDK_NATIVE_WINDOWS=true
 export PATH=$PATH:$HOME/android-sdk-linux_86/tools

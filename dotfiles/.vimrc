@@ -7,6 +7,7 @@ set incsearch
 set history=1000
 set undolevels=1000
 set title
+set bs=2
 colorscheme delek
 syntax on
 
@@ -15,6 +16,9 @@ filetype indent on    " Enable filetype-specific indenting
 filetype plugin on    " Enable filetype-specific plugin
 
 let g:rct_completion_use_fri = 1  " 0 by default (disabled)
+
+" Map leader to ","
+let mapleader = ","
 
 " Map jk to <ESC> in insert mode
 imap jk <ESC>
@@ -35,6 +39,10 @@ if has("autocmd")
 endif
 
 
+" Enable extended % matching
+runtime macros/matchit.vim
+
+"  turn ; into :
 nnoremap ; :
 
 " execute script with F5 is shebbang is prersent
@@ -92,6 +100,11 @@ let NERDTreeHighlightCursorline=1 " Highlight the selected entry in the tree
 let NERDTreeMouseMode=2           " Use a single click to fold/unfold directories
                                   " and a double click to open files
 
+								  
+" load comments.vim for easy commenting
+" http://www.vim.org/scripts/script.php?script_id=1528
+source ~/.vim/plugin/comments.vim
+
 
 
 inoremap <silent> <C-a> <ESC>u:set paste<CR> :set nopaste<CR>gi 	
@@ -116,7 +129,8 @@ let &printexpr="(v:cmdarg=='' ? ".
     \" : system('mv '.v:fname_in.' '.v:cmdarg) + v:shell_error)"
 
 
-
+" Command-t settings
+let g:CommandTMaxHeight=10
 
 
 
