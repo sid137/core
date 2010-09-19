@@ -4,7 +4,7 @@ alias g='gimp'
 alias d='display'
 alias vcons='~/bin/plugins/vmware-vmrc -h 127.0.0.1:8333 -X'
 alias td='cd ~/thesis/thesis/'
-alias wk='cd ~/thesis/thesis; rvm ree-1.8.7-2010.01; watchr watch.rb'
+alias wk='cd ~/thesis/thesis; watchr watch.rb'
 
 # heroku
 alias hbam='heroku stack:migrate bamboo-ree-1.8.7'

@@ -29,8 +29,10 @@ call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
 
+" Enable mouse in all modes
+set mouse=a
 " Quickly edit/reload the vimrc file
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>ev :edit $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " Source the vimrc file after saving it
