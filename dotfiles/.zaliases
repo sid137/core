@@ -66,7 +66,7 @@ alias ipy="ipython"
 alias sm='staticmatic'
 
 #git
-alias gc='git clone'
+alias gc='git clone --recursive'
 alias gb='git branch'
 alias gcb='git checkout -b'
 alias gcm='git checkout master'
@@ -76,6 +76,7 @@ alias gph='git push heroku master'
 alias gps='git push stage master'
 alias gst='git status'
 alias ga='git add .' 
+alias git-pup='git submodule foreach git pull origin master'
 
 # Make
 alias mk="make"
