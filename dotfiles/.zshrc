@@ -1,5 +1,6 @@
 # Some crazy thing to make rpsec2 work 
 # http://www.ruby-forum.com/topic/206187
+export OMP_NUM_THREADS=4
 export RUBYOPT=rubygems
 export RSPEC=true
 
@@ -20,7 +21,7 @@ export RSENSE_HOME=~/core/ext/rsense
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
-HISTSIZE=1000
+HISTSIZE=10000
 SAVEHIST=10000
 setopt autocd autopushd  pushdignoredups
 setopt rmstarsilent
@@ -43,7 +44,7 @@ PS1=$'%{\e[0;31m%}%{\e[0m%}%{\e[0m%}%{\e[1;34m%}:%{\e[0m%}%{\e[1;32m%}%~%{\e[0m%
 
 # export EDITOR="emacs"
 export BOOST_ROOT=/usr/local/boost
-export VPS=173.203.101.247
+export VPS=184.106.153.97
 export SAFE=~/core
 export ATLAS=/usr/lib/atlas
 export JAVA_HOME=/usr/lib/jvm/java-6-sun-1.6.0.16

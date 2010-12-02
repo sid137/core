@@ -13,6 +13,7 @@ alias bi='bundle install'
 alias ho='heroku open'
 
 # shell
+alias ra='cd ~/tracking'
 alias gi='gem install'
 alias r='rails'
 alias webshare='python -c "import SimpleHTTPServer; SimpleHTTPServer.test()"'
@@ -22,8 +23,8 @@ alias ocaml='ledit -x -h ~/.ocaml_history ocaml'
 alias ocaml='rlwrap ocaml'
 alias t='cd /tmp'
 alias fs='find *'
-alias jdisk='java -jar ~/bin/jdiskreport-1.3.2'
-#alias jdisk='javaws http://www.jgoodies.com/download/jdiskreport/jdiskreport.jnlp'
+#alias jdisk='java -jar ~/bin/jdiskreport-1.3.2'
+alias jdisk='javaws http://www.jgoodies.com/download/jdiskreport/jdiskreport.jnlp'
 alias spp='copy_public_ssh_key_to_host'
 alias rcb='create_chef_cookbook'
 alias spec='spec -c'
@@ -93,7 +94,6 @@ alias pd="cd ~/projects/${CURR_PROJ}"
 alias puda="cd ~/projects/cuda/NVIDIA_CUDA_SDK_1.0/projects"
 alias pad="cd ~/projects/avr"
 alias pb="cd ~/publications/"
-alias ra="cd ~/projects/test/rails"
 alias gd="cd ~/.rails/generators"
 alias ds='cd ~/Desktop'
 alias rub='cd /usr/lib/ruby/gems/1.8/gems'

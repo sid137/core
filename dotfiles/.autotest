@@ -101,7 +101,7 @@ Autotest.add_hook :initialize do |at|
   }
 
   # Rerun a spec when it changes
-  at.add_mapping(%r%^spec/(models|controllers|routing|views|helpers|lib)/.*rb$%) { |filename, _|
+  at.add_mapping(%r%^spec/(models|controllers|routing|views|helpers|lib|requests)/.*rb$%) { |filename, _|
     filename
   }
 

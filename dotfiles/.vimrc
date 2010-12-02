@@ -19,6 +19,31 @@ let g:rct_completion_use_fri = 1  " 0 by default (disabled)
 
 " Map leader to ","
 let mapleader = ","
+let g:mapleader = ","
+
+" Fast saving
+imap <leader>w <Esc>:w!<cr> i
+nmap <leader>w :w!<cr>
+"
+" " Fast editing of the .vimrc
+map <leader>e :e! ~/.vimrc<cr>
+
+
+autocmd  FocusGained  *   :set cursorline
+autocmd  FocusGained  *   :redraw
+autocmd  FocusGained  *   :sleep 1
+autocmd  FocusGained  *   :set nocursorline
+
+
+
+
+
+
+"
+" " When vimrc is edited, reload it
+autocmd! bufwritepost vimrc source ~/.vimrc
+
+
 
 " Map jk to <ESC> in insert mode
 imap jk <ESC>
@@ -132,7 +157,7 @@ let &printexpr="(v:cmdarg=='' ? ".
 
 
 " Command-t settings
-let g:CommandTMaxHeight=10
+" let g:CommandTMaxHeight=10
 
 
 
@@ -263,4 +288,128 @@ command! -nargs=? -complete=command Fs call Foldsearch(<q-args>)
 command! -nargs=? -complete=command Fold call Foldsearch(<q-args>)
 "command! R Fs \(^\s*\(\(def\|class\|module\)\s\)\)\|^\s*[#%"0-9]\{0,4\}\s*{\({{\|!!\)
 command! R Fs 
+
+set ruler
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Moving around, tabs and buffers
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Smart way to move btw. windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+" Close the current buffer
+map <leader>bd :Bclose<cr>
+
+" Close all the buffers
+map <leader>ba :1,300 bd!<cr>
+
+" Use the arrows to something usefull
+map <right> :bn<cr>
+map <left> :bp<cr>
+
+" Tab configuration
+map <leader>tn :tabnew<cr>
+map <leader>te :tabedit
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove
+
+" When pressing <leader>cd switch to the directory of the open buffer
+map <leader>cd :cd %:p:h<cr>
+
+
+command! Bclose call <SID>BufcloseCloseIt()
+function! <SID>BufcloseCloseIt()
+   let l:currentBufNum = bufnr("%")
+   let l:alternateBufNum = bufnr("#")
+
+   if buflisted(l:alternateBufNum)
+     buffer #
+   else
+     bnext
+   endif
+
+   if bufnr("%") == l:currentBufNum
+     new
+   endif
+
+   if buflisted(l:currentBufNum)
+     execute("bdelete! ".l:currentBufNum)
+   endif
+endfunction
+
+" Specify the behavior when switching between buffers 
+try
+  set switchbuf=usetab
+  set stal=2
+catch
+endtry
+
+
+""""""""""""""""""""""""""""""
+" => Command-T
+""""""""""""""""""""""""""""""
+let g:CommandTMaxHeight = 15
+set wildignore+=*.o,*.obj,.git,*.pyc
+noremap <leader>j :CommandT<cr>
+noremap <leader>y :CommandTFlush<cr>
+
+
+""""""""""""""""""""""""""""""
+" Use AutoCMD to automaticall create nonexistant directories on save
+" http://www.ibm.com/developerworks/linux/library/l-vim-script-5/index.html
+""""""""""""""""""""""""""""""
+augroup AutoMkdir
+    autocmd!
+    autocmd  BufNewFile  *  :call EnsureDirExists()
+augroup END
+function! EnsureDirExists ()
+    let required_dir = expand("%:h")
+    if !isdirectory(required_dir)
+        call AskQuit("Directory '" . required_dir . "' doesn't exist.", "&Create it?")
+
+        try
+            call mkdir( required_dir, 'p' )
+        catch
+            call AskQuit("Can't create '" . required_dir . "'", "&Continue anyway?")
+        endtry
+    endif
+endfunction
+
+function! AskQuit (msg, proposed_action)
+	if confirm(a:msg, a:proposed_action . "\n&Quit?") == 2 
+        exit
+    endif
+endfunction
+
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""
+""Snipmate Mod
+"""""""""""""""""""""""""""""""""""""""""""""
+autocmd BufWritePost *.snippet :call ReloadAllSnippets() | :Bclose
+
+map <Leader>ca :call MakeSnippet()<CR>
+imap <Leader>ca <ESC> :call MakeSnippet()<CR>
+
+function! MakeSnippet()
+	if exists("g:snippet_file_type")
+		unlet g:snippet_file_type
+	endif
+
+	if empty(&ft)
+		echo "No filetype defined for snippet"
+	else
+		let name = input('Enter the snippet abbreviation: ')
+		let g:snippet_file_type = &ft
+		let snippet_path = g:snippets_dir . g:snippet_file_type . '/' . name . '.snippet'
+		exec "edit" snippet_path
+		let &filetype=g:snippet_file_type
+	endif
+endfunction
+
 
