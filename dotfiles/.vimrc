@@ -22,7 +22,7 @@ let mapleader = ","
 let g:mapleader = ","
 
 " Fast saving
-imap <leader>w <Esc>:w!<cr> i
+imap <leader>w <Esc>:w!<cr> 
 nmap <leader>w :w!<cr>
 "
 " " Fast editing of the .vimrc
@@ -34,18 +34,13 @@ autocmd  FocusGained  *   :redraw
 autocmd  FocusGained  *   :sleep 1
 autocmd  FocusGained  *   :set nocursorline
 
-
-
-
-
-
 "
 " " When vimrc is edited, reload it
-autocmd! bufwritepost vimrc source ~/.vimrc
-
+autocmd! bufwritepost vimrc source $MYVIMRC 
 
 
 " Map jk to <ESC> in insert mode
+imap <Leader><Leader> <ESC>
 imap jk <ESC>
 
 " Use pathogen to easily modify the runtime path to include all
@@ -59,11 +54,6 @@ set mouse=a
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :edit $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
-
-" Source the vimrc file after saving it
-if has("autocmd")
-  autocmd bufwritepost .vimrc source $MYVIMRC
-endif
 
 
 " Enable extended % matching
@@ -93,11 +83,6 @@ nmap Q gqap
 nnoremap j gj
 nnoremap k gk
 
-" Easy window navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
 
 " Tired of clearing highlighted searches by searching for “ldsfhjkhgakjks”? Use this:
 " It clears the search buffer when you press ,/
@@ -311,11 +296,6 @@ map <leader>ba :1,300 bd!<cr>
 map <right> :bn<cr>
 map <left> :bp<cr>
 
-" Tab configuration
-map <leader>tn :tabnew<cr>
-map <leader>te :tabedit
-map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove
 
 " When pressing <leader>cd switch to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>
@@ -354,7 +334,7 @@ endtry
 """"""""""""""""""""""""""""""
 let g:CommandTMaxHeight = 15
 set wildignore+=*.o,*.obj,.git,*.pyc
-noremap <leader>j :CommandT<cr>
+noremap <leader>t :CommandT<cr>
 noremap <leader>y :CommandTFlush<cr>
 
 
@@ -391,8 +371,10 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""
 ""Snipmate Mod
 """""""""""""""""""""""""""""""""""""""""""""
+" Reload snippets and close snippet buffer on snippet save
 autocmd BufWritePost *.snippet :call ReloadAllSnippets() | :Bclose
 
+"shortcuts to quickly create new snippet
 map <Leader>ca :call MakeSnippet()<CR>
 imap <Leader>ca <ESC> :call MakeSnippet()<CR>
 
