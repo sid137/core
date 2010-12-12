@@ -37,54 +37,55 @@ Create a symlink to .vimrc file
 ### Key Mappings  (subject to change)
 
 Leader key mapped to 
-    ,
+    `,`
 
 
 * Fast saving in Insert and Normal mode
 
-    ,w
+    `,w`
 
 
 * Easily edit the .vimrc from Insert mode
 
-    ,e
+    `,e`
 
 
 * Return to Normal mode from Insert mode
 
-    jk    or   ,,
+    `jk`    or  `,,`
 
 * Reload the .vimrc file from Normal mode
 
-    ,sv
+    `,sv`
 
 * Turn ; in to : in Normal mode
 
 
 * Clean highlighted searches from Normal mode
 
-    ,/
+    `,/`
 
 
 * Save file with sudo priviledges
 
-    w!!
+    `w!!`
 
 
 * Close current buffer
 
-    ,bd
+    `,bd`
 
 
 * Close all buffers
 
-    ,ba
+    `,ba`
 
 
 * Switch between buffers using left and right arrow keys
 
     
-" Smart way to move btw. windows
+* Smart way to move btw. windows
+
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
