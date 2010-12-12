@@ -4,7 +4,7 @@ export OMP_NUM_THREADS=4
 export RUBYOPT=rubygems
 export RSPEC=true
 
-export RDOCOPT="-S -f html -T hanna"
+export RDOCOPT="-S -f html"
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus

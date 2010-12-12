@@ -1,119 +1,95 @@
-" Most general settings first
-set nocompatible            " Set Vim rather than Vi settings; must go first
-set noeb                    " Set no audio or visual error beep
-set bs=2
-"set bs=indent,eol,start     " Backspace over everything in insert mode
-set bs=eol,start     " Backspace over everything in insert mode
-set history=1000             " Keep 1000 lines of command line history
-set undolevels=1000
-
-"Text basics
-set textwidth=80            " Set text to wrap at 80 columns
-set expandtab               " Convert tabs to spaces
-set tabstop=4               " Tabs = 4 spaces 
-set shiftwidth=4            " Indent/outdent 4 spaces
-set softtabstop=4           " Tab key indents 
-set shiftround              " Indent/outdent to nearest tabstop
-set smarttab                " Uses shiftwidth @ start of lines
-set fo=trcn
-set hidden
-set autoindent
-set smartindent
-set hlsearch
-set incsearch
-" set background=dark
-set title
-set cursorline
-set scrolloff=999
-
-" Set items for view @ bottom of windows
-set ruler                   " Show the cursor position all the time
-set showcmd                 " Display incomplete commands
-set showmode                " Display current mode
-set ls=2                    " Always show status bar
- 
-" Enable mouse in all modes
-set mouse=a
-
-" togle paste mode
-set pastetoggle=<F2>
-
-colorscheme delek
-syntax on
+# VIM Configuration files
 
 
-filetype on           " Enable filetype detection
-filetype indent on    " Enable filetype-specific indenting
-filetype plugin on    " Enable filetype-specific plugin
+## Installation
+
+download repository
+
+    cd ~/
+    git clone --recursive git://github.com/sid137/.vim.git
+
+Create a symlink to .vimrc file
+    
+    ln -s ~/.vim/vimrc ~/.vimrc
 
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Key Maps
-" Map leader to ","
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+## Features
 
 
-let mapleader = ","
-let g:mapleader = ","
 
-" Fast saving
-imap <leader>w <Esc>:w!<cr> 
-nmap <leader>w :w!<cr>
-"
-" " Fast editing of the .vimrc
-map <leader>e :e! ~/.vimrc<cr>
+### General Settings
 
-" Map jk to <ESC> in insert mode
-imap <Leader><Leader> <ESC>
-imap jk <ESC>
+* Text wrapped to 80 character lines
+  
+* 1000 line history and undo
 
-" Quickly edit/reload the vimrc file
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
+* Tab stop at 4 spaces
 
-"  turn ; into :
-nnoremap ; :
+* Tabs are converted to spaces
 
-" Use Q for formatting the current paragraph (or selection)
-vmap Q gq
-nmap Q gqap
+* Current line is highlighted
 
-nnoremap j gj
-nnoremap k gk
+* Mouse enabled for all modes
 
-" Tired of clearing highlighted searches by searching for “ldsfhjkhgakjks”? Use this:
-" It clears the search buffer when you press ,/
-nmap <silent> ,/ :let @/=""<CR>
 
-" post sudo with !!
-cmap w!! w !sudo tee % >/dev/null
+### Key Mappings  (subject to change)
 
-inoremap <silent> <C-a> <ESC>u:set paste<CR> :set nopaste<CR>gi 	
+Leader key mapped to 
+    ,
 
-map <M-F10> :!ruby -r xmp -n -e 'xmp($_, "\%l\t\t\# \%r\n")'<CR>
 
+* Fast saving in Insert and Normal mode
+
+    ,w
+
+
+* Easily edit the .vimrc from Insert mode
+
+    ,e
+
+
+* Return to Normal mode from Insert mode
+
+    jk    or   ,,
+
+* Reload the .vimrc file from Normal mode
+
+    ,sv
+
+* Turn ; in to : in Normal mode
+
+
+* Clean highlighted searches from Normal mode
+
+    ,/
+
+
+* Save file with sudo priviledges
+
+    w!!
+
+
+* Close current buffer
+
+    ,bd
+
+
+* Close all buffers
+
+    ,ba
+
+
+* Switch between buffers using left and right arrow keys
+
+    
 " Smart way to move btw. windows
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-" Close the current buffer
-map <leader>bd :Bclose<cr>
-
-" Close all the buffers
-map <leader>ba :1,300 bd!<cr>
-
-" Use the arrows to something usefull
-map <right> :bn<cr>
-map <left> :bp<cr>
-
-
-" When pressing <leader>cd switch to the directory of the open buffer
-map <leader>cd :cd %:p:h<cr>
-
-" Easier non-interactive command insertion
-" "nnoremap <Space> :
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Autocommands

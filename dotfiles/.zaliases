@@ -13,6 +13,7 @@ alias bi='bundle install'
 alias ho='heroku open'
 
 # shell
+alias tags=''
 alias ra='cd ~/tracking'
 alias gi='gem install'
 alias r='rails'
@@ -30,7 +31,6 @@ alias rcb='create_chef_cookbook'
 alias spec='spec -c'
 alias sdpi='sudo dpkg --install'
 alias rms='ssh -L 3389:sid137@manip15g.spectro.jussieu.fr:3389 burks@apache.spectro.jussieu.fr'
-alias vms='ssh -L 8333:manip15g.spectro.jussieu.fr:8333 sid'
 alias wjs='ssh -D 9999 sid137@wjh.harvard.edu'
 
 alias kff='killall firefox'
@@ -38,7 +38,6 @@ alias v='vim'
 alias svim='sudo vim'
 alias itm='rm -rf /media/ipod/*; ipod-touch-mount'
 alias itu='ipod-touch-umount'
-alias sid='connect_to_sidney.spectro.jussieu.fr'
 alias go='chmod u+x'
 alias tz='tar -zxvf'
 alias tj='tar -xjvf'
@@ -100,8 +99,6 @@ alias rub='cd /usr/lib/ruby/gems/1.8/gems'
 alias vps='ssh root@${VPS}'
 alias wjh='ssh sid137@wjh.harvard.edu'
 alias lkb='ssh -D 9999 burks@apache.spectro.jussieu.fr'
-alias m15='ssh -l atomes manip15g.spectro.jussieu.fr'
-alias s15='ssh -l sid137 manip15g.spectro.jussieu.fr'
 alias sshk="cat .ssh/id_rsa.pub | ssh sid137@B 'cat >> .ssh/authorized_keys'"
 alias m='more'
 alias l='ls -lau --color=auto'
@@ -123,39 +120,20 @@ alias mali='more ~/.zaliases'
 #alias bt='ls *.bib | sed s/\.bib/\.aux/g | xargs -n1 bibtex'
 
 # Ruby
-alias rk='rake'
-alias rkf='rake features'
 alias genrdoc='./miniruby -I./lib -I.ext/common -I./- -r./ext/purelib.rb  ./runruby.rb --extout=.ext  -- "./bin/rdoc" --all --ri -f html --op "/home/sid137/rdoc" "."'
-
-# Rails
-#alias rc='rails console'
-#alias rs='rails server'
-#alias rg='rails generate'
-#alias rd='rails destroy'
-
-
 # Use completion
 #alias irb='irb --readline -r irb/completion'
 # Use colors
 alias rii='ri -Tf ansi'
-alias rgi='sudo gem install'
-alias ugi='sudo gem uninstall'
-
 
 # Rails
-alias sgf='script/generate factory_haml_rspec_scaffold'
-alias sgs='script/generate rspec_scaffold -g'
-alias sgc='script/generate rspec_controller -g'
-alias sgm='script/generate rspec_model -g'
-alias kl='killall -9 ruby'
-alias ss='TMOUT='' ./script/server'
-alias sc='./script/console'
-alias spi='script/plugin install'
-alias spr='script/plugin remove'
-alias spd='script/plugin discover http://www.agilewebdevelopment.com/plugins/scrape'
-
-
-alias vp='cd vendor/plugins'
+alias sqb='sqlitebrowser db/development.sqlite3'
+alias rgs='rails generate scaffold'
+alias rgc='rails generate controller'
+alias rgm='rails generate model'
+alias rgmi='rails generate migration'
+alias rs='rails server'
+alias rc='rails console'
 alias av='cd app/views'
 alias am='cd app/models'
 alias ac='cd app/controllers'
@@ -163,6 +141,7 @@ alias ac='cd app/controllers'
 alias rren="find . -name \"*.rhtml\" -exec echo mv {} {} \; | sed 's/.rhtml$/.haml/' | sh"
 
 # Rake Tasks
+alias rk='rake'
 alias rf='rake features'
 alias rdc='rake db:create'
 alias rdm='rake db:migrate'

@@ -1,0 +1,1 @@
+/home/sid137/core/dotfiles/.vimrc
