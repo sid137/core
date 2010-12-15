@@ -55,7 +55,6 @@ export DW=ami-3e836657
 export src=~/src
 export tools=~/src/tools
 export data=~/projects/datasets
-export ass=http://tools.assembla.com/svn/sid137	
 export pass=${ass}/projects
 export gomm='https://gomm.svn.sourceforge.net/svnroot/gomm/trunk'
 export simpinst='https://simpinstall.svn.sourceforge.net/svnroot/simpinstall/trunk'
