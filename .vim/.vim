@@ -1,1 +1,0 @@
-/home/sid137/core/.vim

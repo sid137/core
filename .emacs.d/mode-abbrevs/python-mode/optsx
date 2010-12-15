@@ -1,2 +1,0 @@
-oParser = OptionParser() <endpoint>
-(options, args) = oParser.parse_args()

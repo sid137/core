@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/home/sid137/core/autostart'
-let g:netrw_dirhist_2='/home/sid137/.vim'
-let g:netrw_dirhist_3='/home/sid137/tracking/chef-repo/.git'
-let g:netrw_dirhist_4='/home/sid137/projects/journal/app/views/posts'
-let g:netrw_dirhist_5='/home/sid137/.emacs.d'

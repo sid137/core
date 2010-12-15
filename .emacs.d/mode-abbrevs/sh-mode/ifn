@@ -1,1 +1,0 @@
-if [[ -n $<field "argument"> ]] then; <field "var">=$<field "argument"> else <field "var">=<field "default"> fi<endpoint>

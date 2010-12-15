@@ -1,3 +1,0 @@
-validates_format_of :<field "attribute">, :with => /<field "regexp">/,
-  :message => "<field "is invalid">"
-  

@@ -1,3 +1,0 @@
-validates_each :<field "attribute"> do |model, attr, value|
-  model.error.add(attr, '<field "message">') if <field "condition">
-end
