@@ -1,10 +1,6 @@
 #/bin/bash -x
  
 
-#git pull
-#git submodule update --init
-#cd ~/core/.emacs.d/rinari
-#git submodule update --init
   
 mkdir -p ~/.config/compiz/compizconfig
 
