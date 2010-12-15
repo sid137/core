@@ -1,9 +1,11 @@
+" Many settings taken from 
+" http://nvie.com/posts/how-i-boosted-my-vim/ 
+"
 " Most general settings first
 set nocompatible            " Set Vim rather than Vi settings; must go first
 set noeb                    " Set no audio or visual error beep
 set bs=2
-"set bs=indent,eol,start     " Backspace over everything in insert mode
-set bs=eol,start     " Backspace over everything in insert mode
+set bs=indent,eol,start     " Allow backspacing over everything in insert mode
 set history=1000             " Keep 1000 lines of command line history
 set undolevels=1000
 
@@ -34,6 +36,9 @@ set ls=2                    " Always show status bar
  
 " Enable mouse in all modes
 set mouse=a
+
+"Enable spellcheck"
+set spell
 
 " togle paste mode
 set pastetoggle=<F2>
@@ -70,6 +75,9 @@ imap jk <ESC>
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+" Use jw to go to the end of a line in Insert mode"
+imap jw  <END>
 
 "  turn ; into :
 nnoremap ; :
@@ -448,3 +456,4 @@ function! MakeSnippet()
 endfunction
 
 
+set pastetoggle=<F2>

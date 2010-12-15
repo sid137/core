@@ -4,7 +4,6 @@ require 'open-uri'
 
 # Looksee lets you examine the method lookup path of objects in ways not possible in plain ruby. 
 # http://github.com/oggy/looksee
-require 'looksee/shortcuts'
 
 require 'rack'
 require 'pp'
