@@ -23,10 +23,13 @@ export RSENSE_HOME=~/core/ext/rsense
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
-setopt autocd autopushd  pushdignoredups
+setopt autocd 
+setopt pushdignoredups
+setopt autopushd
 setopt rmstarsilent
-unsetopt beep
 setopt extended_glob
+unsetopt beep
+
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
