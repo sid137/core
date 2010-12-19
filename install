@@ -1,11 +1,7 @@
 #/bin/bash -x
  
 
-  
 mkdir -p ~/.config/compiz/compizconfig
-
-
 tar -C ~/ -xf ~/core/kde.tar
-
-./symlink
+./symlink.sh
 

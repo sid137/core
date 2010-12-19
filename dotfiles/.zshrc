@@ -30,7 +30,7 @@ setopt extended_glob
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/sid137/.zshrc'
+zstyle :compinstall filename '~/.zshrc'
 
 
 
@@ -88,7 +88,7 @@ export DISLIN=/usr/local/dislin
 export LD_LIBRARY_PATH=$DISLIN:$LD_LIBRARY_PATH
 
 export PATH=${DISLIN}/bin:$PATH
-export PYTHONPATH=/home/sid137/.ipython:$DISLIN/python
+export PYTHONPATH=~/.ipython:$DISLIN/python
 # For AMD Stream
 #export LD_LIBRARY_PATH=/usr/local/amdcal/lib64/:/usr/local/amdbrook/sdk/lib:$LD_LIBRARY_PATH
 
@@ -101,8 +101,8 @@ export XILINX_USB_DEV=005:026
 export LREPO=~/projects/templates/
 
 
-if [[ -s /home/sid137/.rvm/scripts/rvm ]] ; then 
-	source /home/sid137/.rvm/scripts/rvm ; 
+if [[ -s ~/.rvm/scripts/rvm ]] ; then 
+	source ~/.rvm/scripts/rvm ; 
 fi
 
 
