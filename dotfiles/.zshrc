@@ -9,8 +9,13 @@ export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 
-
+export TRACKING=~/tracking
 export PATH=$PATH:$HOME/vim/bin
+
+# add recursive PATH, taken from 
+# http://stackoverflow.com/questions/657108/bash-recursively-adding-subdirectories-to-the-path
+export PATH=$PATH:$(find -L ~/bin -type d | sed '/\/\./ d' | tr '\n' ':' | sed 's/:$//')
+export PERL5LIB=$PERL5LIB:$PATH
 
 # Eclipse event error
 export GDK_NATIVE_WINDOWS=true
@@ -36,14 +41,20 @@ bindkey -e
 zstyle :compinstall filename '~/.zshrc'
 
 
+export AWS_CREDENTIALS_FILE=~/aws_credentials
+. ~/aws_export
 
 autoload -Uz compinit
 autoload zmv
 compinit
+
+. ~/core/git-prompt/git-prompt.sh
+
 #ZLS_COLORS=$LS_COLORS
 # End of lines added by compinstalli
 export TERM=xterm-color
-PS1=$'%{\e[0;31m%}%{\e[0m%}%{\e[0m%}%{\e[1;34m%}:%{\e[0m%}%{\e[1;32m%}%~%{\e[0m%} $ '
+#PS1=$'%{\e[0;31m%}%{\e[0m%}%{\e[0m%}%{\e[1;34m%}$(prompt_git_info):%{\e[0m%}%{\e[1;32m%}%~%{\e[0m%} $ '
+PS1=$'$(prompt_git_info)%{$terminfo[bold]$fg[blue]%}:%{\e[0m%}%{$terminfo[bold]$fg[green]%}%~%{\e[0m%} $ '
 
 # export EDITOR="emacs"
 export BOOST_ROOT=/usr/local/boost
@@ -51,19 +62,17 @@ export VPS=184.106.153.97
 export SAFE=~/core
 export ATLAS=/usr/lib/atlas
 export JAVA_HOME=/usr/lib/jvm/java-6-sun-1.6.0.16
-export EC2_HOME=$HOME/.ec2/ec2-api-tools-1.2-9739
-export PATH=$PATH:$EC2_HOME/bin:$SAFE/bin:/opt/eagle-5.6.0/bin/:$HOME/bin/avr
+export EC2_HOME=
+export PATH=$PATH:/opt/eagle-5.6.0/bin/
 export MAKEFILES=~/Makefile
 export DW=ami-3e836657
 export src=~/src
 export tools=~/src/tools
 export data=~/projects/datasets
-export pass=${ass}/projects
 export gomm='https://gomm.svn.sourceforge.net/svnroot/gomm/trunk'
 export simpinst='https://simpinstall.svn.sourceforge.net/svnroot/simpinstall/trunk'
 # Make EAGLE PCB not transparent with compiz
 export XLIB_SKIP_ARGB_VISUALS=1
-. ~/.ec2/.info
 #. ~/.zsvn
 . ~/.zaliases
 #. /opt/Xilinx/10.1/ISE/settings32.sh
@@ -89,9 +98,12 @@ export KDEVARTMP=/tmp
 # DISLIN
 export DISLIN=/usr/local/dislin
 export LD_LIBRARY_PATH=$DISLIN:$LD_LIBRARY_PATH
-
 export PATH=${DISLIN}/bin:$PATH
 export PYTHONPATH=~/.ipython:$DISLIN/python
+
+# Configure firefox so save_and_open_path command in capybara works in launchy
+export LAUNCHY_BROWSER=/usr/bin/firefox
+
 # For AMD Stream
 #export LD_LIBRARY_PATH=/usr/local/amdcal/lib64/:/usr/local/amdbrook/sdk/lib:$LD_LIBRARY_PATH
 
@@ -113,7 +125,20 @@ fi
 function rapp {
     appname=$1
     template=$2
-    rails $appname -m http://github.com/sid137/rails-templates/raw/master/${template:-rails3}.rb 
+    rails new $appname -JTm https://github.com/sid137/rails-templates/raw/master/${template:-rails3}.rb 
+}
+
+function jew {
+    gemname=$1
+    opts=$2
+    jeweler --rspec --cucumber $gemname $opts
+    cd $gemname
+    rake version:write
+}
+
+# User sqlitebrowser to browse rails test dbs
+function sqb {
+    sqlitebrowser db/${1:-development}.sqlite3
 }
 
 # commit git repo and push to github

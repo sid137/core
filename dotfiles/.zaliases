@@ -1,18 +1,24 @@
 #thesis
 alias g='gimp'
-
+alias gwen='gwenview .'
 alias d='display'
 alias vcons='~/bin/plugins/vmware-vmrc -h 127.0.0.1:8333 -X'
 alias td='cd ~/thesis/thesis/'
 alias wk='cd ~/thesis/thesis; watchr watch.rb'
 
 # heroku
+alias h='heroku'
 alias hbam='heroku stack:migrate bamboo-ree-1.8.7'
-alias compass-install='compass --rails -f blueprint . --css-dir=public/stylesheets --sass-dir=app/stylesheets --images-dir=public/images'
+alias compass-install='compass install blueprint/basic  --css-dir=public/stylesheets --sass-dir=app/stylesheets --images-dir=public/images -x sass'
 alias bi='bundle install'
 alias ho='heroku open'
 
 # shell
+# http://majewsky.wordpress.com/2009/07/11/shutdown-your-machine-automatically-or-from-remote/
+alias klogout='qdbus org.kde.ksmserver /KSMServer logout 0 0 0'
+alias kshutdown='qdbus org.kde.ksmserver /KSMServer logout 0 2 2'
+alias blueprint="ln -s $TRACKING/blueprint-css/blueprint blueprint"
+alias compas="compass create --relative-assets --syntax sass --using blueprint/basic "
 alias tags=''
 alias ra='cd ~/tracking'
 alias gi='gem install'
@@ -23,6 +29,7 @@ alias lsdot="ls -A --group-directories-first | egrep '^\.'"
 alias ocaml='ledit -x -h ~/.ocaml_history ocaml'
 alias ocaml='rlwrap ocaml'
 alias t='cd /tmp'
+alias mkdir='mkdir -p'
 alias fs='find *'
 #alias jdisk='java -jar ~/bin/jdiskreport-1.3.2'
 alias jdisk='javaws http://www.jgoodies.com/download/jdiskreport/jdiskreport.jnlp'
@@ -68,12 +75,13 @@ alias sm='staticmatic'
 #git
 alias gc='git clone --recursive'
 alias gb='git branch'
+alias gco='git checkout'
 alias gcb='git checkout -b'
 alias gcm='git checkout master'
 alias gca='git commit -a -m'
 alias gpa='git push --all'
 alias gph='git push heroku master'
-alias gps='git push stage master'
+alias gps='git push staging staging:master'
 alias gst='git status'
 alias ga='git add .' 
 alias git-pup='git submodule foreach git pull origin master'
@@ -98,7 +106,7 @@ alias ds='cd ~/Desktop'
 alias rub='cd /usr/lib/ruby/gems/1.8/gems'
 alias vps='ssh root@${VPS}'
 alias wjh='ssh sid137@wjh.harvard.edu'
-alias lkb='ssh -D 9999 burks@apache.spectro.jussieu.fr'
+alias lkb='ssh -D 9999 burks@patriot.lkb.upmc.fr'
 alias sshk="cat .ssh/id_rsa.pub | ssh sid137@B 'cat >> .ssh/authorized_keys'"
 alias m='more'
 alias l='ls -lau --color=auto'
@@ -127,13 +135,14 @@ alias genrdoc='./miniruby -I./lib -I.ext/common -I./- -r./ext/purelib.rb  ./runr
 alias rii='ri -Tf ansi'
 
 # Rails
-alias sqb='sqlitebrowser db/development.sqlite3'
+alias rg='rails generate'
 alias rgs='rails generate scaffold'
 alias rgc='rails generate controller'
 alias rgm='rails generate model'
 alias rgmi='rails generate migration'
 alias rs='rails server'
 alias rc='rails console'
+alias rcs='rails console --sandbox'
 alias av='cd app/views'
 alias am='cd app/models'
 alias ac='cd app/controllers'

@@ -1,5 +1,0 @@
-[Pango]
-ModuleFiles = ./libconf/etc/pango/pango.modules
-
-[PangoX]
-AliasFiles = ./libconf/etc/pango/pango/pangox.aliases
