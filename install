@@ -1,6 +1,6 @@
 #/bin/bash -x
  
-
+mkdir ~/.tmp
 mkdir -p ~/.config/compiz/compizconfig
 tar -C ~/ -xf ~/core/kde.tar
 ./symlink.sh

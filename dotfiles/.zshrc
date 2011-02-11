@@ -125,7 +125,12 @@ fi
 function rapp {
     appname=$1
     template=$2
-    rails new $appname -JTm https://github.com/sid137/rails-templates/raw/master/${template:-rails3}.rb 
+    rails new $appname --skip-gemfile -JTm https://github.com/sid137/rails-templates/raw/master/${template:-rails3}.rb 
+}
+function rapp-test {
+    appname=$1
+    template=$2
+    rails new $appname --skip-gemfile -JTm ~/tracking/rails-templates/${template:-rails3}.rb 
 }
 
 function jew {
