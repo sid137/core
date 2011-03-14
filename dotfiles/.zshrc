@@ -42,7 +42,7 @@ zstyle :compinstall filename '~/.zshrc'
 
 
 export AWS_CREDENTIALS_FILE=~/aws_credentials
-. ~/aws_export
+. ~/secret_credentials
 
 autoload -Uz compinit
 autoload zmv
@@ -57,11 +57,16 @@ export TERM=xterm-color
 PS1=$'$(prompt_git_info)%{$terminfo[bold]$fg[blue]%}:%{\e[0m%}%{$terminfo[bold]$fg[green]%}%~%{\e[0m%} $ '
 
 # export EDITOR="emacs"
+#//cappuccino path
+export CAPP_BUILD='/tmp/capp'
+export PATH="/home/sid137/narwhal/bin:$PATH"
+export EDITOR="vim"
 export BOOST_ROOT=/usr/local/boost
 export VPS=184.106.153.97
 export SAFE=~/core
 export ATLAS=/usr/lib/atlas
 export JAVA_HOME=/usr/lib/jvm/java-6-sun-1.6.0.16
+export JAVA_HOME=/usr/lib/jvm/java-6-openjdk
 export EC2_HOME=
 export PATH=$PATH:/opt/eagle-5.6.0/bin/
 export MAKEFILES=~/Makefile
@@ -131,6 +136,22 @@ function rapp-test {
     appname=$1
     template=$2
     rails new $appname --skip-gemfile -JTm ~/tracking/rails-templates/${template:-rails3}.rb 
+}
+
+# Utility script for geveloping ruby gems with rvm
+# Kills the gemset, and starts fresh to test a gem
+# installation 
+function gem_build {
+    # Assume that we've created a gemset with the same name as our gem
+    gemname=$(basename `pwd`)
+    gemset=$gemname
+    version=$(cat VERSION)
+    gemver=$gemname-$version.gem
+    rvm gemset empty $gemset
+    gem install bundler --no-ri --no-rdoc
+    rake build
+    echo "Installing gem $gemver..."
+    gem install pkg/$gemver --no-ri --no-rdoc
 }
 
 function jew {
@@ -236,3 +257,9 @@ vlist() {
          echo -e "GET /service/carto HTTP/1.0\n\n" | nc www.velib.paris.fr 80
 }
 
+function gwords {
+    price=$1
+    filename=${2:=website.tsv}
+    blacklist=${3:=blacklist}
+    cut -f1 $filename | tail -n+2 | awk '{print $0 ",'$price','$price'"}'
+}

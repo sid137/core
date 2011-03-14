@@ -16,7 +16,7 @@ module Cucumber
   module Formatter
      module Console
         def notify msg
-          system "kdialog --title \"Failure\" --passivepopup \"#{msg}\" 5"
+          #system "kdialog --title \"Failure\" --passivepopup \"#{msg}\" 5"
         end        
 
 
@@ -31,7 +31,8 @@ end
 
 def notify icon, title, msg, display_time
   img = "<img src=#{icon}>"
-  system "kdialog --title \"#{title}\" --passivepopup \"<table><tr><td>#{img}</td><td> #{msg}</td></tr></table>\" display_time"
+  #system "kdialog --title \"#{title}\" --passivepopup \"<table><tr><td>#{img}</td><td> #{msg}</td></tr></table>\" display_time"
+  system "notify-send -t 5000 -i \"#{icon}\" \"#{title}\" \"#{msg}\" "
   false
 end
 
@@ -52,8 +53,9 @@ Autotest.add_hook :ran_command do  |at|
  
     if failures > 0
 #      msg = at.files_to_test.map { |k, v| "#{k}:\n #{v.join("\n ")}"}.join("\n")
-      msg = "<font size='72'>#{failures} Failures</font>"
-      notify failure_icon, "TESTS FAILED", msg, 5
+      #msg = "<font size='72'>#{failures} Failures</font>"
+      msg = "#{failures} Failures"
+      notify failure_icon, "#{failures} TESTS FAILED", msg, 5
     else
       msg = "#{examples} examples"
       notify success_icon, "TESTS PASSED", msg, 3

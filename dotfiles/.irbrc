@@ -20,6 +20,7 @@ unless IRB.conf[:LOAD_MODULES].include?('irb/completion')
   IRB.conf[:LOAD_MODULES] << 'irb/completion'
 end
 
+# http://drx.rubyforge.org/
 
 # FastRI + IRB method completion
 # http://eigenclass.org/hiki/irb+ri+completion
@@ -106,3 +107,22 @@ RICompletionProc = proc{|input|
 Readline.basic_word_break_characters= " \t\n\\><=;|&"
 Readline.completion_proc = RICompletionProc
 
+
+
+
+#  Rails only.. need to put into a Rails env
+#
+
+
+def loud_logger
+  set_logger_to Logger.new(STDOUT)
+end
+
+def quiet_logger
+  set_logger_to nil
+end 
+
+def set_logger_to logger
+  ActiveRecord::Base.logger = logger
+  ActiveRecord::Base.clear_active_connections!
+end 
