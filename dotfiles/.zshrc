@@ -11,6 +11,7 @@ export QT_IM_MODULE=ibus
 
 export TRACKING=~/tracking
 export PATH=$PATH:$HOME/vim/bin
+export PATH=$PATH:$HOME/core/installers
 
 # add recursive PATH, taken from 
 # http://stackoverflow.com/questions/657108/bash-recursively-adding-subdirectories-to-the-path
