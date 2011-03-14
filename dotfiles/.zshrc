@@ -226,14 +226,14 @@ function initialize {
 	ssh root@$1 "wget http://github.com/sid137/chef-repo/raw/master/install.sh -O install.sh && /bin/bash -x install.sh ${role}" 
 }
 
-function install_rvm {
-	mkdir -p ~/.rvm/src/
-	cd ~/.rvm/src 
-	rm -rf ./rvm/ 
-	git clone --depth 1 git://github.com/wayneeseguin/rvm.git 
-	cd rvm 
-	./install
-}
+#f#u#n#c#t#i#o#n #i#n#s#t#a#l#l#_#r#v#m #{
+	#m#k#d#i#r #-#p #~#/#.#r#v#m#/#s#r#c#/
+	#c#d #~#/#.#r#v#m#/#s#r#c 
+	#r#m #-#r#f #.#/#r#v#m#/ 
+	#g#i#t #c#l#o#n#e #-#-#d#e#p#t#h #1 #g#i#t#:#/#/#g#i#t#h#u#b#.#c#o#m#/#w#a#y#n#e#e#s#e#g#u#i#n#/#r#v#m#.#g#i#t 
+	#c#d #r#v#m 
+	#.#/#i#n#s#t#a#l#l
+#}
 
 
 src () {mv $1 $src}
