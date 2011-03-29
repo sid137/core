@@ -18,6 +18,8 @@ libyaml-dev
 mercurial
 ncurses-dev
 openssl
+p7zip-full
+p7zip-rar
 sqlite3
 zlib1g
 zlib1g-dev
