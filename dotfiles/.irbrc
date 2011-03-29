@@ -9,6 +9,10 @@ require 'rack'
 require 'pp'
 require 'yaml'
 require 'irb/ext/save-history'
+require 'hirb'
+Hirb.enable
+
+
 IRB.conf[:SAVE_HISTORY] = 1000
 IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb-save-history"
 IRB.conf[:AUTO_INDENT]=true

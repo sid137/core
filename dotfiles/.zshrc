@@ -12,6 +12,8 @@ export QT_IM_MODULE=ibus
 export TRACKING=~/tracking
 export PATH=$PATH:$HOME/vim/bin
 export PATH=$PATH:$HOME/core/installers
+export PATH=$HOME/local/node/bin:$PATH
+export PATH=$PATH:$HOME/local/firefox
 
 # add recursive PATH, taken from 
 # http://stackoverflow.com/questions/657108/bash-recursively-adding-subdirectories-to-the-path
@@ -113,7 +115,7 @@ export LAUNCHY_BROWSER=/usr/bin/firefox
 # For AMD Stream
 #export LD_LIBRARY_PATH=/usr/local/amdcal/lib64/:/usr/local/amdbrook/sdk/lib:$LD_LIBRARY_PATH
 
-export PATH=~/matlab/bin:$PATH
+export PATH=~/local/MATLAB/R2010b/bin:$PATH
 
 # [end of auto-screen snippet]
 #
