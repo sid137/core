@@ -13,6 +13,7 @@ export TRACKING=~/tracking
 export PATH=$PATH:$HOME/vim/bin
 export PATH=$PATH:$HOME/core/installers
 export PATH=$HOME/local/node/bin:$PATH
+export PATH=$HOME/local/imagemagick/bin:$PATH
 export PATH=$PATH:$HOME/local/firefox
 
 # add recursive PATH, taken from 

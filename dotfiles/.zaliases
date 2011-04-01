@@ -23,7 +23,7 @@ alias .z='. ~/.zshrc'
 alias vsh='vim ~/.zshrc; . ~/.zshrc'
 alias klogout='qdbus org.kde.ksmserver /KSMServer logout 0 0 0'
 alias kshutdown='qdbus org.kde.ksmserver /KSMServer logout 0 2 2'
-alias blueprint="ln -s $TRACKING/blueprint-css/blueprint blueprint"
+#alias blueprint="ln -s $TRACKING/blueprint-css/blueprint blueprint"
 alias compas="compass create --relative-assets --syntax sass --using blueprint/basic "
 alias tags=''
 alias ra='cd ~/tracking'
@@ -89,7 +89,7 @@ alias gpa='git push --all'
 alias gph='git push heroku master'
 alias gps='git push staging staging:master'
 alias gst='git status'
-alias ga='git add .' 
+alias ga='git add' 
 alias git-pup='git submodule foreach git pull origin master'
 
 # Make
@@ -162,6 +162,7 @@ alias rdc='rake db:create'
 alias rdm='rake db:migrate'
 alias rdp='rake db:test:prepare'
 alias rdy='rake db:drop; rake db:migrate; rake db:test:prepare'
+alias rds='rake db:drop; rake db:migrate; rake db:test:prepare; rake db:seed'
 alias rd0='rake db:migrate VERSION=0'
 alias rdf='rake db:mysql:refresh'
 alias rsp='rake spec:app'
