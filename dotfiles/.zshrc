@@ -30,13 +30,14 @@ export RSENSE_HOME=~/core/ext/rsense
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=1000000
+SAVEHIST=1000000
 setopt autocd 
 setopt pushdignoredups
 setopt autopushd
 setopt rmstarsilent
 setopt extended_glob
+setopt extended_history
 unsetopt beep
 
 bindkey -e
@@ -141,6 +142,16 @@ function rapp-test {
     template=$2
     rails new $appname --skip-gemfile -JTm ~/tracking/rails-templates/${template:-rails3}.rb 
 }
+
+function deploy {
+    #get branch name
+    #compile sass to css
+    #coompile coffescript to java
+    #run asseet compression 
+    # git commit assets to repo
+    # push to current branch server 
+}
+
 
 # Utility script for geveloping ruby gems with rvm
 # Kills the gemset, and starts fresh to test a gem

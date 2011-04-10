@@ -17,6 +17,9 @@ alias compass-install='compass install blueprint/basic  --css-dir=public/stylesh
 alias bi='bundle install; ctags -R .'
 alias ho='heroku open'
 
+# node.js
+alias ni='npm install'
+
 # shell
 # http://majewsky.wordpress.com/2009/07/11/shutdown-your-machine-automatically-or-from-remote/
 alias .z='. ~/.zshrc'
@@ -29,6 +32,7 @@ alias tags=''
 alias ra='cd ~/tracking'
 alias gi='gem install'
 alias r='rails'
+alias rap='vim ~/tracking/rails-templates/rails3.rb'
 alias webshare='python -c "import SimpleHTTPServer; SimpleHTTPServer.test()"'
 alias hr='cd ~/projects/heroku'
 alias lsdot="ls -A --group-directories-first | egrep '^\.'"
@@ -146,7 +150,7 @@ alias rgs='rails generate scaffold'
 alias rgc='rails generate controller'
 alias rgm='rails generate model'
 alias rgmi='rails generate migration'
-alias rs='rails server'
+alias rs='thin start'
 alias rc='rails console'
 alias rcs='rails console --sandbox'
 alias av='cd app/views'
