@@ -127,6 +127,28 @@ export PATH=~/local/MATLAB/R2010b/bin:$PATH
 export XILINX_USB_DEV=005:026
 export LREPO=~/projects/templates/
 
+# Text color variables
+txtund=$(tput sgr 0 1)     # Underline
+txtbld=$(tput bold)        # Bold
+txtred=$(tput setaf 1)     # Red
+txtgrn=$(tput setaf 2)     # Green
+txtylw=$(tput setaf 3)     # Yellow
+txtblu=$(tput setaf 4)     # Blue
+txtpur=$(tput setaf 5)     # Purple
+txtcyn=$(tput setaf 6)     # Cyan
+txtwht=$(tput setaf 7)     # White
+txtrst=$(tput sgr0)        # Text reset
+txtund=$(tput sgr 0 1)           # Underline
+txtbld=$(tput bold)              # Bold
+bldred=${txtbld}$(tput setaf 1)  #  red
+bldblu=${txtbld}$(tput setaf 4)  #  blue
+bldwht=${txtbld}$(tput setaf 7)  #  white
+bldgrn=${txtbld}${txtgrn}
+alert=${bldgrn}
+txtrst=$(tput sgr0)              # Reset
+info=${bldwht}*${txtrst}         # Feedback
+pass=${bldblu}*${txtrst}
+warn=${bldred}!${txtrst}
 
 if [[ -s ~/.rvm/scripts/rvm ]] ; then 
 	source ~/.rvm/scripts/rvm ; 
@@ -189,6 +211,14 @@ function gpm {
     message=$1
     git commit -a -m $message
     git push --all
+}
+
+function git-clean-branch {
+    branch=$1
+    optional_starting_point = $2
+    git checkout --orphan $branch $optional_starting_point
+    git rm -rf .
+    echo "${alert} Empty branch ${bldwht}$1${alert} created!"
 }
 
 
