@@ -10,6 +10,7 @@ require 'pp'
 require 'yaml'
 require 'irb/ext/save-history'
 require 'hirb'
+require 'utils'
 Hirb.enable
 
 

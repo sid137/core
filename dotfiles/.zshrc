@@ -2,6 +2,7 @@
 # http://www.ruby-forum.com/topic/206187
 export OMP_NUM_THREADS=4
 export RUBYOPT=rubygems
+export RUBYLIB=~/lib
 export RSPEC=true
 
 export RDOCOPT="-S -f html"
@@ -13,6 +14,7 @@ export TRACKING=~/tracking
 export PATH=$PATH:$HOME/vim/bin
 export PATH=$PATH:$HOME/core/installers
 export PATH=$HOME/local/node/bin:$PATH
+export PATH=$HOME/tracking/go/bin:$PATH
 export PATH=$HOME/local/couchdb/bin:$PATH
 export PATH=$HOME/local/redis/bin:$PATH
 export PATH=$HOME/local/imagemagick/bin:$PATH
@@ -29,6 +31,11 @@ export PATH=$PATH:$HOME/android-sdk-linux_86/tools
 # Using Rsense code lookup for ruby
 # http://github.com/m2ym/rsense/blob/master/doc/manual.txt
 export RSENSE_HOME=~/core/ext/rsense
+
+
+# Amazon IAM Toolkit
+export AWS_IAM_HOME=$HOME/local/IAMCli-1.2.0
+export PATH=$PATH:$AWS_IAM_HOME/bin
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
@@ -49,6 +56,7 @@ zstyle :compinstall filename '~/.zshrc'
 
 
 export AWS_CREDENTIALS_FILE=~/aws_credentials
+export AWS_CREDENTIAL_FILE=~/aws_credentials
 . ~/secret_credentials
 
 autoload -Uz compinit
@@ -113,13 +121,13 @@ export LD_LIBRARY_PATH=$DISLIN:$LD_LIBRARY_PATH
 export PATH=${DISLIN}/bin:$PATH
 export PYTHONPATH=~/.ipython:$DISLIN/python
 
+
+export PATH=~/local/MATLAB/R2010b/bin:$PATH
 # Configure firefox so save_and_open_path command in capybara works in launchy
 export LAUNCHY_BROWSER=/usr/bin/firefox
 
 # For AMD Stream
 #export LD_LIBRARY_PATH=/usr/local/amdcal/lib64/:/usr/local/amdbrook/sdk/lib:$LD_LIBRARY_PATH
-
-export PATH=~/local/MATLAB/R2010b/bin:$PATH
 
 # [end of auto-screen snippet]
 #
@@ -289,22 +297,22 @@ base (){
   #removes extension of filename in $1
   #concatenantes $2 if provided
   if (( $# == 0 )) then;
-          echo $usage
+    echo $usage
   else
-        var=`echo $1 | sed "s/\([^.*]\)\.\(.*\)*$/\1/g"`
-        echo ${var}${2}
+    var=`echo $1 | sed "s/\([^.*]\)\.\(.*\)*$/\1/g"`
+    echo ${var}${2}
   fi
 }
 
 vstat() {
-        echo "GET /service/stationdetails/$1 HTTP/1.0\n\n" | nc www.velib.paris.fr 80 | tail -n7
+    echo "GET /service/stationdetails/$1 HTTP/1.0\n\n" | nc www.velib.paris.fr 80 | tail -n7
 }
 
 vlist() {
-         echo -e "GET /service/carto HTTP/1.0\n\n" | nc www.velib.paris.fr 80
+echo -e "GET /service/carto HTTP/1.0\n\n" | nc www.velib.paris.fr 80
 }
 
-function gwords {
+function trada:gwords {
     price=$1
     filename=${2:=website.tsv}
     blacklist=${3:=blacklist}
@@ -334,4 +342,29 @@ function color-list {
     echo ' Bold            $(tput bold)'
     echo ' Underline       $(tput sgr 0 1)'
     echo ' Reset           $(tput sgr0)'
+}
+
+
+function column-count {
+# Usage: gawk $filename
+#
+# Returns the number of columns in a tab-delimited file $fileename
+#
+# Improvements: pass options to specify the delimiter character.  Currently only
+# uses the tab delimiter
+
+    gawk 'BEGIN {FS="\t"} ; END{print NF}'
+}
+
+function find_and_replace  {
+# Usage: find_and_replace $target $replacement
+#
+# Recursively search the files in the child directories for the target string,
+# and replace the target string in place with replacement
+#
+# Improvements:  Could pass options to ack to improve filetypes searched
+
+    target=$1
+    replacement=$2
+    ack -l $target | xargs -n 1 sed -i "s/$target/$replacement/g"
 }

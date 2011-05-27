@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>gwords.rb</title>
+  <link rel="stylesheet" href="http://jashkenas.github.com/docco/resources/docco.css">
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"></script>
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <table cellspacing=0 cellpadding=0>
+  <thead>
+    <tr>
+      <th class=docs><h1>gwords.rb</h1></th>
+      <th class=code></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr id='section-1'>
+      <td class=docs>
+        <div class="pilwrap">
+          <a class="pilcrow" href="#section-1">&#182;</a>
+        </div>
+        
+      </td>
+      <td class=code>
+        <div class='highlight'><pre></pre></div>
+      </td>
+    </tr>
+    <tr id='section-2'>
+      <td class=docs>
+        <div class="pilwrap">
+          <a class="pilcrow" href="#section-2">&#182;</a>
+        </div>
+        <p>require &lsquo;utils&rsquo;</p>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre><span class="nb">require</span> <span class="s1">&#39;colorize&#39;</span>
+<span class="nb">require</span> <span class="s1">&#39;yaml&#39;</span>
+<span class="nb">require</span> <span class="s1">&#39;pp&#39;</span>
+
+<span class="nb">require</span> <span class="s1">&#39;hashie&#39;</span>
+<span class="no">Hash</span><span class="o">.</span><span class="n">send</span> <span class="ss">:include</span><span class="p">,</span> <span class="no">Hashie</span><span class="o">::</span><span class="no">HashExtensions</span>
+
+
+<span class="k">class</span> <span class="nc">Price</span>
+  <span class="kp">attr_reader</span> <span class="ss">:data</span><span class="p">,</span> <span class="ss">:max_price</span><span class="p">,</span> <span class="ss">:min_price</span>
+
+  <span class="k">def</span> <span class="nf">initialize</span> <span class="n">data</span>
+    <span class="vi">@data</span> <span class="o">=</span> <span class="n">data</span>
+    <span class="vi">@max_price</span> <span class="o">=</span> <span class="n">data</span><span class="o">[</span><span class="ss">:campaign</span><span class="o">].</span><span class="n">budget</span><span class="o">.</span><span class="n">max_bid</span><span class="o">.</span><span class="n">to_f</span>
+    <span class="vi">@min_price</span> <span class="o">=</span> <span class="n">data</span><span class="o">[</span><span class="ss">:campaign</span><span class="o">].</span><span class="n">ppc</span><span class="o">.</span><span class="n">bing</span><span class="o">.</span><span class="n">min_bid</span><span class="o">.</span><span class="n">to_f</span>
+    <span class="vi">@mean_cpc</span> <span class="o">=</span> <span class="n">dollars_to_cents</span> <span class="n">data</span><span class="o">[</span><span class="ss">:estimated_avg_cpc</span><span class="o">]</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">mean</span>
+    <span class="vi">@mean_cpc</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">std_dev</span> <span class="n">num</span><span class="o">=</span><span class="mi">1</span>
+    <span class="p">(</span><span class="n">num</span> <span class="o">*</span> <span class="p">(</span><span class="no">Math</span><span class="o">.</span><span class="n">sqrt</span> <span class="n">mean</span><span class="p">))</span><span class="o">.</span><span class="n">to_i</span>
+  <span class="k">end</span></pre></div>
+      </td>
+    </tr>
+    <tr id='section-3'>
+      <td class=docs>
+        <div class="pilwrap">
+          <a class="pilcrow" href="#section-3">&#182;</a>
+        </div>
+        <p>Lets pretend for a bit that the bidd prices follow a standard normal
+distribution.  In this case, we can bid a price a  $$P_{bid} = \mu+2\sigma$$ and thus
+outbid a large number of competitors, as illustrated here
+<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Standard_deviation_diagram.svg/350px-Standard_deviation_diagram.svg.png" alt="Standard normal" /></p>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre>  <span class="k">def</span> <span class="nf">statistical_price</span>
+    <span class="p">(</span><span class="n">mean</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">std_dev</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span><span class="o">.</span><span class="mi">0</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">algorithmic_price</span>
+    <span class="n">statistical_price</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">bid_price</span>
+    <span class="nb">format</span><span class="p">(</span><span class="s2">&quot;%.2f&quot;</span><span class="p">,</span> <span class="n">raw_bid_price</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="kp">private</span>
+    <span class="k">def</span> <span class="nf">raw_bid_price</span>
+      <span class="n">ensure_in_range</span>
+    <span class="k">end</span>
+
+    <span class="k">def</span> <span class="nf">ensure_in_range</span>
+      <span class="k">if</span> <span class="n">algorithmic_price</span> <span class="o">&lt;</span> <span class="n">min_price</span>
+        <span class="k">return</span> <span class="n">min_price</span>
+      <span class="k">elsif</span> <span class="p">(</span><span class="n">algorithmic_price</span> <span class="o">&gt;=</span> <span class="n">max_price</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">max_price</span> <span class="o">-</span> <span class="mi">0</span><span class="o">.</span><span class="mi">10</span>
+      <span class="k">elsif</span> <span class="n">algorithmic_price</span> <span class="o">&lt;</span> <span class="n">max_price</span>
+        <span class="k">return</span> <span class="n">algorithmic_price</span> 
+      <span class="k">end</span>
+    <span class="k">end</span>
+
+    <span class="k">def</span> <span class="nf">dollars_to_cents</span> <span class="n">number</span>
+      <span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">number</span><span class="o">[</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="o">-</span><span class="mi">1</span><span class="o">].</span><span class="n">to_f</span><span class="p">)</span><span class="o">.</span><span class="n">to_i</span>
+    <span class="k">end</span> 
+<span class="k">end</span>
+
+<span class="no">CAMPAIGN_TEMPLATE</span> <span class="o">=&lt;&lt;-</span><span class="no">END</span>
+<span class="sh">campaign_name:</span>
+<span class="sh">ppc:</span>
+<span class="sh">  tier_1:</span>
+<span class="sh">    price:</span>
+<span class="sh">    percent: 1.00</span>
+<span class="sh">  tier_2:</span>
+<span class="sh">    price:</span>
+<span class="sh">    percent: 0.75</span>
+<span class="sh">  tier_3:</span>
+<span class="sh">    price:</span>
+<span class="sh">    percent: 0.50</span>
+<span class="sh">  google:</span>
+<span class="sh">    max_bid: 0.99</span>
+<span class="sh">    min_bid: 0.01</span>
+<span class="sh">  bing:</span>
+<span class="sh">    max_bid: 0.99</span>
+<span class="sh">    min_bid: 0.10</span>
+<span class="sh">ppa:</span>
+<span class="sh">  google: </span>
+<span class="sh">    max_bid: 1.01</span>
+<span class="sh">    min_bid: 0.01</span>
+<span class="sh">  bing:</span>
+<span class="sh">    max_bid: 1.01</span>
+<span class="sh">    min_bid: 0.10</span>
+
+<span class="sh">budget:</span>
+<span class="sh">  google: 0.50</span>
+<span class="sh">  bing: 0.50</span>
+<span class="sh">  max_bid:</span>
+
+<span class="sh">broad_match_limit: </span>
+
+<span class="sh">daily_budget: 100.00</span>
+<span class="sh">keyword_limit: </span>
+<span class="sh">keyword_click_limit:</span>
+<span class="sh">keyword_spend_limit: </span>
+<span class="sh">minimum_quality_score:</span>
+
+<span class="sh">info_pages: []</span>
+<span class="sh">landing_pages: [] </span>
+<span class="sh">blacklist: [] </span>
+<span class="no">END</span>
+
+<span class="k">def</span> <span class="nf">load_campaign_config</span>
+  <span class="n">config_file</span> <span class="o">=</span> <span class="s1">&#39;campaign.yml&#39;</span>
+  <span class="k">if</span> <span class="no">File</span><span class="o">.</span><span class="n">exists?</span> <span class="n">config_file</span>
+    <span class="vg">$campaign</span> <span class="o">=</span> <span class="no">YAML</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="n">config_file</span><span class="p">)</span><span class="o">.</span><span class="n">to_mash</span>  
+    <span class="nb">puts</span> <span class="s2">&quot;Campaign config has been loaded&quot;</span><span class="o">.</span><span class="n">green</span>
+  <span class="k">else</span>
+    <span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">config_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="p">{</span><span class="o">|</span><span class="n">f</span><span class="o">|</span> <span class="n">f</span><span class="o">.</span><span class="n">puts</span> <span class="no">CAMPAIGN_TEMPLATE</span> <span class="p">}</span>
+    <span class="nb">puts</span> <span class="s2">&quot;I have just created a default campaign.yml file.  Pleases fill it in before proceeding&quot;</span><span class="o">.</span><span class="n">red</span>
+    <span class="nb">exit</span>
+  <span class="k">end</span>
+<span class="k">end</span> 
+
+
+
+<span class="k">def</span> <span class="nf">price_keywords</span> <span class="n">filename</span>
+  <span class="n">extension</span> <span class="o">=</span>  <span class="no">File</span><span class="o">.</span><span class="n">extname</span> <span class="n">filename</span>
+  <span class="k">if</span> <span class="n">extension</span><span class="o">.</span><span class="n">empty?</span>
+    <span class="n">output_filename</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">filename</span> <span class="o">+</span> <span class="s1">&#39;.kwd&#39;</span><span class="p">)</span>
+  <span class="k">else</span>
+    <span class="n">output_filename</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">filename</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">extension</span><span class="p">,</span> <span class="s1">&#39;.kwd&#39;</span><span class="p">))</span>
+  <span class="k">end</span>
+
+
+  <span class="n">doc</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">readlines</span> <span class="n">filename</span></pre></div>
+      </td>
+    </tr>
+    <tr id='section-4'>
+      <td class=docs>
+        <div class="pilwrap">
+          <a class="pilcrow" href="#section-4">&#182;</a>
+        </div>
+        <p>=> [:keyword, :competition, :global_monthly_searches, :local_monthly_searches, :estimated_avg_cpc, :ad_share, :search_share]</p>
+
+      </td>
+      <td class=code>
+        <div class='highlight'><pre>  <span class="n">headers</span> <span class="o">=</span>  <span class="n">doc</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="n">chomp</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:downcase</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">{</span><span class="o">|</span><span class="n">s</span><span class="o">|</span> <span class="n">s</span><span class="o">.</span><span class="n">delete</span> <span class="s1">&#39;.&#39;</span><span class="p">}</span><span class="o">.</span><span class="n">map</span><span class="p">{</span><span class="o">|</span><span class="n">s</span><span class="o">|</span> <span class="n">s</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">)}</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:to_sym</span><span class="p">)</span>
+
+  <span class="n">keywords</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+  <span class="n">f</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">output_filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+
+  <span class="k">for</span> <span class="n">keyword_stat</span> <span class="k">in</span> <span class="n">keywords</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">[</span><span class="n">headers</span><span class="o">.</span><span class="n">zip</span><span class="p">(</span><span class="n">keyword_stat</span><span class="o">.</span><span class="n">chomp</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">))</span><span class="o">].</span><span class="n">merge</span><span class="p">(</span><span class="n">campaign</span><span class="p">:</span> <span class="vg">$campaign</span><span class="p">)</span>
+    <span class="n">keyword</span> <span class="o">=</span> <span class="n">data</span><span class="o">[</span><span class="ss">:keyword</span><span class="o">]</span>
+    <span class="k">next</span> <span class="k">if</span> <span class="vg">$campaign</span><span class="o">.</span><span class="n">blacklist</span><span class="o">.</span><span class="n">include?</span> <span class="n">keyword</span>
+    <span class="n">price</span> <span class="o">=</span> <span class="no">Price</span><span class="o">.</span><span class="n">new</span> <span class="n">data</span>
+    <span class="n">google_bid_price</span> <span class="o">=</span> <span class="n">bing_bid_price</span> <span class="o">=</span> <span class="n">price</span><span class="o">.</span><span class="n">bid_price</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">keyword</span><span class="si">}</span><span class="s2">, </span><span class="si">#{</span><span class="no">AD_GROUP</span><span class="si">}</span><span class="s2">, </span><span class="si">#{</span><span class="n">google_bid_price</span><span class="si">}</span><span class="s2">, </span><span class="si">#{</span><span class="n">bing_bid_price</span><span class="si">}</span><span class="s2">&quot;</span><span class="c1">#&quot;, #{data[:estimated_avg_cpc]}&quot; </span>
+    <span class="nb">puts</span> <span class="n">output</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">puts</span> <span class="n">output</span>
+  <span class="k">end</span> 
+  <span class="n">f</span><span class="o">.</span><span class="n">close</span>
+<span class="k">end</span> 
+
+<span class="n">keyword_list</span> <span class="o">=</span> <span class="no">ARGV</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span>
+<span class="no">AD_GROUP</span> <span class="o">=</span> <span class="no">ARGV</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">||</span> <span class="s2">&quot;default&quot;</span>
+
+<span class="n">load_campaign_config</span>
+<span class="n">price_keywords</span> <span class="n">keyword_list</span></pre></div>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>

@@ -36,6 +36,12 @@ def notify icon, title, msg, display_time
   false
 end
 
+# http://blog.davidchelimsky.net/category/autotest/
+Autotest.add_hook :initialize do |at|
+  unless ARGV.empty?
+    at.find_directories = ARGV.length == 1 ? ["spec/#{ARGV.first}","app/#{ARGV.first}"] : ARGV.dup
+  end
+end
 
 Autotest.add_hook :ran_command do  |at|
   success_icon = '/home/sid137/core/pass.png' 
