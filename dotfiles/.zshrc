@@ -19,6 +19,7 @@ export PATH=$HOME/local/couchdb/bin:$PATH
 export PATH=$HOME/local/redis/bin:$PATH
 export PATH=$HOME/local/imagemagick/bin:$PATH
 export PATH=$PATH:$HOME/local/firefox
+export PATH=$PATH:./bin:${PATH//:\.\/bin:} 
 
 # add recursive PATH, taken from 
 # http://stackoverflow.com/questions/657108/bash-recursively-adding-subdirectories-to-the-path
@@ -368,3 +369,18 @@ function find_and_replace  {
     replacement=$2
     ack -l $target | xargs -n 1 sed -i "s/$target/$replacement/g"
 }
+
+
+
+
+## Heroku command shortcuts
+# Taken from comments here:
+# http://jqr.github.com/2010/08/27/easy-heroku-deploys-with-heroku-san.html
+#
+function staging() { heroku $@ --app $(basename `pwd`)-staging ;}
+function production() { heroku $@ --app $(basename `pwd`)-production ;}
+function demo() { heroku $@ --app $(basename `pwd`)-demo ;}
+function development() { heroku $@ --app $(basename `pwd`)-development ;}
+alias stage='staging'
+alias dev='development'
+alias prod='production'
