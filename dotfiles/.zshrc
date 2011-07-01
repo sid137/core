@@ -11,14 +11,16 @@ export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 
 export TRACKING=~/tracking
-export PATH=$PATH:$HOME/vim/bin
-export PATH=$PATH:$HOME/core/installers
-export PATH=$HOME/local/node/bin:$PATH
+export PATH=$HOME/vim/bin:$PATH
+export PATH=$HOME/core/installers:$PATH
 export PATH=$HOME/tracking/go/bin:$PATH
+export PATH=$HOME/local/node/bin:$PATH
+export PATH=$HOME/local/mongo/bin:$PATH
 export PATH=$HOME/local/couchdb/bin:$PATH
 export PATH=$HOME/local/redis/bin:$PATH
+export PATH=$HOME/local/erlang/bin:$PATH
 export PATH=$HOME/local/imagemagick/bin:$PATH
-export PATH=$PATH:$HOME/local/firefox
+export PATH=$HOME/local/firefox:$PATH
 export PATH=$PATH:./bin:${PATH//:\.\/bin:} 
 
 # add recursive PATH, taken from 
@@ -92,6 +94,7 @@ export tools=~/src/tools
 export data=~/projects/datasets
 export gomm='https://gomm.svn.sourceforge.net/svnroot/gomm/trunk'
 export simpinst='https://simpinstall.svn.sourceforge.net/svnroot/simpinstall/trunk'
+export FOG_RC=~/secret-credentials/.fog
 # Make EAGLE PCB not transparent with compiz
 export XLIB_SKIP_ARGB_VISUALS=1
 #. ~/.zsvn
@@ -176,14 +179,6 @@ function rapp-test {
     rails new $appname --skip-gemfile -JTm ~/tracking/rails-templates/${template:-rails3}.rb 
 }
 
-function deploy {
-    #get branch name
-    #compile sass to css
-    #coompile coffescript to java
-    #run asseet compression 
-    # git commit assets to repo
-    # push to current branch server 
-}
 
 
 # Utility script for geveloping ruby gems with rvm
