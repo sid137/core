@@ -1,6 +1,0 @@
-#!/bin/bash 
-
-for file in `ls -A ~/core/autostart`
-do
-        ln -sf ~/core/autostart/$file ~/.kde/Autostart/$file
-done

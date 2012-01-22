@@ -1,9 +1,0 @@
-#!/bin/bash
-proj=~/thesis/thesis
-cd $proj
-make -C $proj clean
-make -C $proj
-make -C $proj clean
-
-git commit -a -m 'Make autocommit'
-#git push origin master 
