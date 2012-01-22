@@ -1,0 +1,41 @@
+[user]
+	email = sid137@gmail.com
+	name = Sidney Burks
+[color]
+	ui = auto
+[gc]
+	auto = 200
+[alias]
+	st = status
+    ci = commit
+	co = checkout
+    br = branch
+    su = submodule
+    w = whatchanged
+    fixup = !sh -c 'git commit -m \"fixup! $(git log -1 --format='\\''%s'\\'' $@)\"' -
+    squash = !sh -c 'git commit -m \"squash! $(git log -1 --format='\\''%s'\\'' $@)\"' -
+    ri = rebase --interactive --autosquash
+	unstage = reset HEAD
+  uncommit = reset --soft HEAD^
+  cp = cherry-pick -x
+[github]
+	user = sid137
+	token = e981929b8f9fdb2a81e900cc9f4f9cd0
+[core]
+	editor = vim
+  excludesfile = ~/.gitignore
+[merge]
+	tool = opendiff
+  summary = true
+[diff]
+  ; tool = opendiff
+	; external = /Users/noli/core/bin/git-diff-cmd.sh
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+[pivotal]
+	full-name = Sidney Burks
+[mergetool "vimdiff3"]
+	cmd = vim -f -d -c \"wincmd J\" \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+[heroku]
+	account = personal

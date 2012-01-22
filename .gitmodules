@@ -1,0 +1,9 @@
+[submodule ".vim"]
+	path = .vim
+	url = git@github.com:sid137/.vim.git
+[submodule ".emacs.d"]
+	path = .emacs.d
+	url = git@github.com:sid137/emacs.git
+[submodule "bin/amazon/aws"]
+	path = bin/amazon/aws
+	url = https://github.com/timkay/aws.git

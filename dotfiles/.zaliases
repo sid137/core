@@ -1,0 +1,211 @@
+#IB
+alias tws='java -cp jts.jar:hsqldb.jar:jcommon-1.0.12.jar:jfreechart-1.0.9.jar:jhall.jar:other.jar:rss.jar -Xmx512M jclient.LoginFrame .'
+alias ack='ack --nosql --nohtml'
+alias lss='find * -ls  | sort -k 7,7'
+
+alias wakei7='wakeonlan 00:26:18:77:0a:8b'
+alias i7='ssh -l sid137 192.168.1.8'
+
+# Vagrant
+alias va='vagrant'
+
+#Rspec
+alias bes='bundle exec spec --options .rspec' 
+alias gg='guard -G Guardfile'
+
+# Homebrew
+alias brew_install='/usr/bin/ruby -e "$(curl -fsSL https://raw.github.com/gist/323731)"; brew update'
+
+#Billfloat
+alias bf='cd ~/billfloat/billfloat/'
+alias gbf='guard -G guard_files/Guardfile.sidney'
+
+alias shotgun='shotgun -p 9292'
+#thesis
+alias g='gimp'
+alias gwen='gwenview .'
+alias d='display'
+alias vcons='~/bin/plugins/vmware-vmrc -h 127.0.0.1:8333 -X'
+alias td='cd ~/thesis/thesis/'
+alias wk='cd ~/thesis/thesis; watchr watch.rb'
+
+# heroku
+alias h='heroku'
+alias hbam='heroku stack:migrate bamboo-ree-1.8.7'
+alias compass-install='compass install blueprint/basic  --css-dir=public/stylesheets --sass-dir=app/stylesheets --images-dir=public/images -x sass'
+alias bi='bundle install; ctags -R .'
+alias ho='heroku open'
+
+# node.js
+alias ni='npm install'
+
+# shell
+# http://majewsky.wordpress.com/2009/07/11/shutdown-your-machine-automatically-or-from-remote/
+alias k9='kill -9'
+alias .z='. ~/.zshrc'
+alias vsh='vim ~/.zshrc; . ~/.zshrc'
+alias klogout='qdbus org.kde.ksmserver /KSMServer logout 0 0 0'
+alias kshutdown='qdbus org.kde.ksmserver /KSMServer logout 0 2 2'
+#alias blueprint="ln -s $TRACKING/blueprint-css/blueprint blueprint"
+alias compas="compass create --relative-assets --syntax sass --using blueprint/basic "
+alias tags=''
+alias ra='cd ~/tracking'
+alias erd='bundle exec rake erd inheritance=true polymorphism=true notation=bachman orientation=vertical filename=doc/ERD'
+alias gi='gem install'
+alias r='rails'
+alias rap='vim ~/tracking/rails-templates/rails3.rb'
+alias webshare='python -c "import SimpleHTTPServer; SimpleHTTPServer.test()"'
+alias hr='cd ~/projects/heroku'
+alias lsdot="ls -A --group-directories-first | egrep '^\.'"
+alias ocaml='ledit -x -h ~/.ocaml_history ocaml'
+alias ocaml='rlwrap ocaml'
+alias t='cd /tmp'
+alias mkdir='mkdir -p'
+alias fs='find *'
+#alias jdisk='java -jar ~/bin/jdiskreport-1.3.2'
+alias jdisk='javaws http://www.jgoodies.com/download/jdiskreport/jdiskreport.jnlp'
+alias spp='copy_public_ssh_key_to_host'
+alias rcb='create_chef_cookbook'
+alias spec='spec -c'
+alias sdpi='sudo dpkg --install'
+alias rms='ssh -L 3389:sid137@manip15g.spectro.jussieu.fr:3389 burks@apache.spectro.jussieu.fr'
+alias wjs='ssh -D 9999 sid137@wjh.harvard.edu'
+
+alias kff='killall firefox'
+alias v='vim'
+alias svim='sudo vim'
+alias itm='rm -rf /media/ipod/*; ipod-touch-mount'
+alias itu='ipod-touch-umount'
+alias go='chmod u+x'
+alias tz='tar -zxvf'
+alias tj='tar -xjvf'
+alias ls='ls -h -G' 
+alias mount='sudo mount'
+alias '.'='source'
+alias ','='cd -'
+alias -g '...'='../..'
+alias -g '....'='../../..'
+alias -g '.....'='../../../..'
+alias -g P='| lpr -o landscape'
+alias -g G='| grep'
+alias -g L='| less'
+alias -g M='| more'
+alias -g H='| head'
+alias -g T='| tail'
+alias -g W='| wc -l'
+
+#gdb/emacs
+alias gdbtool=emacsclient --eval \'\(gdb \"gdb --annotate=3 '\!*'\"\)\'
+
+#python
+alias ipy="ipython"
+
+#staticmatic
+alias sm='staticmatic'
+
+#git
+# alias gl='git log --graph --pretty="format:%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset"'
+alias gl='git log --no-merges --graph --pretty="format:%C(yellow)%h%Cgreen%d%Creset %s %C(blue) %an, %ar%Creset"'
+alias gnb='git-clean-branch'
+alias gcl='git clone --recursive'
+alias gb='git branch'
+alias gco='git checkout'
+alias gcb='git checkout -b'
+alias gcm='git checkout master'
+alias gcp='git cherry-pick'
+alias gca='git commit -a -m'
+alias gc='git commit'
+alias gpa='git push --tags'
+alias gph='git push heroku master'
+alias gps='git push staging staging:master'
+alias gst='git status'
+alias ga='git add' 
+alias git-pup='git submodule foreach git pull origin master'
+
+# Make
+alias mk="make"
+alias mkc="make clean"
+alias mka="make all"
+alias mkd='make d'
+alias mkp='make python'
+alias mkt='make test'
+alias mkx='make && make clean'
+alias mkf='make clean && make && make hex && make writeflash'
+
+alias nf="cd ~/projects/netflix"
+alias pd="cd ~/projects/${CURR_PROJ}"
+alias puda="cd ~/projects/cuda/NVIDIA_CUDA_SDK_1.0/projects"
+alias pad="cd ~/projects/avr"
+alias pb="cd ~/publications/"
+alias gd="cd ~/.rails/generators"
+alias ds='cd ~/Desktop'
+alias rub='cd /usr/lib/ruby/gems/1.8/gems'
+alias vps='ssh root@${VPS}'
+alias wjh='ssh sid137@wjh.harvard.edu'
+alias lkb='ssh -D 9999 burks@patriot.lkb.upmc.fr'
+alias sshk="cat .ssh/id_rsa.pub | ssh sid137@B 'cat >> .ssh/authorized_keys'"
+alias m='more'
+alias l='ls -lau -G'
+alias sapt='aptitude search'
+alias agi='sudo aptitude install -y'
+alias ragi='sudo aptitude remove --purge'
+alias vi='vim'
+alias vc='vim -u ~/.vim/encrypted_vim_rc -x'
+alias sagu='sudo apt-get update'
+alias ali='. ~/.zaliases; . ~/.zshrc'
+alias vali='vim ~/.zaliases; . ~/.zaliases'
+alias mali='more ~/.zaliases'
+
+# Latex
+#alias lm='latex master.tex && latex master.tex'
+#alias pm='pdflatex master.tex && pdflatex master.tex'
+#alias gm='gv master.pdf'
+#alias bm='bibtex master.aux'
+#alias gp='pm && gm'
+#alias bt='ls *.bib | sed s/\.bib/\.aux/g | xargs -n1 bibtex'
+
+# Ruby
+alias genrdoc='./miniruby -I./lib -I.ext/common -I./- -r./ext/purelib.rb  ./runruby.rb --extout=.ext  -- "./bin/rdoc" --all --ri -f html --op "/home/sid137/rdoc" "."'
+# Use completion
+#alias irb='irb --readline -r irb/completion'
+# Use colors
+alias rii='ri -Tf ansi'
+
+# Rails
+alias rg='rails generate'
+alias rgs='rails generate scaffold'
+alias rgc='rails generate controller'
+alias rgm='rails generate model'
+alias rgmi='rails generate migration'
+alias rc='rails console'
+alias rcs='rails console --sandbox'
+alias av='cd app/views'
+alias am='cd app/models'
+alias ac='cd app/controllers'
+
+alias sc='script/console'
+alias ss='script/server'
+
+alias rren="find . -name \"*.rhtml\" -exec echo mv {} {} \; | sed 's/.rhtml$/.haml/' | sh"
+
+# Rake Tasks
+alias rk='bundle exec rake'
+alias rf='rake features'
+alias rdc='bundle exec rake db:clean'
+alias rdm='bundle exec rake db:migrate'
+alias rdp='bundle exec rake db:test:prepare'
+alias rdy='bundle exec rake db:drop; bundle exec rake db:migrate; bundle exec rake db:test:prepare'
+alias rds='bundle exec rake db:drop; bundle exec rake db:create; bundle exec rake db:migrate;bundle exec rake db:test:prepare;bundle exec rake db:seed'
+alias rd0='rake db:migrate VERSION=0'
+alias rdf='rake db:mysql:refresh'
+alias rsp='rake spec:app'
+alias rsm='bundle exec rake spec:models'
+alias rs='bundle exec rspec'
+alias rsc='rake spec:controllers'
+alias rsv='rake spec:views'
+alias rsa='rake spec:autotest'
+alias rp='rake package'
+
+
+# TCP
+alias  tccd='tcpdump -l -i eth0 -w - src or dst port 3306 | strings'

@@ -1,0 +1,53 @@
+## add recursive PATH, taken from 
+## http://stackoverflow.com/questions/657108/bash-recursively-adding-subdirectories-to-the-path
+#export PATH=$PATH:$(find -L ~/bin -type d | sed '/\/\./ d' | tr '\n' ':' | sed 's/:$//')
+#export PERL5LIB=$PERL5LIB:$PATH
+#
+## Eclipse event error
+#export GDK_NATIVE_WINDOWS=true
+#export PATH=$PATH:$HOME/android-sdk-linux_86/tools
+## Using Rsense code lookup for ruby
+## http://github.com/m2ym/rsense/blob/master/doc/manual.txt
+#export RSENSE_HOME=~/core/ext/rsense
+
+
+#export GTK_IM_MODULE=ibus
+#export XMODIFIERS=@im=ibus
+#export QT_IM_MODULE=ibus
+
+
+## KDE
+##export KDEHOME=$HOME/core/.kde
+#export KDEWM="compiz-fusion"
+#export KDETMP=/tmp
+#export KDEVARTMP=/tmp
+
+## DISLIN
+#export DISLIN=/usr/local/dislin
+#export LD_LIBRARY_PATH=$DISLIN:$LD_LIBRARY_PATH
+#export PATH=${DISLIN}/bin:$PATH
+#export PYTHONPATH=~/.ipython:$DISLIN/python
+
+#export PATH=~/local/MATLAB/R2010b/bin:$PATH
+## Configure firefox so save_and_open_path command in capybara works in launchy
+#export LAUNCHY_BROWSER=/usr/bin/firefox
+
+#[[ $EMACS = t ]] && unsetopt zle
+#export XILINX_USB_DEV=005:026
+#export LREPO=~/projects/templates/
+
+##NVidia CUDA - rm -rf /usr/local/cuda  to uninstall
+#export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
+#export PATH=/usr/local/cuda/bin:$PATH
+#
+#export ATLAS=/usr/lib/atlas
+#export PATH=$PATH:/opt/eagle-5.6.0/bin/
+#export PATH="$HOME/narwhal/bin:$PATH"
+#export DW=ami-3e836657
+#export src=~/src
+#export tools=~/src/tools
+#export data=~/projects/datasets
+#export gomm='https://gomm.svn.sourceforge.net/svnroot/gomm/trunk'
+#export simpinst='https://simpinstall.svn.sourceforge.net/svnroot/simpinstall/trunk'
+## Make EAGLE PCB not transparent with compiz
+#export XLIB_SKIP_ARGB_VISUALS=1

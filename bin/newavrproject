@@ -1,0 +1,81 @@
+#!/bin/sh
+#
+# 'Auto-project' Wizard.
+# Copyright 2005 Kanetkar School of Embedded Technology Pvt. Ltd.
+#    http://www.ksetindia.com/
+#
+# Created     : June 7th, 2005
+# Last Modified: Wed Aug 22 10:50:10 +0530 2007
+#
+# Version 0.12
+#
+
+if [ $# -ne 1 ]; then
+	echo "Usage: $0 <name>"
+	exit 1;
+fi
+
+[ -r $1 ] && \
+	( echo "$1 already exists, please choose some other name" && exit 1)
+
+mkdir $1
+[ $? -ne 0 ] && \
+	( echo "Cannot create subdirectory $1"; exit 1)
+
+#
+# First populate the makefile
+#
+cat > $1/makefile <<EOF
+#
+# Created by 'Auto-project' Wizard.
+# Copyright (C) 2005-2008 Kanetkar School of Embedded Technology Pvt. Ltd.
+# All Rights Reserved
+#
+#    http://www.ksetindia.com/
+#
+TOPDIR=\$(KSET_TOPDIR)/avr
+
+TARGET = $1
+
+#======================================================================
+# DO NOT REMOVE THIS LINE
+#======================================================================
+include \$(TOPDIR)/makefile.inc
+EOF
+
+# Now create header file
+cat > $1/$1.h <<EOF
+/* vi:set et ts=4 sw=4 ai ft=c ff=dos: */
+#ifndef _$1_h_
+#define _$1_h_
+
+/* Include all system header files here */
+#include <avr/io.h>
+
+/* Structures/Classes ... */
+
+/* Extern declarations, prototypes etc. ... */
+
+#endif /* _$1_h_ */
+EOF
+
+# Now create source file
+cat > $1/$1.c <<EOF
+/* vi:set et ts=4 sw=4 ai ft=c ff=dos: */
+#include "$1.h"
+
+/* Global variables */
+
+/* Function prototypes */
+
+int
+main( void )
+{
+	/* your code goes here */
+	return 0;
+}
+
+EOF
+unix2dos $1/$1.h 2>/dev/null >/dev/null
+unix2dos $1/$1.c 2>/dev/null >/dev/null
+unix2dos $1/makefile 2>/dev/null >/dev/null
