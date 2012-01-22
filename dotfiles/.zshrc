@@ -115,9 +115,9 @@ at_reverseoff=$'\e[27m'
 at_strikeoff=$'\e[29m'
 
 PS1=$'$(prompt_git_info)%{$terminfo[bold]$fg[blue]%}:%{\e[0m%}%{$terminfo[bold]$fg[green]%}%~%{\e[0m%} $ '
-if [ -n $SSH_TTY ]; then
+if [ -n "$SSH_TTY"]; then
   ip_address=`echo $SSH_CONNECTION | cut -f3 -d' '` 
-  PS1=$'$(prompt_git_info)${fg_red}%M${at_normal}${fg_cyan}/$ip_address${at_normal}%{$terminfo[bold]$fg[blue]%}:%{\e[0m%}%{$terminfo[bold]$fg[green]%}%~%{\e[0m%} $ '
+  PS1=$'${fg_red}%M${at_normal}${fg_cyan}/$ip_address${at_normal}$(prompt_git_info)%{$terminfo[bold]$fg[blue]%}:%{\e[0m%}%{$terminfo[bold]$fg[green]%}%~%{\e[0m%} $ '
 fi
 
 
