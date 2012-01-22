@@ -10,7 +10,7 @@ ln -sf ~/core/bin ~/bin
 ln -sf ~/core/lib ~/lib
 
 
-for file in `ls -A dotfiles` 
+for file in `ls -A ./dotfiles` 
 do
 	ln -sf ~/core/dotfiles/$file ~/$file
 done
