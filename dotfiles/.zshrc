@@ -1,5 +1,9 @@
-# Some crazy thing to make rpsec2 work 
-# http://www.ruby-forum.com/topic/206187
+. ~/.zaliases
+unsetopt auto_name_dirs
+[ -f ~/billfloat/.billfloat ] && . ~/billfloat/.billfloat
+[ -f ~/.billfloat_functions ] && . ~/.billfloat_functions
+## Some crazy thing to make rpsec2 work 
+## http://www.ruby-forum.com/topic/206187
 export SECRETS=$HOME/secrets
 export OMP_NUM_THREADS=4
 export RUBYOPT=rubygems
@@ -7,15 +11,14 @@ export RUBYLIB=~/lib
 export RSPEC=true
 
 export RDOCOPT="-S -f html"
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
-export RAILS_USE_POSTGRES=true
-
 export TRACKING=~/tracking
-export PATH=$HOME/core/installers:$PATH
+
+# Deactivate for now..  install_ scripts screw up homebrew...  THANKS
+# HOMEBREW!!!!!!11!!
+#export PATH=$HOME/core/installers:$PATH
+
+export PATH=$HOME/core/bin:$PATH
 export PATH=$HOME/tracking/go/bin:$PATH
-export PATH=$HOME/local/vim/bin:$PATH
 export PATH=$HOME/local/node/bin:$PATH
 export PATH=$HOME/local/mongo/bin:$PATH
 export PATH=$HOME/local/couchdb/bin:$PATH
@@ -23,31 +26,25 @@ export PATH=$HOME/local/redis/bin:$PATH
 export PATH=$HOME/local/erlang/bin:$PATH
 export PATH=$HOME/local/imagemagick/bin:$PATH
 export PATH=$HOME/local/firefox:$PATH
-export PATH=$PATH:./bin:${PATH//:\.\/bin:} 
-export PATH=$PATH:$HOME/.cabal/bin 
+export PATH=$HOME/local/vim/bin:$PATH
+export PATH=$HOME/.cabal/bin:$PATH 
+export PATH=$PATH:/usr/local/mysql/bin
+# export PATH=$PATH:./bin:${PATH//:\\.\\/bin:} 
 export PATH=$PATH:/usr/local/sbin 
+export PATH=/usr/local/bin:$PATH
 
-# add recursive PATH, taken from 
-# http://stackoverflow.com/questions/657108/bash-recursively-adding-subdirectories-to-the-path
-export PATH=$PATH:$(find -L ~/bin -type d | sed '/\/\./ d' | tr '\n' ':' | sed 's/:$//')
-export PERL5LIB=$PERL5LIB:$PATH
-
-# Eclipse event error
-export GDK_NATIVE_WINDOWS=true
-export PATH=$PATH:$HOME/android-sdk-linux_86/tools
-# Using Rsense code lookup for ruby
-# http://github.com/m2ym/rsense/blob/master/doc/manual.txt
-export RSENSE_HOME=~/core/ext/rsense
-
+export DEV_ENV=vagrant
 
 # Amazon IAM Toolkit
 export AWS_IAM_HOME=$HOME/local/IAMCli-1.2.0
 export PATH=$PATH:$AWS_IAM_HOME/bin
 
+export EDITOR="vim"
+export MAKEFILES=~/Makefile
 # Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
-HISTSIZE=1000000
-SAVEHIST=1000000
+export HISTFILE=~/.histfile
+export HISTSIZE=1000000
+export SAVEHIST=1000000
 setopt autocd 
 setopt pushdignoredups
 setopt autopushd
@@ -64,86 +61,39 @@ zstyle :compinstall filename '~/.zshrc'
 
 export AWS_CREDENTIALS_FILE=~/aws_credentials
 export AWS_CREDENTIAL_FILE=~/aws_credentials
-. ~/secrets/secret_credentials
-
+[ -f ~/secrets/secret_credentials ] && . ~/secrets/secret_credentials
 autoload -Uz compinit
 autoload zmv
 compinit
 
-. ~/core/git-prompt/git-prompt.sh
 
 #ZLS_COLORS=$LS_COLORS
 # End of lines added by compinstalli
+. ~/core/git-prompt/git-prompt.sh
 export TERM=xterm-color
-#PS1=$'%{\e[0;31m%}%{\e[0m%}%{\e[0m%}%{\e[1;34m%}$(prompt_git_info):%{\e[0m%}%{\e[1;32m%}%~%{\e[0m%} $ '
 PS1=$'$(prompt_git_info)%{$terminfo[bold]$fg[blue]%}:%{\e[0m%}%{$terminfo[bold]$fg[green]%}%~%{\e[0m%} $ '
 
-# export EDITOR="emacs"
-#//cappuccino path
-export CAPP_BUILD='/tmp/capp'
-export PATH="$HOME/narwhal/bin:$PATH"
-export EDITOR="vim"
-export BOOST_ROOT=/usr/local/boost
-export VPS=184.106.153.97
-export SAFE=~/core
-export ATLAS=/usr/lib/atlas
-export JAVA_HOME=/usr/lib/jvm/java-6-sun-1.6.0.16
-export JAVA_HOME=/usr/lib/jvm/java-6-openjdk
-export EC2_HOME=
-export PATH=$PATH:/opt/eagle-5.6.0/bin/
-export MAKEFILES=~/Makefile
-export DW=ami-3e836657
-export src=~/src
-export tools=~/src/tools
-export data=~/projects/datasets
-export gomm='https://gomm.svn.sourceforge.net/svnroot/gomm/trunk'
-export simpinst='https://simpinstall.svn.sourceforge.net/svnroot/simpinstall/trunk'
-export FOG_RC=~/secret-credentials/.fog
-# Make EAGLE PCB not transparent with compiz
-export XLIB_SKIP_ARGB_VISUALS=1
-#. ~/.zsvn
-. ~/.zaliases
-#. /opt/Xilinx/10.1/ISE/settings32.sh
 
-export LD_LIBRARY_PATH=/usr/lib:/usr/local/lib:$HOME/local/imagemagick/lib:$LD_LIBRARY_PATH
+# This is probably important.. i need to figure out what to do here
+#export JAVA_HOME=/usr/lib/jvm/java-6-sun-1.6.0.16
+#export JAVA_HOME=/usr/lib/jvm/java-6-openjdk
 
-export LD_LIBRARY_PATH=/usr/local/hdf5-1.6/lib:$LD_LIBRARY_PATH
-
-#NVidia CUDA - rm -rf /usr/local/cuda  to uninstall
-export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
-export PATH=/usr/local/cuda/bin:$PATH
-
-
-# Rails Vars
-export AUTOFEATURE=true
-
-# KDE
-#export KDEHOME=$HOME/core/.kde
-export KDEWM="compiz-fusion"
-export KDETMP=/tmp
-export KDEVARTMP=/tmp
-
-# DISLIN
-export DISLIN=/usr/local/dislin
-export LD_LIBRARY_PATH=$DISLIN:$LD_LIBRARY_PATH
-export PATH=${DISLIN}/bin:$PATH
-export PYTHONPATH=~/.ipython:$DISLIN/python
-
-
-export PATH=~/local/MATLAB/R2010b/bin:$PATH
-# Configure firefox so save_and_open_path command in capybara works in launchy
-export LAUNCHY_BROWSER=/usr/bin/firefox
-
-# For AMD Stream
-#export LD_LIBRARY_PATH=/usr/local/amdcal/lib64/:/usr/local/amdbrook/sdk/lib:$LD_LIBRARY_PATH
-
-# [end of auto-screen snippet]
-#
-[[ $EMACS = t ]] && unsetopt zle
-export XILINX_USB_DEV=005:026
-export LREPO=~/projects/templates/
-
+#export LD_LIBRARY_PATH=/usr/lib:/usr/local/lib:$HOME/local/imagemagick/lib:$LD_LIBRARY_PATH
+#export LD_LIBRARY_PATH=/usr/local/hdf5-1.6/lib:$LD_LIBRARY_PATH
 #export DYLD_LIBRARY_PATH=$HOME/local/imagemagick/lib:$DYLD_LIBRARY_PATH
+
+
+export FOG_RC=~/secret-credentials/.fog
+
+
+##//cappuccino path
+#export CAPP_BUILD='/tmp/capp'
+#export BOOST_ROOT=/usr/local/boost
+export SAFE=~/core
+
+
+export vpswordpress=108.166.124.128
+
 # Text color variables
 export txtund=$(tput sgr 0 1)     # Underline
 export txtbld=$(tput bold)        # Bold
@@ -167,9 +117,9 @@ info=${bldwht}*${txtrst}         # Feedback
 pass=${bldblu}*${txtrst}
 warn=${bldred}!${txtrst}
 
-#if [[ -s ~/.rvm/scripts/rvm ]] ; then 
-#	source ~/.rvm/scripts/rvm ; 
-#fi
+if [[ -s ~/.rvm/scripts/rvm ]] ; then 
+	source ~/.rvm/scripts/rvm ; 
+fi
 
 
 # Shortcut to initialize rails apps with templates
@@ -272,13 +222,40 @@ function lowercase {
  cat $1 |sed 's/\(.*\)/\L\1/'
 }
 
+function clone_core {
+  git clone 
+}
+
+function greenfield {
+	host=${1:=${VPS}}
+	user=${2:=sid137}
+  ssh-copy-id -i ~/.ssh/id_rsa $user@$host
+  scp ~/.ssh/vps-github $user@$host:~/.ssh/
+  scp ~/.ssh/vps-github.pub $user@$host:~/.ssh
+
+  # Create a ssh/config file so we can connect to git
+  # http://stackoverflow.com/a/1655389/262972
+IFS='\n' read -r -d '' ssh_config << 'EOF'
+Host github.com
+    IdentityFile ~/.ssh/vps-github
+    User git
+EOF
+
+ssh $user@$host << EOS
+  echo '"$ssh_config"' >> ~/.ssh/config
+  git clone -b minimal git@github.com:sid137/core.git
+  ./core/symlink.sh
+  chsh -s `which zsh` $user
+EOS
+}
+
 function initialize {
 	rm .ssh/known_hosts
 	server=${1:=${VPS}}
 	role=$2
 	: ${role:=rails}
 
-    ssh-copy-id -i ~/.ssh/id_rsa root@$server
+  ssh-copy-id -i ~/.ssh/id_rsa root@$server
 	ssh root@$1 "wget http://github.com/sid137/chef-repo/raw/master/install.sh -O install.sh && /bin/bash -x install.sh ${role}" 
 }
 
@@ -371,10 +348,13 @@ function find_and_replace  {
 }
 
 
-
-
 function reverse_tunnel {
     ssh -R $port:localhost:22
 }
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+
+
+kapow(){
+ touch ~/.pow/$1/tmp/restart.txt;
+ if [ $? -eq 0 ]; then; echo "pow: restarting $1" ; fi
+}
+# compctl -W ~/.pow -/ kapow
