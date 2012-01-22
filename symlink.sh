@@ -6,7 +6,6 @@ ln -sf ~/core/.vim ~/.vim
 ln -sf ~/core/.vim/vimrc ~/.vimrc
 
 # Standard Stuff
-ln -sf ~/core/bin ~/bin
 ln -sf ~/core/lib ~/lib
 
 
