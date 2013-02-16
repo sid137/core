@@ -62,15 +62,15 @@ class Object
   end
   private :puts_ri_documentation_for
 
-  def method_missing(meth, *args, &block)
-    if md = /ri_(.*)/.match(meth.to_s)
-      unless puts_ri_documentation_for(self,md[1])
-        "Ri doesn't know about ##{meth}"
-      end
-    else
-      super
-    end
-  end
+  # def method_missing(meth, *args, &block)
+  #   if md = /ri_(.*)/.match(meth.to_s)
+  #     unless puts_ri_documentation_for(self,md[1])
+  #       "Ri doesn't know about ##{meth}"
+  #     end
+  #   else
+  #     super
+  #   end
+  # end
 
   def ri_(meth)
     unless puts_ri_documentation_for(self,meth.to_s)

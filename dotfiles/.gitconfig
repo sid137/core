@@ -18,12 +18,13 @@
 	unstage = reset HEAD
   uncommit = reset --soft HEAD^
   cp = cherry-pick -x
+	lg = log --no-merges --graph --pretty=format:'%C(red)%h%Creset - %C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue) %an%Creset'
 [github]
 	user = sid137
 	token = e981929b8f9fdb2a81e900cc9f4f9cd0
 [core]
 	editor = vim
-  excludesfile = ~/.gitignore
+	excludesfile = /Users/noli/.gitignore
 [merge]
 	tool = opendiff
   summary = true
@@ -39,3 +40,11 @@
 	cmd = vim -f -d -c \"wincmd J\" \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
 [heroku]
 	account = personal
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[push]
+	default = simple

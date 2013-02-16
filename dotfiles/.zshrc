@@ -1,17 +1,24 @@
 . ~/.zaliases
+. $(brew --prefix root)/bin/thisroot.sh
 unsetopt auto_name_dirs
 [ -f ~/billfloat/.billfloat ] && . ~/billfloat/.billfloat
 [ -f ~/.billfloat_functions ] && . ~/.billfloat_functions
 ## Some crazy thing to make rpsec2 work 
 ## http://www.ruby-forum.com/topic/206187
+export ASTERISK=198.61.225.52
 export SECRETS=$HOME/secrets
 export OMP_NUM_THREADS=4
 export RUBYOPT=rubygems
 export RUBYLIB=~/lib
 export RSPEC=true
+export MONGOLAB_URI=mongodb://heroku_app3179025:kmbgc4q670is1ag6vf4sk6d7d7@ds031407.mongolab.com:31407/heroku_app3179025
 
 export RDOCOPT="-S -f html"
 export TRACKING=~/tracking
+
+export PATH=/usr/local/narwhal/bin:$PATH
+export NARWHAL_ENGINE=jsc
+export CAPP_BUILD=/Users/noli/Build
 
 # Deactivate for now..  install_ scripts screw up homebrew...  THANKS
 # HOMEBREW!!!!!!11!!
@@ -33,7 +40,7 @@ export PATH=$PATH:/usr/local/mysql/bin
 export PATH=$PATH:/usr/local/sbin 
 export PATH=/usr/local/bin:$PATH
 
-export DEV_ENV=vagrant
+# export DEV_ENV=vagrant
 
 # Amazon IAM Toolkit
 export AWS_IAM_HOME=$HOME/local/IAMCli-1.2.0
@@ -59,13 +66,24 @@ bindkey -e
 zstyle :compinstall filename '~/.zshrc'
 
 
-export AWS_CREDENTIALS_FILE=~/aws_credentials
-export AWS_CREDENTIAL_FILE=~/aws_credentials
+# export AWS_CREDENTIALS_FILE=~/aws_credentials
+# export AWS_CREDENTIAL_FILE=~/aws_credentials
 [ -f ~/secrets/secret_credentials ] && . ~/secrets/secret_credentials
 autoload -Uz compinit
 autoload zmv
 compinit
 
+
+export EC2_HOME=~/ec2-api-tools
+export PATH=$PATH:$EC2_HOME/bin 
+
+
+# Cucumber-chef crap
+export ORGNAME=sid137
+export OPSCODE_USER=sid137
+export AWS_ACCESS_KEY_ID=$AMAZON_ACCESS_KEY_ID
+export AWS_SECRET_ACCESS_KEY=$AMAZON_SECRET_ACCESS_KEY
+export AWS_SSH_KEY_ID=cucumber-chef
 
 #ZLS_COLORS=$LS_COLORS
 # End of lines added by compinstalli
@@ -124,6 +142,8 @@ fi
 # This is probably important.. i need to figure out what to do here
 #export JAVA_HOME=/usr/lib/jvm/java-6-sun-1.6.0.16
 #export JAVA_HOME=/usr/lib/jvm/java-6-openjdk
+# export JAVA_HOME=/Library/Java/Home
+export JAVA_HOME=$(/usr/libexec/java_home)
 
 #export LD_LIBRARY_PATH=/usr/lib:/usr/local/lib:$HOME/local/imagemagick/lib:$LD_LIBRARY_PATH
 #export LD_LIBRARY_PATH=/usr/local/hdf5-1.6/lib:$LD_LIBRARY_PATH
@@ -227,6 +247,14 @@ function git-clean-branch {
     echo "${alert} Empty branch ${bldwht}$1${alert} created!"
 }
 
+
+function prok {
+  server=$1
+  port=${2:-9999}
+  echo $server
+  echo $port
+  ssh $server -D $port
+}
 
 function rt {
     app_name=$1
@@ -392,7 +420,7 @@ function find_and_replace  {
 
     target=$1
     replacement=$2
-    ack -l $target | xargs -n 1 sed -i "s/$target/$replacement/g"
+    ack -l $target | xargs -n 1 sed -i '' "s/$target/$replacement/g"
 }
 
 
@@ -406,3 +434,5 @@ kapow(){
  if [ $? -eq 0 ]; then; echo "pow: restarting $1" ; fi
 }
 # compctl -W ~/.pow -/ kapow
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
