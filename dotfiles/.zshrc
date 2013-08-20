@@ -3,6 +3,7 @@
 unsetopt auto_name_dirs
 [ -f ~/billfloat/.billfloat ] && . ~/billfloat/.billfloat
 [ -f ~/.billfloat_functions ] && . ~/.billfloat_functions
+[ -f ~/.do_functions ] && . ~/.do_functions
 ## Some crazy thing to make rpsec2 work 
 ## http://www.ruby-forum.com/topic/206187
 export ASTERISK=198.61.225.52
@@ -12,11 +13,13 @@ export RUBYOPT=rubygems
 export RUBYLIB=~/lib
 export RSPEC=true
 export MONGOLAB_URI=mongodb://heroku_app3179025:kmbgc4q670is1ag6vf4sk6d7d7@ds031407.mongolab.com:31407/heroku_app3179025
+export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
 
 export RDOCOPT="-S -f html"
 export TRACKING=~/tracking
 
 export PATH=/usr/local/narwhal/bin:$PATH
+export PATH=~/bin:$PATH
 export NARWHAL_ENGINE=jsc
 export CAPP_BUILD=/Users/noli/Build
 
@@ -399,25 +402,23 @@ function color-list {
 }
 
 
-function column-count {
 # Usage: gawk $filename
 #
 # Returns the number of columns in a tab-delimited file $fileename
 #
 # Improvements: pass options to specify the delimiter character.  Currently only
 # uses the tab delimiter
-
+function column-count {
     gawk 'BEGIN {FS="\t"} ; END{print NF}'
 }
 
-function find_and_replace  {
 # Usage: find_and_replace $target $replacement
 #
 # Recursively search the files in the child directories for the target string,
 # and replace the target string in place with replacement
 #
 # Improvements:  Could pass options to ack to improve filetypes searched
-
+function find_and_replace  {
     target=$1
     replacement=$2
     ack -l $target | xargs -n 1 sed -i '' "s/$target/$replacement/g"

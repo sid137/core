@@ -1,16 +1,25 @@
 #  OS X
+# alias git='hub'
+alias sho='sudo vim /etc/hosts'
+alias kdo='knife digital_ocean'
+alias kdo_ny='knife digital_ocean droplet create --image 25489 --size 66 --location 1 --ssh-keys 7798 --bootstrap --run-list'
 alias xdisp='Xvfb :2 -screen 0 1024x768x24 > /dev/null 2>&1'
 alias aws='aws --region us-east-1'
 alias ngre='ngrep -WByline port 5060'
 alias r53='route53'
 alias vacy='vagrant destroy -f && vagrant up'
+alias vash='vagrant ssh'
 alias deactivate_dyn_page="sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.dynamic_pager.plist"
 alias reactivate_dyn_page="sudo launchctl load -wF /System/Library/LaunchDaemons/com.apple.dynamic_pager.plist"
 alias mongo1="mongo ds033047.mongolab.com:33047/noisette -u noisettellc -p "
-alias heroku='bundle exec heroku'
 alias clc='cat /dev/null | pbcopy'
 alias sshn='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
 alias powr='touch ~/.pow/restart'
+alias gip='pbpaste | gist -p'
+alias speclist='cut -d ':' -f1 specs.log | uniq > specs.uniq'
+alias specspace="cat specs.uniq | tr '\n' ' '"
+alias mit1='ssh root@tracking202 -L 9999:tdc-library.mit.edu:22'
+alias mit2='ssh -D9998 tdc@localhost -p 9999'
 
 alias aster='ssh root@asterisk'
 #  Billfloat
@@ -38,7 +47,7 @@ alias prox='trak -D 9999'
 
 #IB
 alias tws='java -cp jts.jar:hsqldb.jar:jcommon-1.0.12.jar:jfreechart-1.0.9.jar:jhall.jar:other.jar:rss.jar -Xmx512M jclient.LoginFrame .'
-alias ack='ack --nosql --nohtml --type-add TYPE=.scss,.coffee,.feature --ignore-dir=vendor'
+alias ack='ack --nosql --nohtml --type-add TYPE=.scss,.coffee,.feature,.haml  --ignore-dir=vendor'
 alias lss='find * -ls  | sort -k 7,7'
 alias sassy='sass --watch public/sass:public/stylesheets'
 alias v1='git checkout master config/database.yml.vagrant; cp config/database.yml.vagrant config/database.yml'
@@ -48,6 +57,8 @@ alias start_decision='cd decisionengine; ant clean dist; cd ..; sudo bin/start_d
 alias payment_file='vim files/api/xpress_bill_pay/xbp-create-aplinecity-extension-rq.xml'
 alias payment_option='curl -X POST -d @files/api/xpress_bill_pay/xbp-create-aplinecity-extension-rq.xml  http://localhost:3000/api/create_extension'
 alias metropcs_cart='curl -X POST -d @files/api/metropcs/metro-create-handset-extension-rq.xml  http://localhost:3000/api/create_extension'
+alias smartcart='curl -X POST -d @files/api/smartpay/create-extension-rq.xml http://localhost:3000/api/create_extension'
+alias smartcart_underfunded='curl -X POST -d @files/api/smartpay/create-extension-underfunded-rq.xml http://localhost:3000/api/create_extension'
 alias esurance='curl -X POST -d @files/api/esurance/esurance-create-extension-rq.xml  http://localhost:3000/api/create_extension'
 alias esurance_inquire_payment='curl -X POST -d @files/api/esurance/esurance-inquire-about-payment-rq.xml  http://localhost:3000/api/inquire_about_payment'
 alias trak='ssh root@tracking202'
@@ -60,6 +71,7 @@ alias va='vagrant'
 
 #Rspec
 alias bes='bundle exec spec --color' 
+alias bef='bundle exec spec --color --format specdoc' 
 alias gg='guard -G Guardfile'
 alias beg='bundle exec guard'
 
@@ -83,7 +95,7 @@ alias wk='cd ~/thesis/thesis; watchr watch.rb'
 alias h='heroku'
 alias hbam='heroku stack:migrate bamboo-ree-1.8.7'
 alias compass-install='compass install blueprint/basic  --css-dir=public/stylesheets --sass-dir=app/stylesheets --images-dir=public/images -x sass'
-alias bi='bundle install; ctags -R .'
+alias bi='bundle install; rm -rf newrelic; ctags -R .'
 alias ho='heroku open'
 
 # node.js
@@ -121,7 +133,6 @@ alias rms='ssh -L 3389:sid137@manip15g.spectro.jussieu.fr:3389 burks@apache.spec
 alias wjs='ssh -D 9999 sid137@wjh.harvard.edu'
 
 alias kff='killall firefox'
-alias v='vim'
 alias svim='sudo vim'
 alias itm='rm -rf /media/ipod/*; ipod-touch-mount'
 alias itu='ipod-touch-umount'
@@ -154,7 +165,7 @@ alias sm='staticmatic'
 
 #git
 # alias gl='git log --graph --pretty="format:%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset"'
-alias gl='git log --no-merges --graph --pretty="format:%C(red)%h%Creset - %C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue) %an%Creset"'
+alias gl='git log --no-merges --graph --all --decorate --pretty="format:%C(red)%h%Creset - %C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue) %an%Creset"'
 alias gla='gl --author'
 alias gpo='git push origin'
 alias gpom='git push origin master'
@@ -166,10 +177,10 @@ alias gcb='git checkout -b'
 alias gcm='git checkout master'
 alias gcp='git cherry-pick'
 alias gca='git commit -a -m'
-alias gc='git commit'
+alias gc='git clone'
 alias gp='git push'
 alias gpa='git push --tags'
-alias gph='git push heroku master'
+alias gph='git push heroku +HEAD:master'
 alias gps='git push staging staging:master'
 alias gst='git status'
 alias gsa='git stash save'
@@ -267,3 +278,8 @@ alias rp='rake package'
 
 # TCP
 alias  tccd='tcpdump -l -i eth0 -w - src or dst port 3306 | strings'
+
+
+# Python
+
+
