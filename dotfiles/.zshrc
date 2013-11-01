@@ -1,13 +1,9 @@
 . ~/.zaliases
-. $(brew --prefix root)/bin/thisroot.sh
 unsetopt auto_name_dirs
-[ -f ~/billfloat/.billfloat ] && . ~/billfloat/.billfloat
-[ -f ~/.billfloat_functions ] && . ~/.billfloat_functions
-[ -f ~/.do_functions ] && . ~/.do_functions
 ## Some crazy thing to make rpsec2 work 
 ## http://www.ruby-forum.com/topic/206187
 export ASTERISK=198.61.225.52
-export SECRETS=$HOME/secrets
+export SECRETS=$HOME/.secrets
 export OMP_NUM_THREADS=4
 export RUBYOPT=rubygems
 export RUBYLIB=~/lib
@@ -71,7 +67,7 @@ zstyle :compinstall filename '~/.zshrc'
 
 # export AWS_CREDENTIALS_FILE=~/aws_credentials
 # export AWS_CREDENTIAL_FILE=~/aws_credentials
-[ -f ~/secrets/secret_credentials ] && . ~/secrets/secret_credentials
+[ -f $SECRETS/secret_credentials ] && . $SECRETS/secret_credentials
 autoload -Uz compinit
 autoload zmv
 compinit
