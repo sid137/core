@@ -1,9 +1,5 @@
 #/bin/bash -x
  
-# Testing icons
-ln -sf ~/core/pass.png ~/pass.png
-ln -sf ~/core/fail.png ~/fail.png
-
 # Editors
 ln -sf ~/core/.emacs.d ~/.emacs.d
 ln -sf ~/core/.vim ~/.vim
