@@ -3,7 +3,7 @@ unsetopt auto_name_dirs
 ## Some crazy thing to make rpsec2 work 
 ## http://www.ruby-forum.com/topic/206187
 export ASTERISK=198.61.225.52
-export SECRETS=$HOME/.secrets
+export SECRETS=$HOME/secrets
 export OMP_NUM_THREADS=4
 export RUBYOPT=rubygems
 export RUBYLIB=~/lib
@@ -18,6 +18,8 @@ export PATH=/usr/local/narwhal/bin:$PATH
 export PATH=~/bin:$PATH
 export NARWHAL_ENGINE=jsc
 export CAPP_BUILD=/Users/noli/Build
+export PGHOST=localhost 
+export PGUSER=postgres
 
 # Deactivate for now..  install_ scripts screw up homebrew...  THANKS
 # HOMEBREW!!!!!!11!!
@@ -38,15 +40,19 @@ export PATH=$PATH:/usr/local/mysql/bin
 # export PATH=$PATH:./bin:${PATH//:\\.\\/bin:} 
 export PATH=$PATH:/usr/local/sbin 
 export PATH=/usr/local/bin:$PATH
+export PATH=/Users/sid137/.local/lib/aws/bin:$PATH
+source ~/.local/lib/aws/bin/aws_zsh_completer.sh
 
 # export DEV_ENV=vagrant
 
 # Amazon IAM Toolkit
 export AWS_IAM_HOME=$HOME/local/IAMCli-1.2.0
 export PATH=$PATH:$AWS_IAM_HOME/bin
+export PATH="/Applications/Postgres93.app/Contents/MacOS/bin:$PATH"
 
 export EDITOR="vim"
 export MAKEFILES=~/Makefile
+export SPRING_LOG=/tmp/spring.log
 # Lines configured by zsh-newuser-install
 export HISTFILE=~/.histfile
 export HISTSIZE=1000000
@@ -73,7 +79,7 @@ autoload zmv
 compinit
 
 
-export EC2_HOME=~/ec2-api-tools
+export EC2_HOME=~/core/lib/ec2-api-tools
 export PATH=$PATH:$EC2_HOME/bin 
 
 
@@ -81,7 +87,10 @@ export PATH=$PATH:$EC2_HOME/bin
 export ORGNAME=sid137
 export OPSCODE_USER=sid137
 export AWS_ACCESS_KEY_ID=$AMAZON_ACCESS_KEY_ID
+export AWS_ACCESS_KEY=$AMAZON_ACCESS_KEY_ID
 export AWS_SECRET_ACCESS_KEY=$AMAZON_SECRET_ACCESS_KEY
+export AWS_SECRET_KEY=$AMAZON_SECRET_ACCESS_KEY
+export AWS_DEFAULT_REGION=eu-west-1
 export AWS_SSH_KEY_ID=cucumber-chef
 
 #ZLS_COLORS=$LS_COLORS
@@ -432,4 +441,16 @@ kapow(){
 }
 # compctl -W ~/.pow -/ kapow
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$HOME/.rvm/bin:$PATH # Add RVM to PATH for scripting
+source ~/.local/lib/aws/bin/aws_zsh_completer.sh
+
+eval "$(direnv hook zsh)"
+
+
+
+
+export AWS_IAM_ACCESS_KEY=AKIAJMIJULHHPIRIAICA
+export AWS_IAM_SECRET_KEY=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
+# export AMAZON_ACCESS_KEY_ID=
+# export AMAZON_SECRET_ACCESS_KEY=
+export AWS_BUCKET_REGION=eu-west-1

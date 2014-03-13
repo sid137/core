@@ -1,5 +1,8 @@
 #  OS X
 # alias git='hub'
+alias vst='sudo vim /etc/hosts'
+alias t='tree'
+alias rv='cd ~/rogervoice'
 alias sho='sudo vim /etc/hosts'
 alias kdo='knife digital_ocean'
 alias kdo_ny='knife digital_ocean droplet create --image 25489 --size 66 --location 1 --ssh-keys 7798 --bootstrap --run-list'
@@ -23,20 +26,8 @@ alias mit2='ssh -D9998 tdc@localhost -p 9999'
 
 alias aster='ssh root@asterisk'
 #  Billfloat
-alias sass-transact="sass --watch public/stylesheets/portal.scss:public/stylesheets/portal.css --line-comments"
-alias cscript='coffee -o public/javascripts/handsets/ -cw public/coffeescripts/handsets'
-alias bci='ssh billfloat@ci'
-alias be='bundle exec'
-alias bec='bundle exec cucumber -b'
-alias bs='billfloat-connect'
-alias bv='billfloat-connect verizon'
-alias br='billfloat-connect republiclone'
-alias i1='ssh ubuntu@i.billfloat.com -p 50000'
-alias rebuilddb='be rake db:drop db:create db:migrate db:test:prepare && be rake db:seed'
-alias run_specs='rebuilddb && be spec spec/' 
-alias tc='RAILS_ENV=test sc --sandbox'
 alias legalcon='uni2ascii -B'
-alias p='ps -ef G'
+alias p='ps -ef G ruby'
 alias load_schema='rake db:drop; rake db:drop RAILS_ENV=test; rake db:create; rake db:create RAILS_ENV=test; rake db:schema:load; rake db:migrate; rake db:test:prepare'
 
 # Mac
@@ -53,14 +44,6 @@ alias sassy='sass --watch public/sass:public/stylesheets'
 alias v1='git checkout master config/database.yml.vagrant; cp config/database.yml.vagrant config/database.yml'
 alias v2='git checkout config/database.yml'
 alias noli='ssh -X noli'
-alias start_decision='cd decisionengine; ant clean dist; cd ..; sudo bin/start_decision_engine.sh'
-alias payment_file='vim files/api/xpress_bill_pay/xbp-create-aplinecity-extension-rq.xml'
-alias payment_option='curl -X POST -d @files/api/xpress_bill_pay/xbp-create-aplinecity-extension-rq.xml  http://localhost:3000/api/create_extension'
-alias metropcs_cart='curl -X POST -d @files/api/metropcs/metro-create-handset-extension-rq.xml  http://localhost:3000/api/create_extension'
-alias smartcart='curl -X POST -d @files/api/smartpay/create-extension-rq.xml http://localhost:3000/api/create_extension'
-alias smartcart_underfunded='curl -X POST -d @files/api/smartpay/create-extension-underfunded-rq.xml http://localhost:3000/api/create_extension'
-alias esurance='curl -X POST -d @files/api/esurance/esurance-create-extension-rq.xml  http://localhost:3000/api/create_extension'
-alias esurance_inquire_payment='curl -X POST -d @files/api/esurance/esurance-inquire-about-payment-rq.xml  http://localhost:3000/api/inquire_about_payment'
 alias trak='ssh root@tracking202'
 
 alias wakei7='wakeonlan 00:26:18:77:0a:8b'
@@ -70,16 +53,17 @@ alias i7='ssh -l sid137 192.168.1.8'
 alias va='vagrant'
 
 #Rspec
-alias bes='bundle exec spec --color' 
-alias bef='bundle exec spec --color --format specdoc' 
+alias bes='spring rspec --color' 
+alias bef='spring rspec --color --format specdoc' 
 alias gg='guard -G Guardfile'
+alias guard='bundle exec guard'
 alias beg='bundle exec guard'
 
 # Homebrew
 alias brew_install='/usr/bin/ruby -e "$(curl -fsSL https://raw.github.com/gist/323731)"; brew update'
 
 #Billfloat
-alias bf='cd ~/billfloat/billfloat/'
+alias cv='cd ~/coinvalley/coinvalley'
 alias gbf='guard -G guard_files/Guardfile.sidney'
 
 alias shotgun='shotgun -p 9292'
@@ -88,14 +72,13 @@ alias g='gimp'
 alias gwen='gwenview .'
 alias d='display'
 alias vcons='~/bin/plugins/vmware-vmrc -h 127.0.0.1:8333 -X'
-alias td='cd ~/thesis/thesis/'
 alias wk='cd ~/thesis/thesis; watchr watch.rb'
 
 # heroku
 alias h='heroku'
 alias hbam='heroku stack:migrate bamboo-ree-1.8.7'
 alias compass-install='compass install blueprint/basic  --css-dir=public/stylesheets --sass-dir=app/stylesheets --images-dir=public/images -x sass'
-alias bi='bundle install; rm -rf newrelic; ctags -R .'
+alias bi='bundle install && ctags .'
 alias ho='heroku open'
 
 # node.js
@@ -165,28 +148,31 @@ alias sm='staticmatic'
 
 #git
 # alias gl='git log --graph --pretty="format:%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset"'
+alias ga='git add --all' 
+alias gb='git branch'
+alias gc='git clone'
+alias gca='git commit -a -m'
+alias gcb='git checkout -b'
+alias gcl='git clone --recursive'
+alias gcm='git checkout master'
+alias gco='git checkout'
+alias gcp='git cherry-pick'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias git-pup='git submodule foreach git pull origin master'
 alias gl='git log --no-merges --graph --all --decorate --pretty="format:%C(red)%h%Creset - %C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue) %an%Creset"'
 alias gla='gl --author'
-alias gpo='git push origin'
-alias gpom='git push origin master'
 alias gnb='git-clean-branch'
-alias gcl='git clone --recursive'
-alias gb='git branch'
-alias gco='git checkout'
-alias gcb='git checkout -b'
-alias gcm='git checkout master'
-alias gcp='git cherry-pick'
-alias gca='git commit -a -m'
-alias gc='git clone'
 alias gp='git push'
 alias gpa='git push --tags'
 alias gph='git push heroku +HEAD:master'
+alias gpo='git push origin'
+alias gpom='git push origin master'
 alias gps='git push staging staging:master'
-alias gst='git status'
 alias gsa='git stash save'
 alias gss='git stash show -p'
-alias ga='git add' 
-alias git-pup='git submodule foreach git pull origin master'
+alias gst='git status'
+alias pryr="pry -r ./config/environment -r rails/console/app -r rails/console/helpers"
 
 # Make
 alias mk="make"
@@ -203,7 +189,6 @@ alias pd="cd ~/projects/${CURR_PROJ}"
 alias puda="cd ~/projects/cuda/NVIDIA_CUDA_SDK_1.0/projects"
 alias pad="cd ~/projects/avr"
 alias pb="cd ~/publications/"
-alias gd="cd ~/.rails/generators"
 alias ds='cd ~/Desktop'
 alias rub='cd /usr/lib/ruby/gems/1.8/gems'
 alias vps='ssh root@${VPS}'
@@ -238,8 +223,9 @@ alias genrdoc='./miniruby -I./lib -I.ext/common -I./- -r./ext/purelib.rb  ./runr
 alias rii='ri -Tf ansi'
 
 # Rails
+alias be='bundle exec'
+alias tc='RAILS_ENV=test rails console --sandbox'
 alias rg='rails generate'
-alias rgs='rails generate scaffold --no-fixture --no-helper --timestamps --no-assets'
 alias rgc='rails generate controller'
 alias rgm='rails generate model'
 alias rgmi='rails generate migration'
@@ -249,27 +235,30 @@ alias av='cd app/views'
 alias am='cd app/models'
 alias ac='cd app/controllers'
 
-alias sc='script/console'
-alias ss='script/server'
+alias rc="pry -r ./config/environment -r rails/console/app -r rails/console/helpers"
+alias ss='rails server'
+alias sd='rails db'
 
 alias rren="find . -name \"*.rhtml\" -exec echo mv {} {} \; | sed 's/.rhtml$/.haml/' | sh"
 
 # Rake Tasks
+alias td='RAILS_ENV=test rake db:rollback --trace'
+alias tu='RAILS_ENV=test rake db:migrate --trace'
 alias rk='bundle exec rake'
 alias rf='rake features'
 alias rdc='bundle exec rake db:clean'
 alias rdm='bundle exec rake db:migrate'
+alias rdt='RAILS_ENV=test bundle exec rake db:migrate'
+alias rdtc='RAILS_ENV=test rk db:drop db:create db:migrate' 
+alias rdc='rk db:drop db:create db:migrate' 
 alias rdp='bundle exec rake db:test:prepare'
-alias rdy='bundle exec rake db:drop; bundle exec rake db:migrate; bundle exec rake db:test:prepare'
-alias rds='bundle exec rake db:drop; bundle exec rake db:create; bundle exec rake db:migrate;bundle exec rake db:test:prepare;bundle exec rake db:seed'
-alias rdt='bundle exec rake db:drop; bundle exec rake db:create; bundle exec rake db:migrate;bundle exec rake db:test:prepare;'
 alias rdh='bundle exec rake db:pristine coffee:min css:min yaml:build --trace'
 alias rdk='bundle exec rake coffee:min css:min yaml:build db:migrate'
 alias rd0='rake db:migrate VERSION=0'
 alias rdf='rake db:mysql:refresh'
 alias rsp='rake spec:app'
 alias rsm='bundle exec rake spec:models'
-alias rs='bundle exec rspec'
+alias rs='rails server'
 alias rsc='rake spec:controllers'
 alias rsv='rake spec:views'
 alias rsa='rake spec:autotest'
@@ -278,8 +267,3 @@ alias rp='rake package'
 
 # TCP
 alias  tccd='tcpdump -l -i eth0 -w - src or dst port 3306 | strings'
-
-
-# Python
-
-

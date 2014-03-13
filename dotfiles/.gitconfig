@@ -38,8 +38,6 @@
 	full-name = Sidney Burks
 [mergetool "vimdiff3"]
 	cmd = vim -f -d -c \"wincmd J\" \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
-[heroku]
-	account = personal
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -48,3 +46,5 @@
 	trustExitCode = true
 [push]
 	default = simple
+[heroku]
+	account = ividata
