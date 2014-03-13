@@ -18,10 +18,10 @@ behead_re = re.compile(r"^# Your branch is (ahead of|behind) '(.*)' by (\d+) com
 diverge_re = re.compile(r"^# and have (\d+) and (\d+) different")
 
 status = ''
-staged = re.compile(r'^# Changes to be committed:$', re.MULTILINE)
-changed = re.compile(r'^# Changed but not updated:$', re.MULTILINE)
-untracked = re.compile(r'^# Untracked files:$', re.MULTILINE)
-unmerged = re.compile(r'^# Unmerged paths:$', re.MULTILINE)
+staged = re.compile(r'^Changes to be committed:$', re.MULTILINE)
+changed = re.compile(r'^Changed but not updated:$', re.MULTILINE)
+untracked = re.compile(r'^Untracked files:$', re.MULTILINE)
+unmerged = re.compile(r'^Unmerged paths:$', re.MULTILINE)
 
 def execute(*command):
 	out, err = Popen(*command, stdout=PIPE, stderr=PIPE).communicate()
