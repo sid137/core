@@ -48,3 +48,6 @@
 	default = simple
 [heroku]
 	account = ividata
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f

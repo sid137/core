@@ -1,4 +1,6 @@
 #  OS X
+#  ividata
+alias mongoivi='mongo $IVIZONE_MONGO_URL -u $IVIZONE_MONGO_USER -p $IVIZONE_MONGO_PASS'
 # alias git='hub'
 alias vst='sudo vim /etc/hosts'
 alias t='tree'
@@ -21,8 +23,9 @@ alias powr='touch ~/.pow/restart'
 alias gip='pbpaste | gist -p'
 alias speclist='cut -d ':' -f1 specs.log | uniq > specs.uniq'
 alias specspace="cat specs.uniq | tr '\n' ' '"
-alias mit1='ssh root@tracking202 -L 9999:tdc-library.mit.edu:22'
+alias mit1='ssh root@blog -L 9999:tdc-library.mit.edu:22'
 alias mit2='ssh -D9998 tdc@localhost -p 9999'
+alias mittdc='ssh -D 9999  tdc@tdc-library.mit.edu'
 
 alias aster='ssh root@asterisk'
 #  Billfloat
@@ -64,6 +67,7 @@ alias brew_install='/usr/bin/ruby -e "$(curl -fsSL https://raw.github.com/gist/3
 
 #Billfloat
 alias cv='cd ~/coinvalley/coinvalley'
+alias iv='cd ~/ivizone'
 alias gbf='guard -G guard_files/Guardfile.sidney'
 
 alias shotgun='shotgun -p 9292'
