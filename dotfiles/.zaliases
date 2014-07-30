@@ -1,6 +1,7 @@
 #  OS X
 #  ividata
 alias mongoivi='mongo $IVIZONE_MONGO_URL -u $IVIZONE_MONGO_USER -p $IVIZONE_MONGO_PASS'
+alias mongosoc='mongo ds053948.mongolab.com:53948/social-data -u ivizone-social -p ivizonesocial'
 # alias git='hub'
 alias vst='sudo vim /etc/hosts'
 alias t='tree'
