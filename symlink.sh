@@ -9,9 +9,6 @@ ln -sf ~/core/.vim/vimrc ~/.vimrc
 ln -sf ~/core/bin ~/bin
 ln -sf ~/core/lib ~/lib
 
-ln -sf ~/core/compiz/config ~/.config/compiz/compizconfig/config
-ln -sf ~/core/compiz/Default.ini ~/.config/compiz/compizconfig/Default.ini
-
 
 
 for file in `ls -A dotfiles` 
