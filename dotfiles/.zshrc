@@ -41,7 +41,7 @@ export PATH=$PATH:/usr/local/mysql/bin
 export PATH=$PATH:/usr/local/sbin 
 export PATH=/usr/local/bin:$PATH
 export PATH=/Users/sid137/.local/lib/aws/bin:$PATH
-source ~/.local/lib/aws/bin/aws_zsh_completer.sh
+# source ~/.local/lib/aws/bin/aws_zsh_completer.sh
 
 # export DEV_ENV=vagrant
 
@@ -442,7 +442,7 @@ kapow(){
 # compctl -W ~/.pow -/ kapow
 
 PATH=$HOME/.rvm/bin:$PATH # Add RVM to PATH for scripting
-source ~/.local/lib/aws/bin/aws_zsh_completer.sh
+# source ~/.local/lib/aws/bin/aws_zsh_completer.sh
 
 eval "$(direnv hook zsh)"
 
