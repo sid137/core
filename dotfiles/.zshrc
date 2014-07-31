@@ -444,7 +444,7 @@ kapow(){
 PATH=$HOME/.rvm/bin:$PATH # Add RVM to PATH for scripting
 # source ~/.local/lib/aws/bin/aws_zsh_completer.sh
 
-eval "$(direnv hook zsh)"
+# eval "$(direnv hook zsh)"
 
 
 
