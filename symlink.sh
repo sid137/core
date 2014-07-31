@@ -19,4 +19,3 @@ done
 #Flash cache - map crap to /tmp so its erased on reboot
 ln -s /tmp ~/.macromedia 
 ln -s /tmp ~/.adobe
-./autostart/link_autostart
