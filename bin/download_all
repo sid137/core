@@ -1,0 +1,23 @@
+#!/bin/bash
+
+url_list=${1:-urls}
+urls=`cat $url_list`
+for url in $urls; do
+  echo "Downloading $url"
+  youtube-wget.pl $url
+  sleep 5;
+done 
+
+sleep 20;
+
+downloaded_files=`ls *.mp4`
+for file in $downloaded_files; do
+  if [ -s "$file" ]
+  then
+    echo "Moving $file to videos/"
+    mv $file videos/
+  else
+    echo "$file broken"
+  fi
+done
+
