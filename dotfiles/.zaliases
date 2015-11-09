@@ -1,9 +1,18 @@
 #  AWS
+#  aws s3api list-objects --bucket BUCKETNAME --output json --query "[sum(Contents[].Size), length(Contents[])]"
 #  OS X
 #  ividata
+alias gzcat='gzcat -k'
+alias wifiPass='security find-generic-password -ga "tc_network 5GHz" | grep password'
+alias authexport='mongoexport -h ds053539.mongolab.com:53539 -d ivizone-splash-production -c <collection> -u <user> -p <password> -o <output file>'
+alias prod='RAILS_ENV=production RAILS_SERVE_STATIC_FILES=true'
 alias mongoivi='mongo $IVIZONE_MONGO_URL -u $IVIZONE_MONGO_USER -p $IVIZONE_MONGO_PASS'
 alias mongosoc='mongo ds053948.mongolab.com:53948/social-data -u ivizone-social -p ivizonesocial'
+alias linkdown='cat links| xargs -I link wget -N -T 60 link'
+alias dynamodb='cd ~/ivizone/dynamodb && java -Djava.library.path=DynamoDBLocal_lib -jar ~/ivizone/dynamodb/DynamoDBLocal.jar'
+alias dynamolocal='aws dynamodb --endpoint-url http://localhost:8000'
 # alias git='hub'
+alias wget='wget -N'
 alias vst='sudo vim /etc/hosts'
 alias t='tree'
 alias rv='cd ~/rogervoice'
@@ -11,7 +20,6 @@ alias sho='sudo vim /etc/hosts'
 alias kdo='knife digital_ocean'
 alias kdo_ny='knife digital_ocean droplet create --image 25489 --size 66 --location 1 --ssh-keys 7798 --bootstrap --run-list'
 alias xdisp='Xvfb :2 -screen 0 1024x768x24 > /dev/null 2>&1'
-alias aws='aws --region us-east-1'
 alias ngre='ngrep -WByline port 5060'
 alias r53='route53'
 alias vacy='vagrant destroy -f && vagrant up'
@@ -22,7 +30,7 @@ alias mongo1="mongo ds033047.mongolab.com:33047/noisette -u noisettellc -p "
 alias clc='cat /dev/null | pbcopy'
 alias sshn='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
 alias powr='touch ~/.pow/restart'
-alias gip='pbpaste | gist -p'
+alias gip='pbpaste | gist -pc'
 alias speclist='cut -d ':' -f1 specs.log | uniq > specs.uniq'
 alias specspace="cat specs.uniq | tr '\n' ' '"
 alias mit1='ssh root@blog -L 9999:tdc-library.mit.edu:22'
@@ -43,7 +51,7 @@ alias prox='trak -D 9999'
 
 #IB
 alias tws='java -cp jts.jar:hsqldb.jar:jcommon-1.0.12.jar:jfreechart-1.0.9.jar:jhall.jar:other.jar:rss.jar -Xmx512M jclient.LoginFrame .'
-alias ack='ack --nosql --nohtml --type-add TYPE=.scss,.coffee,.feature,.haml  --ignore-dir=vendor'
+alias ack='ack  --type-add css=.scss,.sass --type-add js=.coffee --type-add ruby=.feature,.haml --type-add html=.haml  --ignore-dir=vendor'
 alias lss='find * -ls  | sort -k 7,7'
 alias sassy='sass --watch public/sass:public/stylesheets'
 alias v1='git checkout master config/database.yml.vagrant; cp config/database.yml.vagrant config/database.yml'
@@ -58,7 +66,7 @@ alias i7='ssh -l sid137 192.168.1.8'
 alias va='vagrant'
 
 #Rspec
-alias bes='spring rspec --color' 
+alias bes='bundle exec spring rspec' 
 alias bef='spring rspec --color --format specdoc' 
 alias gg='guard -G Guardfile'
 alias guard='bundle exec guard'
@@ -242,7 +250,6 @@ alias am='cd app/models'
 alias ac='cd app/controllers'
 
 alias rc="pry -r ./config/environment -r rails/console/app -r rails/console/helpers"
-alias ss='rails server'
 alias sd='rails db'
 
 alias rren="find . -name \"*.rhtml\" -exec echo mv {} {} \; | sed 's/.rhtml$/.haml/' | sh"
