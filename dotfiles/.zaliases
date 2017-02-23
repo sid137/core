@@ -1,8 +1,28 @@
 #  AWS
 #  aws s3api list-objects --bucket BUCKETNAME --output json --query "[sum(Contents[].Size), length(Contents[])]"
+alias iviupgrade='pip install -U git+ssh://git@github.com/ividata/ivizone-cli.git'
+alias ivi='ivizone'
+alias tdump='sudo tcpdump -nneASs 0'
+alias mygo='cd ~/go/src/github.com/sid137/'
+
+
+# GOLANG
+alias gop='cd $GOPATH'
+
 #  OS X
+alias rails_sudo='rvmsudo rails server -p 3000'
+#  docker
+alias d='docker'
+alias dip='docker-machine ip default'
+alias ovftool="/Applications/VMware\ OVF\ Tool/ovftool"
+alias tf='terraform'
+alias ssh_pub='ssh-keygen -y -f'
+alias flushdns='dscacheutil -flushcache;sudo killall -HUP mDNSResponder'
+alias connect_aruba='ssh admin@controller.aruba.office.ivizone.com'
+
 #  ividata
 alias gzcat='gzcat -k'
+alias deval='eval $(docker-machine env default)'
 alias wifiPass='security find-generic-password -ga "tc_network 5GHz" | grep password'
 alias authexport='mongoexport -h ds053539.mongolab.com:53539 -d ivizone-splash-production -c <collection> -u <user> -p <password> -o <output file>'
 alias prod='RAILS_ENV=production RAILS_SERVE_STATIC_FILES=true'
@@ -12,13 +32,11 @@ alias linkdown='cat links| xargs -I link wget -N -T 60 link'
 alias dynamodb='cd ~/ivizone/dynamodb && java -Djava.library.path=DynamoDBLocal_lib -jar ~/ivizone/dynamodb/DynamoDBLocal.jar'
 alias dynamolocal='aws dynamodb --endpoint-url http://localhost:8000'
 # alias git='hub'
+alias gpr='hub pull-request -b production'
 alias wget='wget -N'
 alias vst='sudo vim /etc/hosts'
 alias t='tree'
-alias rv='cd ~/rogervoice'
 alias sho='sudo vim /etc/hosts'
-alias kdo='knife digital_ocean'
-alias kdo_ny='knife digital_ocean droplet create --image 25489 --size 66 --location 1 --ssh-keys 7798 --bootstrap --run-list'
 alias xdisp='Xvfb :2 -screen 0 1024x768x24 > /dev/null 2>&1'
 alias ngre='ngrep -WByline port 5060'
 alias r53='route53'
@@ -38,10 +56,6 @@ alias mit2='ssh -D9998 tdc@localhost -p 9999'
 alias mittdc='ssh -D 9999  tdc@tdc-library.mit.edu'
 
 alias aster='ssh root@asterisk'
-#  Billfloat
-alias legalcon='uni2ascii -B'
-alias p='ps -ef G ruby'
-alias load_schema='rake db:drop; rake db:drop RAILS_ENV=test; rake db:create; rake db:create RAILS_ENV=test; rake db:schema:load; rake db:migrate; rake db:test:prepare'
 
 # Mac
 alias spotlight_off='sudo mdutil -a -i off'
@@ -49,90 +63,45 @@ alias spotlight_on='sudo mdutil -a -i on'
 alias prox='trak -D 9999'
 
 
-#IB
-alias tws='java -cp jts.jar:hsqldb.jar:jcommon-1.0.12.jar:jfreechart-1.0.9.jar:jhall.jar:other.jar:rss.jar -Xmx512M jclient.LoginFrame .'
-alias ack='ack  --type-add css=.scss,.sass --type-add js=.coffee --type-add ruby=.feature,.haml --type-add html=.haml  --ignore-dir=vendor'
+alias ack='ack  --type-add css=.scss,.sass --type-add js=.coffee --type-add ruby=.feature,.haml --type-add html=.haml,.erb --ignore-dir=vendor'
 alias lss='find * -ls  | sort -k 7,7'
-alias sassy='sass --watch public/sass:public/stylesheets'
-alias v1='git checkout master config/database.yml.vagrant; cp config/database.yml.vagrant config/database.yml'
-alias v2='git checkout config/database.yml'
-alias noli='ssh -X noli'
-alias trak='ssh root@tracking202'
 
 alias wakei7='wakeonlan 00:26:18:77:0a:8b'
 alias i7='ssh -l sid137 192.168.1.8'
 
-# Vagrant
-alias va='vagrant'
-
-#Rspec
-alias bes='bundle exec spring rspec' 
-alias bef='spring rspec --color --format specdoc' 
-alias gg='guard -G Guardfile'
-alias guard='bundle exec guard'
-alias beg='bundle exec guard'
 
 # Homebrew
 alias brew_install='/usr/bin/ruby -e "$(curl -fsSL https://raw.github.com/gist/323731)"; brew update'
 
-#Billfloat
-alias cv='cd ~/coinvalley/coinvalley'
 alias iv='cd ~/ivizone'
-alias gbf='guard -G guard_files/Guardfile.sidney'
 
 alias shotgun='shotgun -p 9292'
 #thesis
 alias g='gimp'
 alias gwen='gwenview .'
-alias d='display'
+# alias d='display'
 alias vcons='~/bin/plugins/vmware-vmrc -h 127.0.0.1:8333 -X'
 alias wk='cd ~/thesis/thesis; watchr watch.rb'
-
-# heroku
-alias h='heroku'
-alias hbam='heroku stack:migrate bamboo-ree-1.8.7'
-alias compass-install='compass install blueprint/basic  --css-dir=public/stylesheets --sass-dir=app/stylesheets --images-dir=public/images -x sass'
-alias bi='bundle install && ctags .'
-alias ho='heroku open'
-
-# node.js
-alias ni='npm install'
 
 # shell
 # http://majewsky.wordpress.com/2009/07/11/shutdown-your-machine-automatically-or-from-remote/
 alias k9='kill -9'
 alias .z='. ~/.zshrc'
 alias vsh='vim ~/.zshrc; . ~/.zshrc'
-alias klogout='qdbus org.kde.ksmserver /KSMServer logout 0 0 0'
-alias kshutdown='qdbus org.kde.ksmserver /KSMServer logout 0 2 2'
-#alias blueprint="ln -s $TRACKING/blueprint-css/blueprint blueprint"
-alias compas="compass create --relative-assets --syntax sass --using blueprint/basic "
-alias tags=''
 alias ra='cd ~/tracking'
-alias erd='bundle exec rake erd inheritance=true polymorphism=true notation=bachman orientation=vertical filename=doc/ERD'
 alias gi='gem install'
 alias r='rails'
-alias rap='vim ~/tracking/rails-templates/rails3.rb'
 alias webshare='python -c "import SimpleHTTPServer; SimpleHTTPServer.test()"'
-alias hr='cd ~/projects/heroku'
 alias lsdot="ls -A --group-directories-first | egrep '^\.'"
-alias ocaml='ledit -x -h ~/.ocaml_history ocaml'
-alias ocaml='rlwrap ocaml'
 alias mkdir='mkdir -p'
 alias fs='find *'
-#alias jdisk='java -jar ~/bin/jdiskreport-1.3.2'
 alias jdisk='javaws http://www.jgoodies.com/download/jdiskreport/jdiskreport.jnlp'
 alias spp='copy_public_ssh_key_to_host'
-alias rcb='create_chef_cookbook'
 alias spec='spec -c'
 alias sdpi='sudo dpkg --install'
-alias rms='ssh -L 3389:sid137@manip15g.spectro.jussieu.fr:3389 burks@apache.spectro.jussieu.fr'
-alias wjs='ssh -D 9999 sid137@wjh.harvard.edu'
 
 alias kff='killall firefox'
 alias svim='sudo vim'
-alias itm='rm -rf /media/ipod/*; ipod-touch-mount'
-alias itu='ipod-touch-umount'
 alias gu='chmod u+x'
 alias tz='tar -zxvf'
 alias tj='tar -xjvf'
@@ -143,22 +112,21 @@ alias ','='cd -'
 alias -g '...'='../..'
 alias -g '....'='../../..'
 alias -g '.....'='../../../..'
-alias -g P='| lpr -o landscape'
+alias -g C='| pbcopy'
+alias -g P='| pbpaste'
+alias -g S='| gist -pc'
 alias -g G='| grep'
 alias -g L='| less'
 alias -g M='| more'
 alias -g H='| head'
 alias -g T='| tail'
 alias -g W='| wc -l'
-
-#gdb/emacs
-alias gdbtool=emacsclient --eval \'\(gdb \"gdb --annotate=3 '\!*'\"\)\'
+alias -g J="| jq '.'"
+alias -g R='`ls -Art | tail -n 1`'
 
 #python
 alias ipy="ipython"
 
-#staticmatic
-alias sm='staticmatic'
 
 #git
 # alias gl='git log --graph --pretty="format:%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset"'
@@ -198,15 +166,10 @@ alias mkt='make test'
 alias mkx='make && make clean'
 alias mkf='make clean && make && make hex && make writeflash'
 
-alias nf="cd ~/projects/netflix"
 alias pd="cd ~/projects/${CURR_PROJ}"
-alias puda="cd ~/projects/cuda/NVIDIA_CUDA_SDK_1.0/projects"
-alias pad="cd ~/projects/avr"
-alias pb="cd ~/publications/"
 alias ds='cd ~/Desktop'
 alias rub='cd /usr/lib/ruby/gems/1.8/gems'
 alias vps='ssh root@${VPS}'
-alias wjh='ssh sid137@wjh.harvard.edu'
 alias lkb='ssh -D 9999 burks@patriot.lkb.upmc.fr'
 alias sshk="cat .ssh/id_rsa.pub | ssh sid137@B 'cat >> .ssh/authorized_keys'"
 alias m='more'
@@ -221,23 +184,11 @@ alias ali='. ~/.zaliases; . ~/.zshrc'
 alias vali='vim ~/.zaliases; . ~/.zaliases'
 alias mali='more ~/.zaliases'
 
-# Latex
-#alias lm='latex master.tex && latex master.tex'
-#alias pm='pdflatex master.tex && pdflatex master.tex'
-#alias gm='gv master.pdf'
-#alias bm='bibtex master.aux'
-#alias gp='pm && gm'
-#alias bt='ls *.bib | sed s/\.bib/\.aux/g | xargs -n1 bibtex'
-
-# Ruby
-alias genrdoc='./miniruby -I./lib -I.ext/common -I./- -r./ext/purelib.rb  ./runruby.rb --extout=.ext  -- "./bin/rdoc" --all --ri -f html --op "/home/sid137/rdoc" "."'
-# Use completion
-#alias irb='irb --readline -r irb/completion'
-# Use colors
-alias rii='ri -Tf ansi'
 
 # Rails
+alias bi='bundle install'
 alias be='bundle exec'
+alias bes='bundle exec rspec'
 alias tc='RAILS_ENV=test rails console --sandbox'
 alias rg='rails generate'
 alias rgc='rails generate controller'
@@ -245,9 +196,6 @@ alias rgm='rails generate model'
 alias rgmi='rails generate migration'
 alias rc='rails console'
 alias rcs='rails console --sandbox'
-alias av='cd app/views'
-alias am='cd app/models'
-alias ac='cd app/controllers'
 
 alias rc="pry -r ./config/environment -r rails/console/app -r rails/console/helpers"
 alias sd='rails db'
