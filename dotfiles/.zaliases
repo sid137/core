@@ -125,7 +125,10 @@ alias -g J="| jq '.'"
 alias -g R='`ls -Art | tail -n 1`'
 
 #python
-alias ipy="ipython"
+alias python='python3'
+alias ipy="ipython3"
+alias ipy3="ipython3"
+alias pip='pip3'
 
 
 #git
@@ -189,6 +192,7 @@ alias mali='more ~/.zaliases'
 alias bi='bundle install'
 alias be='bundle exec'
 alias bes='bundle exec rspec'
+alias br='bin/rspec'
 alias tc='RAILS_ENV=test rails console --sandbox'
 alias rg='rails generate'
 alias rgc='rails generate controller'
