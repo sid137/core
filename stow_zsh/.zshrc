@@ -32,11 +32,9 @@ export TRACKING=~/tracking
 export rvmsudo_secure_path=1
 
 export PATH=/usr/local/bin:$PATH
-export PATH=~/bin:$PATH
 export PATH="./bin:$PATH"
 export PGHOST=localhost 
 export PGUSER=postgres
-export AWS_AUTO_SCALING_HOME=$HOME/bin/autoscaling
 export AWS_CREDENTIAL_FILE=$AWS_AUTO_SCALING_HOME/credential-file-path.template
 export EC2_REGION=eu-west-1
 export AWS_AUTO_SCALING_URL=https://autoscaling.eu-west-1.amazonaws.com  
@@ -44,14 +42,9 @@ export PGDATA="/Users/sid137/Library/Application Support/Postgres/var-9.4"
 export PYTHONDONTWRITEBYTECODE=1
 
 
-export PATH=$HOME/core/bin:$PATH
-export PATH=$HOME/tracking/go/bin:$PATH
-export PATH=$PATH:$AWS_AUTO_SCALING_HOME/bin
 export PATH=$HOME/aws/ebs/eb/macosx/python2.7:$PATH 
 export PATH=$PATH:/usr/local/mysql/bin
-# export PATH=$PATH:./bin:${PATH//:\\.\\/bin:} 
 export PATH=$PATH:/usr/local/sbin 
-export PATH=$PATH:~/Library/Android/sdk/platform-tools
 export PATH=/usr/local/bin:$PATH
 export PATH=/Users/sid137/.local/lib/aws/bin:$PATH
 export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
@@ -85,7 +78,6 @@ bindkey -e
 zstyle :compinstall filename '~/.zshrc'
 
 
-export PATH=$PATH:$EC2_HOME/bin 
 
 # Cucumber-chef crap
 export ORGNAME=sid137
@@ -259,15 +251,6 @@ ssh $user@$host << EOS
 EOS
 }
 
-function initialize {
-	rm .ssh/known_hosts
-	server=${1:=${VPS}}
-	role=$2
-	: ${role:=rails}
-
-  ssh-copy-id -i ~/.ssh/id_rsa root@$server
-	ssh root@$1 "wget http://github.com/sid137/chef-repo/raw/master/install.sh -O install.sh && /bin/bash -x install.sh ${role}" 
-}
 
 src () {mv $1 $src}
 base (){
