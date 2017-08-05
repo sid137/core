@@ -1,5 +1,0 @@
-set show-all-if-ambiguous on
-$if Python
-"\M-i": "    "
-"\M-u": "\d\d\d\d"
-$endif

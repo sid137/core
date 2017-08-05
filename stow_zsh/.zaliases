@@ -1,0 +1,235 @@
+#  AWS
+#  aws s3api list-objects --bucket BUCKETNAME --output json --query "[sum(Contents[].Size), length(Contents[])]"
+alias iviupgrade='pip install -U git+ssh://git@github.com/ividata/ivizone-cli.git'
+alias ivi='ivizone'
+alias tdump='sudo tcpdump -nneASs 0'
+alias mygo='cd ~/go/src/github.com/sid137/'
+alias wordpress-ivizone='ssh ubuntu@www.ivizone.com -i ~/.ssh/ivizone-shared.pem'
+
+
+# GOLANG
+alias gop='cd $GOPATH'
+
+#  OS X
+alias rails_sudo='rvmsudo rails server -p 3000'
+#  docker
+alias d='docker'
+alias dip='docker-machine ip default'
+alias ovftool="/Applications/VMware\ OVF\ Tool/ovftool"
+alias tf='terraform'
+alias ssh_pub='ssh-keygen -y -f'
+alias flushdns='dscacheutil -flushcache;sudo killall -HUP mDNSResponder'
+alias connect_aruba='ssh admin@controller.aruba.office.ivizone.com'
+
+#  ividata
+alias gzcat='gzcat -k'
+alias deval='eval $(docker-machine env default)'
+alias wifiPass='security find-generic-password -ga "tc_network 5GHz" | grep password'
+alias authexport='mongoexport -h ds053539.mongolab.com:53539 -d ivizone-splash-production -c <collection> -u <user> -p <password> -o <output file>'
+alias prod='RAILS_ENV=production RAILS_SERVE_STATIC_FILES=true'
+alias mongoivi='mongo $IVIZONE_MONGO_URL -u $IVIZONE_MONGO_USER -p $IVIZONE_MONGO_PASS'
+alias mongosoc='mongo ds053948.mongolab.com:53948/social-data -u ivizone-social -p ivizonesocial'
+alias linkdown='cat links| xargs -I link wget -N -T 60 link'
+alias dynamodb='cd ~/ivizone/dynamodb && java -Djava.library.path=DynamoDBLocal_lib -jar ~/ivizone/dynamodb/DynamoDBLocal.jar'
+alias dynamolocal='aws dynamodb --endpoint-url http://localhost:8000'
+# alias git='hub'
+alias gpr='hub pull-request -b production'
+alias wget='wget -N'
+alias vst='sudo vim /etc/hosts'
+alias t='tree'
+alias sho='sudo vim /etc/hosts'
+alias xdisp='Xvfb :2 -screen 0 1024x768x24 > /dev/null 2>&1'
+alias ngre='ngrep -WByline port 5060'
+alias r53='route53'
+alias vacy='vagrant destroy -f && vagrant up'
+alias vash='vagrant ssh'
+alias deactivate_dyn_page="sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.dynamic_pager.plist"
+alias reactivate_dyn_page="sudo launchctl load -wF /System/Library/LaunchDaemons/com.apple.dynamic_pager.plist"
+alias mongo1="mongo ds033047.mongolab.com:33047/noisette -u noisettellc -p "
+alias clc='cat /dev/null | pbcopy'
+alias sshn='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
+alias powr='touch ~/.pow/restart'
+alias gip='pbpaste | gist -pc'
+alias speclist='cut -d ':' -f1 specs.log | uniq > specs.uniq'
+alias specspace="cat specs.uniq | tr '\n' ' '"
+alias mit1='ssh root@blog -L 9999:tdc-library.mit.edu:22'
+alias mit2='ssh -D9998 tdc@localhost -p 9999'
+alias mittdc='ssh -D 9999  tdc@tdc-library.mit.edu'
+
+alias aster='ssh root@asterisk'
+
+# Mac
+alias spotlight_off='sudo mdutil -a -i off'
+alias spotlight_on='sudo mdutil -a -i on'
+alias prox='trak -D 9999'
+
+
+alias ack='ack  --type-add css=.scss,.sass --type-add js=.coffee --type-add ruby=.feature,.haml --type-add html=.haml,.erb --ignore-dir=vendor'
+alias lss='find * -ls  | sort -k 7,7'
+
+alias wakei7='wakeonlan 00:26:18:77:0a:8b'
+alias i7='ssh -l sid137 192.168.1.8'
+
+
+# Homebrew
+alias brew_install='/usr/bin/ruby -e "$(curl -fsSL https://raw.github.com/gist/323731)"; brew update'
+
+alias iv='cd ~/ivizone'
+
+alias shotgun='shotgun -p 9292'
+#thesis
+alias g='gimp'
+alias gwen='gwenview .'
+# alias d='display'
+alias vcons='~/bin/plugins/vmware-vmrc -h 127.0.0.1:8333 -X'
+alias wk='cd ~/thesis/thesis; watchr watch.rb'
+
+# shell
+# http://majewsky.wordpress.com/2009/07/11/shutdown-your-machine-automatically-or-from-remote/
+alias k9='kill -9'
+alias .z='. ~/.zshrc'
+alias vsh='vim ~/.zshrc; . ~/.zshrc'
+alias ra='cd ~/tracking'
+alias gi='gem install'
+alias r='rails'
+alias webshare='python -c "import SimpleHTTPServer; SimpleHTTPServer.test()"'
+alias lsdot="ls -A --group-directories-first | egrep '^\.'"
+alias mkdir='mkdir -p'
+alias fs='find *'
+alias jdisk='javaws http://www.jgoodies.com/download/jdiskreport/jdiskreport.jnlp'
+alias spp='copy_public_ssh_key_to_host'
+alias spec='spec -c'
+alias sdpi='sudo dpkg --install'
+
+alias kff='killall firefox'
+alias svim='sudo vim'
+alias gu='chmod u+x'
+alias tz='tar -zxvf'
+alias tj='tar -xjvf'
+alias ls='ls -h -G' 
+alias mount='sudo mount'
+alias '.'='source'
+alias ','='cd -'
+alias -g '...'='../..'
+alias -g '....'='../../..'
+alias -g '.....'='../../../..'
+alias -g C='| pbcopy'
+alias -g P='| pbpaste'
+alias -g S='| gist -pc'
+alias -g G='| grep'
+alias -g L='| less'
+alias -g M='| more'
+alias -g H='| head'
+alias -g T='| tail'
+alias -g W='| wc -l'
+alias -g J="| jq '.'"
+alias -g R='`ls -Art | tail -n 1`'
+
+#python
+alias python='python3'
+alias ipy="ipython3"
+alias ipy3="ipython3"
+alias pip='pip3'
+
+
+#git
+# alias gl='git log --graph --pretty="format:%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset"'
+alias ga='git add --all' 
+alias gb='git branch'
+alias gc='git clone'
+alias gca='git commit -a -m'
+alias gcb='git checkout -b'
+alias gcl='git clone --recursive'
+alias gcm='git checkout master'
+alias gco='git checkout'
+alias gcp='git cherry-pick'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias git-pup='git submodule foreach git pull origin master'
+alias gl='git log --no-merges --graph --all --decorate --pretty="format:%C(red)%h%Creset - %C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue) %an%Creset"'
+alias gla='gl --author'
+alias gnb='git-clean-branch'
+alias gp='git push'
+alias gpa='git push --tags'
+alias gph='git push heroku +HEAD:master'
+alias gpo='git push origin'
+alias gpom='git push origin master'
+alias gps='git push staging staging:master'
+alias gsa='git stash save'
+alias gss='git stash show -p'
+alias gst='git status'
+alias pryr="pry -r ./config/environment -r rails/console/app -r rails/console/helpers"
+
+# Make
+alias mk="make"
+alias mkc="make clean"
+alias mka="make all"
+alias mkd='make d'
+alias mkp='make python'
+alias mkt='make test'
+alias mkx='make && make clean'
+alias mkf='make clean && make && make hex && make writeflash'
+
+alias pd="cd ~/projects/${CURR_PROJ}"
+alias ds='cd ~/Desktop'
+alias rub='cd /usr/lib/ruby/gems/1.8/gems'
+alias vps='ssh root@${VPS}'
+alias lkb='ssh -D 9999 burks@patriot.lkb.upmc.fr'
+alias sshk="cat .ssh/id_rsa.pub | ssh sid137@B 'cat >> .ssh/authorized_keys'"
+alias m='more'
+alias l='ls -lau -G'
+alias sapt='aptitude search'
+alias agi='sudo aptitude install -y'
+alias ragi='sudo aptitude remove --purge'
+alias vi='vim'
+alias vc='vim -u ~/.vim/encrypted_vim_rc -x'
+alias sagu='sudo apt-get update'
+alias ali='. ~/.zaliases; . ~/.zshrc'
+alias vali='vim ~/.zaliases; . ~/.zaliases'
+alias mali='more ~/.zaliases'
+
+
+# Rails
+alias bi='bundle install'
+alias be='bundle exec'
+alias bes='bundle exec rspec'
+alias br='bin/rspec'
+alias tc='RAILS_ENV=test rails console --sandbox'
+alias rg='rails generate'
+alias rgc='rails generate controller'
+alias rgm='rails generate model'
+alias rgmi='rails generate migration'
+alias rc='rails console'
+alias rcs='rails console --sandbox'
+
+alias rc="pry -r ./config/environment -r rails/console/app -r rails/console/helpers"
+alias sd='rails db'
+
+alias rren="find . -name \"*.rhtml\" -exec echo mv {} {} \; | sed 's/.rhtml$/.haml/' | sh"
+
+# Rake Tasks
+alias td='RAILS_ENV=test rake db:rollback --trace'
+alias tu='RAILS_ENV=test rake db:migrate --trace'
+alias rk='bundle exec rake'
+alias rf='rake features'
+alias rdc='bundle exec rake db:clean'
+alias rdm='bundle exec rake db:migrate'
+alias rdt='RAILS_ENV=test bundle exec rake db:migrate'
+alias rdtc='RAILS_ENV=test rk db:drop db:create db:migrate' 
+alias rdc='rk db:drop db:create db:migrate' 
+alias rdp='bundle exec rake db:test:prepare'
+alias rdh='bundle exec rake db:pristine coffee:min css:min yaml:build --trace'
+alias rdk='bundle exec rake coffee:min css:min yaml:build db:migrate'
+alias rd0='rake db:migrate VERSION=0'
+alias rdf='rake db:mysql:refresh'
+alias rsp='rake spec:app'
+alias rsm='bundle exec rake spec:models'
+alias rs='rails server'
+alias rsc='rake spec:controllers'
+alias rsv='rake spec:views'
+alias rsa='rake spec:autotest'
+alias rp='rake package'
+
+
+# TCP
+alias  tccd='tcpdump -l -i eth0 -w - src or dst port 3306 | strings'

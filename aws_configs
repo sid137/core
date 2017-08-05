@@ -1,0 +1,5 @@
+secrets/secret_credentials
+secrets/.aws-secrets
+.aws/config
+.aws/credentials
+/Users/sid137/bin/autoscaling/credential-file-path.template  <---
