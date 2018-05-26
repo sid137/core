@@ -46,7 +46,7 @@ export PATH=$HOME/aws/ebs/eb/macosx/python2.7:$PATH
 export PATH=$PATH:/usr/local/mysql/bin
 export PATH=$PATH:/usr/local/sbin 
 export PATH=/usr/local/bin:$PATH
-export PATH=/Users/sid137/.local/lib/aws/bin:$PATH
+# export PATH=/Users/sid137/.local/lib/aws/bin:$PATH
 export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 
 export EDITOR="vim"
@@ -81,10 +81,10 @@ zstyle :compinstall filename '~/.zshrc'
 
 # Cucumber-chef crap
 export ORGNAME=sid137
-export AWS_ACCESS_KEY_ID=$AMAZON_ACCESS_KEY_ID
-export AWS_ACCESS_KEY=$AMAZON_ACCESS_KEY_ID
-export AWS_SECRET_ACCESS_KEY=$AMAZON_SECRET_ACCESS_KEY
-export AWS_SECRET_KEY=$AMAZON_SECRET_ACCESS_KEY
+# export AWS_ACCESS_KEY_ID=$AMAZON_ACCESS_KEY_ID
+# export AWS_ACCESS_KEY=$AMAZON_ACCESS_KEY_ID
+# export AWS_SECRET_ACCESS_KEY=$AMAZON_SECRET_ACCESS_KEY
+# export AWS_SECRET_KEY=$AMAZON_SECRET_ACCESS_KEY
 export AWS_DEFAULT_REGION=eu-west-1
 
 #ZLS_COLORS=$LS_COLORS
@@ -289,11 +289,9 @@ function color-list {
     echo ' Reset           $(tput sgr0)'
 }
 
-
 function reverse_tunnel {
     ssh -R $port:localhost:22
 }
-
 
 
 eval "$(direnv hook zsh)"
@@ -309,7 +307,17 @@ function postgres_password {
 
 # eval $(docker-machine env default)
 # Python's virtualenvwrapper-RELATED
-export WORKON_HOME=$HOME/.virtualenvs
-source /Users/sid137/.local/lib/aws/bin/virtualenvwrapper.sh
+# export WORKON_HOME=$HOME/.virtualenvs
+# source /Users/sid137/.local/lib/aws/bin/virtualenvwrapper.sh
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+
+
+export AWS_PROFILE=ivizone_production
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
