@@ -8,10 +8,14 @@ compinit
 . ~/.local/lib/aws/bin/aws_zsh_completer.sh
 . ~/core/git-prompt/git-prompt.sh
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+export SECRETS=$HOME/secrets
 [ -f $SECRETS/secret_credentials ] && . $SECRETS/secret_credentials
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+eval "$(pyenv init -)"
 
 
 
@@ -21,8 +25,8 @@ unsetopt nomatch
 ## Some crazy thing to make rpsec2 work 
 ## http://www.ruby-forum.com/topic/206187
 export DYLD_FALLBACK_LIBRARY_PATH=/Applications/Postgres.app/Contents/Versions/latest/lib:$DYLD_LIBRARY_PATH
+export MERAKI_BOUNDLESS_DIGITAL=849071
 
-export SECRETS=$HOME/secrets
 export OMP_NUM_THREADS=4
 export RUBYOPT=rubygems
 export RSPEC=true
@@ -35,7 +39,6 @@ export PATH=/usr/local/bin:$PATH
 export PATH="./bin:$PATH"
 export PGHOST=localhost 
 export PGUSER=postgres
-export AWS_CREDENTIAL_FILE=$AWS_AUTO_SCALING_HOME/credential-file-path.template
 export EC2_REGION=eu-west-1
 export AWS_AUTO_SCALING_URL=https://autoscaling.eu-west-1.amazonaws.com  
 export PGDATA="/Users/sid137/Library/Application Support/Postgres/var-9.4"
@@ -78,13 +81,6 @@ bindkey -e
 zstyle :compinstall filename '~/.zshrc'
 
 
-
-# Cucumber-chef crap
-export ORGNAME=sid137
-# export AWS_ACCESS_KEY_ID=$AMAZON_ACCESS_KEY_ID
-# export AWS_ACCESS_KEY=$AMAZON_ACCESS_KEY_ID
-# export AWS_SECRET_ACCESS_KEY=$AMAZON_SECRET_ACCESS_KEY
-# export AWS_SECRET_KEY=$AMAZON_SECRET_ACCESS_KEY
 export AWS_DEFAULT_REGION=eu-west-1
 
 #ZLS_COLORS=$LS_COLORS
@@ -176,18 +172,6 @@ warn=${bldred}!${txtrst}
 if [[ -s ~/.rvm/scripts/rvm ]] ; then 
 fi
 
-
-# Shortcut to initialize rails apps with templates
-function rapp {
-    appname=$1
-    template=$2
-    rails new $appname --skip-gemfile -JTm https://github.com/sid137/rails-templates/raw/master/${template:-rails31}.rb 
-}
-function rapp-test {
-    appname=$1
-    template=$2
-    rails new $appname --skip-gemfile -JTm ~/tracking/rails-templates/${template:-rails31}.rb 
-}
 
 # commit git repo and push to github
 function gpm {
@@ -305,15 +289,9 @@ function postgres_password {
   echo "md5`echo -n "$password$username" | md5`"
 }
 
-# eval $(docker-machine env default)
-# Python's virtualenvwrapper-RELATED
-# export WORKON_HOME=$HOME/.virtualenvs
-# source /Users/sid137/.local/lib/aws/bin/virtualenvwrapper.sh
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
-
-export AWS_PROFILE=ivizone_production
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`

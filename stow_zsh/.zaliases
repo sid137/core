@@ -1,3 +1,17 @@
+#  Vue
+alias vued='vue create -p main'
+
+# boundless
+alias bdevradius='ssh -t -i ~/sid137-boundless-dev-eu-west-1.pem ec2-user@63.34.160.189 "sudo su -"'
+alias ddev='./deploy.sh dev'
+alias bradius1='ssh -t -i ~/sid137-boundless-production-eu-west-1.pem ec2-user@52.214.220.187 "sudo su -"'
+alias bradius2='ssh -t -i ~/sid137-boundless-production-eu-west-1.pem ec2-user@34.251.208.242 "sudo su -"'
+alias gdev='git pull && ./deploy.sh dev'
+
+
+#Hak5
+alias=hbunny='sudo screen /dev/tty.usbmodemch0000011 115200'
+
 #  AWS
 #  aws s3api list-objects --bucket BUCKETNAME --output json --query "[sum(Contents[].Size), length(Contents[])]"
 alias iviupgrade='pip install -U git+ssh://git@github.com/ividata/ivizone-cli.git'
@@ -6,12 +20,19 @@ alias tdump='sudo tcpdump -nneASs 0'
 alias mygo='cd ~/go/src/github.com/sid137/'
 alias wordpress-ivizone='ssh ubuntu@www.ivizone.com -i ~/.ssh/ivizone-shared.pem'
 alias diff='colordiff'
+alias pc='pygmentize -g'
 
 # CloudSpy
 alias cs='cd ~/cloudspy'
 alias csa='cd ~/cloudspy/cloudspy-api'
 alias csd='cd ~/cloudspy/cloudspy-dashboard'
 alias cgrok='ngrok http -region=eu -hostname=ngrok.cloudspy.io 5000'
+alias bgrok='ngrok http -region=eu -hostname=ngrok.cloudspy.io 8000'
+alias pgrok='ngrok http -region=eu -hostname=ngrok.bdigitalapp.com 8000'
+
+# Zappa
+alias zu='zappa update'
+alias zt='zappa tail'
 
 
 # GOLANG
@@ -23,17 +44,18 @@ alias pmmm='python manage.py makemigrations'
 alias pmm='python manage.py migrate'
 alias pmst='python manage.py startapp'
 alias pms='python manage.py runserver'
-alias pmsh='python manage.py shell'
+alias pmsh='python manage.py shell_plus --ipython'
 alias pe='pipenv'
 alias pes='pipenv shell'
 alias pei='pipenv install'
-alias pet='pipenv --three'
+alias p3='pipenv --three'
 alias da='django-admin'
 
 #  OS X
 alias rails_sudo='rvmsudo rails server -p 3000'
 #  docker
 alias d='docker'
+alias dc='docker-compose'
 alias dip='docker-machine ip default'
 alias ovftool="/Applications/VMware\ OVF\ Tool/ovftool"
 alias tf='terraform'
@@ -42,6 +64,9 @@ alias flushdns='dscacheutil -flushcache;sudo killall -HUP mDNSResponder'
 alias connect_aruba='ssh admin@controller.aruba.office.ivizone.com'
 
 #  ividata
+alias bd='cd ~/boundless'
+alias bdd='cd ~/boundless/boundless-django'
+alias bdf='cd ~/boundless/boundless-frontend'
 alias gzcat='gzcat -k'
 alias deval='eval $(docker-machine env default)'
 alias wifiPass='security find-generic-password -ga "tc_network 5GHz" | grep password'
@@ -75,8 +100,6 @@ alias speclist='cut -d ':' -f1 specs.log | uniq > specs.uniq'
 alias specspace="cat specs.uniq | tr '\n' ' '"
 alias mit1='ssh root@blog -L 9999:tdc-library.mit.edu:22'
 alias gateway='ssh -D 9999  ivizone@gateway.office.ivizone.com'
-
-alias aster='ssh root@asterisk'
 
 # Mac
 alias spotlight_off='sudo mdutil -a -i off'
@@ -112,7 +135,7 @@ alias vsh='vim ~/.zshrc; . ~/.zshrc'
 alias ra='cd ~/tracking'
 alias gi='gem install'
 alias r='rails'
-alias webshare='python2 -c "import SimpleHTTPServer; SimpleHTTPServer.test()"'
+alias webshare='python -m "http.server"'
 alias lsdot="ls -A --group-directories-first | egrep '^\.'"
 alias mkdir='mkdir -p'
 alias fs='find *'
@@ -144,6 +167,8 @@ alias -g T='| tail'
 alias -g W='| wc -l'
 alias -g J="| jq '.'"
 alias -g R='`ls -Art | tail -n 1`'
+alias pbj='pbpaste | jq .'
+
 
 #python
 alias p='python'
@@ -164,6 +189,8 @@ alias gcb='git checkout -b'
 alias gcl='git clone --recursive'
 alias gcm='git checkout master'
 alias gco='git checkout'
+alias gcom='git checkout master'
+alias gcop='git checkout production'
 alias gcp='git cherry-pick'
 alias gd='git diff'
 alias gdc='git diff --cached'
@@ -256,3 +283,20 @@ alias rp='rake package'
 
 # TCP
 alias  tccd='tcpdump -l -i eth0 -w - src or dst port 3306 | strings'
+
+
+
+
+
+# Fuckit, I can put functions where I want...
+
+pmod() {
+  package_directory=$1
+  mkdir -p $package_directory;
+  touch $package_directory/__init__.py
+}
+
+
+ale() {
+  cat $1 | jq '.Access_point_result[] | {mac_addr: .msg.ap_eth_mac.addr, ap_name: .msg.ap_name, ap_group: .msg.ap_group }'  
+}
